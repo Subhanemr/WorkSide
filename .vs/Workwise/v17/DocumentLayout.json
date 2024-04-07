@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\T x\\Desktop\\Workwise\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|c:\\users\\t x\\desktop\\workwise\\src\\infrastructure\\workwise.persistance\\dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|solutionrelative:src\\infrastructure\\workwise.persistance\\dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B89CAEC1-FD90-46E9-A6E5-E74F273DA123}|src\\Presentation\\Workwise.API\\Workwise.API.csproj|c:\\users\\t x\\desktop\\workwise\\src\\presentation\\workwise.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B89CAEC1-FD90-46E9-A6E5-E74F273DA123}|src\\Presentation\\Workwise.API\\Workwise.API.csproj|solutionrelative:src\\presentation\\workwise.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|c:\\users\\t x\\desktop\\workwise\\src\\infrastructure\\workwise.persistance\\dal\\appdbcontextinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|solutionrelative:src\\infrastructure\\workwise.persistance\\dal\\appdbcontextinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B89CAEC1-FD90-46E9-A6E5-E74F273DA123}|src\\Presentation\\Workwise.API\\Workwise.API.csproj|c:\\users\\t x\\desktop\\workwise\\src\\presentation\\workwise.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B89CAEC1-FD90-46E9-A6E5-E74F273DA123}|src\\Presentation\\Workwise.API\\Workwise.API.csproj|solutionrelative:src\\presentation\\workwise.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|c:\\users\\t x\\desktop\\workwise\\src\\infrastructure\\workwise.persistance\\dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|solutionrelative:src\\infrastructure\\workwise.persistance\\dal\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.domain\\entities\\common\\basenameentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.domain\\enums\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|solutionrelative:src\\core\\workwise.domain\\enums\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B89CAEC1-FD90-46E9-A6E5-E74F273DA123}|src\\Presentation\\Workwise.API\\Workwise.API.csproj|c:\\users\\t x\\desktop\\workwise\\src\\presentation\\workwise.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B89CAEC1-FD90-46E9-A6E5-E74F273DA123}|src\\Presentation\\Workwise.API\\Workwise.API.csproj|solutionrelative:src\\presentation\\workwise.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,7 +50,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Presentation\\Workwise.API\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\Presentation\\Workwise.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Presentation\\Workwise.API\\appsettings.json",
+              "RelativeToolTip": "src\\Presentation\\Workwise.API\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-07T11:08:27.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "UserRoles.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Enums\\UserRoles.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Enums\\UserRoles.cs",
@@ -54,8 +71,7 @@
               "RelativeToolTip": "src\\Core\\Workwise.Domain\\Enums\\UserRoles.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T10:56:34.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-07T10:56:34.727Z"
             },
             {
               "$type": "Document",
@@ -65,14 +81,14 @@
               "RelativeDocumentMoniker": "src\\Infrastructure\\Workwise.Persistance\\DAL\\AppDbContextInitializer.cs",
               "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Persistance\\DAL\\AppDbContextInitializer.cs",
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\DAL\\AppDbContextInitializer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADwAAAAOAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAADwAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-07T10:56:02.311Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Persistance\\DAL\\AppDbContext.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\Workwise.Persistance\\DAL\\AppDbContext.cs",
@@ -85,7 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "AppUser.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
@@ -93,12 +109,11 @@
               "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T10:51:05.087Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-07T10:51:05.087Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "BaseNameEntity.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Common\\BaseNameEntity.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Common\\BaseNameEntity.cs",
@@ -106,12 +121,11 @@
               "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Common\\BaseNameEntity.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T10:48:49.068Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-07T10:48:49.068Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Common\\BaseEntity.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Common\\BaseEntity.cs",
@@ -119,18 +133,17 @@
               "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Common\\BaseEntity.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T10:48:35.317Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-07T10:48:35.317Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Presentation\\Workwise.API\\Program.cs",
               "RelativeDocumentMoniker": "src\\Presentation\\Workwise.API\\Program.cs",
               "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Presentation\\Workwise.API\\Program.cs",
               "RelativeToolTip": "src\\Presentation\\Workwise.API\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAXAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-04T18:25:20.008Z",
               "EditorCaption": ""
