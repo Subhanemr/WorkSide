@@ -1,0 +1,13 @@
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Domain\bin\Debug\net6.0\Workwise.Domain.deps.json
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Domain\bin\Debug\net6.0\Workwise.Domain.dll
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Domain\bin\Debug\net6.0\Workwise.Domain.pdb
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Domain\obj\Debug\net6.0\Workwise.Domain.csproj.AssemblyReference.cache
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Domain\obj\Debug\net6.0\Workwise.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Domain\obj\Debug\net6.0\Workwise.Domain.AssemblyInfoInputs.cache
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Domain\obj\Debug\net6.0\Workwise.Domain.AssemblyInfo.cs
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Domain\obj\Debug\net6.0\Workwise.Domain.csproj.CoreCompileInputs.cache
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Domain\obj\Debug\net6.0\Workwise.Domain.sourcelink.json
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Domain\obj\Debug\net6.0\Workwise.Domain.dll
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Domain\obj\Debug\net6.0\refint\Workwise.Domain.dll
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Domain\obj\Debug\net6.0\Workwise.Domain.pdb
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Domain\obj\Debug\net6.0\ref\Workwise.Domain.dll
