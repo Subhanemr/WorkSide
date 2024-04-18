@@ -10,6 +10,7 @@ namespace Workwise.Domain.Entities
         public bool IsActivate { get; set; }
         public string ProfileUrl { get; set; } = "https://res.cloudinary.com/dzsysx73x/image/upload/v1707148401/cwlzdvof54s1fw1eo19z.png";
         public string BanerUrl { get; set; } = "https://res.cloudinary.com/dzsysx73x/image/upload/v1707148401/cwlzdvof54s1fw1eo19z.png";
+        public string Specialty { get; set; } = null!;
         public string? Overview { get; set; }
 
 
@@ -26,6 +27,7 @@ namespace Workwise.Domain.Entities
         public List<Skill>? Skills { get; set; }
         public List<Education>? Educations { get; set; }
         public List<Experience>? Experiences { get; set; }
+        public List<Portfolio>? Portfolios { get; set; }
         public List<Location>? Locations { get; set; }
     }
 }

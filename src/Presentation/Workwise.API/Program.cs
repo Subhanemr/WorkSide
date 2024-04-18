@@ -1,10 +1,12 @@
 using Microsoft.OpenApi.Models;
 using Workwise.Persistance.DAL;
+using Workwise.Persistance.ServiceRegistration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

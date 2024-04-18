@@ -14,4 +14,8 @@
     <ProjectReference Include="..\..\Core\Workwise.Application\Workwise.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Infrastructure\" />
+  </ItemGroup>
+
 </Project>
