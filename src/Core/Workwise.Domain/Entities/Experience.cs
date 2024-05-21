@@ -6,6 +6,5 @@
         public AppUser? AppUser { get; set; }
 
         public string? About { get; set; }
-
     }
 }

@@ -3,6 +3,38 @@
   "WorkspaceRootPath": "C:\\Users\\T x\\Desktop\\Workwise\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{417BF6A4-CE3C-49D1-BCE9-42544E390CBD}|src\\Core\\Workwise.Application\\Workwise.Application.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.application\\dtos\\account\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{417BF6A4-CE3C-49D1-BCE9-42544E390CBD}|src\\Core\\Workwise.Application\\Workwise.Application.csproj|solutionrelative:src\\core\\workwise.application\\dtos\\account\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B89CAEC1-FD90-46E9-A6E5-E74F273DA123}|src\\Presentation\\Workwise.API\\Workwise.API.csproj|c:\\users\\t x\\desktop\\workwise\\src\\presentation\\workwise.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B89CAEC1-FD90-46E9-A6E5-E74F273DA123}|src\\Presentation\\Workwise.API\\Workwise.API.csproj|solutionrelative:src\\presentation\\workwise.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{417BF6A4-CE3C-49D1-BCE9-42544E390CBD}|src\\Core\\Workwise.Application\\Workwise.Application.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.application\\serviceregistration\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{417BF6A4-CE3C-49D1-BCE9-42544E390CBD}|src\\Core\\Workwise.Application\\Workwise.Application.csproj|solutionrelative:src\\core\\workwise.application\\serviceregistration\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{417BF6A4-CE3C-49D1-BCE9-42544E390CBD}|src\\Core\\Workwise.Application\\Workwise.Application.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.application\\dtos\\job\\jobcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{417BF6A4-CE3C-49D1-BCE9-42544E390CBD}|src\\Core\\Workwise.Application\\Workwise.Application.csproj|solutionrelative:src\\core\\workwise.application\\dtos\\job\\jobcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|c:\\users\\t x\\desktop\\workwise\\src\\infrastructure\\workwise.persistance\\implementations\\repositories\\generic\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|solutionrelative:src\\infrastructure\\workwise.persistance\\implementations\\repositories\\generic\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.domain\\entities\\experience.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|solutionrelative:src\\core\\workwise.domain\\entities\\experience.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|c:\\users\\t x\\desktop\\workwise\\src\\infrastructure\\workwise.persistance\\serviceregistration\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|solutionrelative:src\\infrastructure\\workwise.persistance\\serviceregistration\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.domain\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|solutionrelative:src\\core\\workwise.domain\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.domain\\entities\\joblike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|solutionrelative:src\\core\\workwise.domain\\entities\\joblike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -43,14 +75,6 @@
       "RelativeMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|solutionrelative:src\\core\\workwise.domain\\entities\\location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B89CAEC1-FD90-46E9-A6E5-E74F273DA123}|src\\Presentation\\Workwise.API\\Workwise.API.csproj|c:\\users\\t x\\desktop\\workwise\\src\\presentation\\workwise.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B89CAEC1-FD90-46E9-A6E5-E74F273DA123}|src\\Presentation\\Workwise.API\\Workwise.API.csproj|solutionrelative:src\\presentation\\workwise.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|c:\\users\\t x\\desktop\\workwise\\src\\infrastructure\\workwise.persistance\\serviceregistration\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|solutionrelative:src\\infrastructure\\workwise.persistance\\serviceregistration\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.domain\\entities\\skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|solutionrelative:src\\core\\workwise.domain\\entities\\skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -79,10 +103,6 @@
       "RelativeMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|solutionrelative:src\\core\\workwise.domain\\entities\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|c:\\users\\t x\\desktop\\workwise\\src\\infrastructure\\workwise.persistance\\implementations\\repositories\\generic\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|solutionrelative:src\\infrastructure\\workwise.persistance\\implementations\\repositories\\generic\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.domain\\enums\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|solutionrelative:src\\core\\workwise.domain\\enums\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -99,16 +119,8 @@
       "RelativeMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|solutionrelative:src\\core\\workwise.domain\\entities\\education.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.domain\\entities\\experience.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|solutionrelative:src\\core\\workwise.domain\\entities\\experience.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.domain\\entities\\follow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|solutionrelative:src\\core\\workwise.domain\\entities\\follow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.domain\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|solutionrelative:src\\core\\workwise.domain\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{417BF6A4-CE3C-49D1-BCE9-42544E390CBD}|src\\Core\\Workwise.Application\\Workwise.Application.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.application\\abstractions\\repositories\\generic\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -117,10 +129,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|c:\\users\\t x\\desktop\\workwise\\src\\infrastructure\\workwise.persistance\\workwise.persistance.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|solutionrelative:src\\infrastructure\\workwise.persistance\\workwise.persistance.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{417BF6A4-CE3C-49D1-BCE9-42544E390CBD}|src\\Core\\Workwise.Application\\Workwise.Application.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.application\\serviceregistration\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{417BF6A4-CE3C-49D1-BCE9-42544E390CBD}|src\\Core\\Workwise.Application\\Workwise.Application.csproj|solutionrelative:src\\core\\workwise.application\\serviceregistration\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{417BF6A4-CE3C-49D1-BCE9-42544E390CBD}|src\\Core\\Workwise.Application\\Workwise.Application.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.application\\workwise.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -146,7 +154,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -154,59 +162,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "JobReply.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\JobReply.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\JobReply.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\JobReply.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\JobReply.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T11:16:45.405Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ProjectReply.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\ProjectReply.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\ProjectReply.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\ProjectReply.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\ProjectReply.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Title": "JobCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\Dtos\\Job\\JobCreateDto.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Application\\Dtos\\Job\\JobCreateDto.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\Dtos\\Job\\JobCreateDto.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Application\\Dtos\\Job\\JobCreateDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T11:14:47.997Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProjectComment.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\ProjectComment.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\ProjectComment.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\ProjectComment.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\ProjectComment.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T11:13:31.957Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "JobComment.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\JobComment.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\JobComment.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\JobComment.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\JobComment.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T11:13:11.999Z",
+              "WhenOpened": "2024-05-21T11:45:01.457Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\Dtos\\Account\\LoginDto.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Application\\Dtos\\Account\\LoginDto.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\Dtos\\Account\\LoginDto.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Application\\Dtos\\Account\\LoginDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T11:44:02.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "JobLike.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\JobLike.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\JobLike.cs",
@@ -219,46 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Location.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Location.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Location.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Location.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Location.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T06:38:18.51Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "HireAccount.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\HireAccount.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\HireAccount.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\HireAccount.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\HireAccount.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T05:34:39.895Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Job.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Job.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Job.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Job.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Job.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T13:27:29.83Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "Setting.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Setting.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Setting.cs",
@@ -266,12 +209,11 @@
               "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Setting.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T06:49:54.734Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-08T06:49:54.734Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "Project.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Project.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Project.cs",
@@ -279,100 +221,100 @@
               "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Project.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T13:32:56.644Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-30T13:32:56.644Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Presentation\\Workwise.API\\Program.cs",
               "RelativeDocumentMoniker": "src\\Presentation\\Workwise.API\\Program.cs",
               "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Presentation\\Workwise.API\\Program.cs",
               "RelativeToolTip": "src\\Presentation\\Workwise.API\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAANAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-04T18:25:20.008Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "WorkTime.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\WorkTime.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\WorkTime.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\WorkTime.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\WorkTime.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "DocumentIndex": 7,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Category.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Category.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Category.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T07:20:38.714Z",
+              "WhenOpened": "2024-04-30T13:29:15.742Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "AppUser.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAA5wCIAAAAmAAAA",
+              "DocumentIndex": 5,
+              "Title": "Experience.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Experience.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Experience.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Experience.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Experience.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T10:51:05.087Z",
+              "WhenOpened": "2024-04-08T06:01:08.303Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "BaseNameEntity.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Common\\BaseNameEntity.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Common\\BaseNameEntity.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Common\\BaseNameEntity.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Common\\BaseNameEntity.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T10:48:49.068Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ProjectLike.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\ProjectLike.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\ProjectLike.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\ProjectLike.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\ProjectLike.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T07:26:31.963Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 4,
               "Title": "Repository.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Persistance\\Implementations\\Repositories\\Generic\\Repository.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\Workwise.Persistance\\Implementations\\Repositories\\Generic\\Repository.cs",
               "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Persistance\\Implementations\\Repositories\\Generic\\Repository.cs",
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\Implementations\\Repositories\\Generic\\Repository.cs",
-              "ViewState": "AQIAAFcAAAAAAAAAAAAAwHEAAAAJAAAA",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAkwHEAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-18T18:59:02.823Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Skill.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Skill.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Skill.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Skill.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Skill.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T14:41:40.874Z",
+              "WhenOpened": "2024-04-18T18:59:02.823Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 2,
+              "Title": "ServiceRegistration.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\ServiceRegistration\\ServiceRegistration.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Application\\ServiceRegistration\\ServiceRegistration.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\ServiceRegistration\\ServiceRegistration.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Application\\ServiceRegistration\\ServiceRegistration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T18:56:47.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Job.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Job.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Job.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Job.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Job.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T13:27:29.83Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "HireAccount.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\HireAccount.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\HireAccount.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\HireAccount.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\HireAccount.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-29T05:34:39.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "ServiceRegistration.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Persistance\\ServiceRegistration\\ServiceRegistration.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\Workwise.Persistance\\ServiceRegistration\\ServiceRegistration.cs",
@@ -385,7 +327,127 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Location.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Location.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Location.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Location.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Location.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T06:38:18.51Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "JobComment.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\JobComment.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\JobComment.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\JobComment.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\JobComment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T11:13:11.999Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ProjectComment.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\ProjectComment.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\ProjectComment.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\ProjectComment.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\ProjectComment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T11:13:31.957Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProjectReply.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\ProjectReply.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\ProjectReply.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\ProjectReply.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\ProjectReply.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T11:14:47.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "JobReply.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\JobReply.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\JobReply.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\JobReply.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\JobReply.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T11:16:45.405Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "WorkTime.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\WorkTime.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\WorkTime.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\WorkTime.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\WorkTime.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T07:20:38.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "AppUser.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAA5wCIAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-07T10:51:05.087Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 23,
+              "Title": "BaseNameEntity.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Common\\BaseNameEntity.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Common\\BaseNameEntity.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Common\\BaseNameEntity.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Common\\BaseNameEntity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-07T10:48:49.068Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ProjectLike.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\ProjectLike.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\ProjectLike.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\ProjectLike.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\ProjectLike.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-03T07:26:31.963Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Skill.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Skill.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Skill.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Skill.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Skill.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-07T14:41:40.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
               "Title": "Education.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Education.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Education.cs",
@@ -397,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 22,
               "Title": "Portfolio.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Portfolio.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Portfolio.cs",
@@ -409,7 +471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Persistance\\DAL\\AppDbContext.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\Workwise.Persistance\\DAL\\AppDbContext.cs",
@@ -421,7 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 27,
               "Title": "ServiceRegistration.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Infrastructure\\ServiceRegistration\\ServiceRegistration.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\Workwise.Infrastructure\\ServiceRegistration\\ServiceRegistration.cs",
@@ -433,7 +495,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 24,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Common\\BaseEntity.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Common\\BaseEntity.cs",
@@ -445,19 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "Experience.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Experience.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Experience.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Experience.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Experience.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T06:01:08.303Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 29,
               "Title": "Follow.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Follow.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Follow.cs",
@@ -469,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 25,
               "Title": "UserRoles.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Enums\\UserRoles.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Enums\\UserRoles.cs",
@@ -481,19 +531,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Category.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Category.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\Category.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\Category.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Category.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T13:29:15.742Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "Workwise.Persistance.csproj",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj",
               "RelativeDocumentMoniker": "src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj",
@@ -505,7 +543,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "IRepository.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\Abstractions\\Repositories\\Generic\\IRepository.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Application\\Abstractions\\Repositories\\Generic\\IRepository.cs",
@@ -517,7 +555,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "Workwise.Application.csproj",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\Workwise.Application.csproj",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Application\\Workwise.Application.csproj",
@@ -529,19 +567,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "ServiceRegistration.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\ServiceRegistration\\ServiceRegistration.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Application\\ServiceRegistration\\ServiceRegistration.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\ServiceRegistration\\ServiceRegistration.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Application\\ServiceRegistration\\ServiceRegistration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-18T18:56:47.339Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "Workwise.Infrastructure.csproj",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Infrastructure\\Workwise.Infrastructure.csproj",
               "RelativeDocumentMoniker": "src\\Infrastructure\\Workwise.Infrastructure\\Workwise.Infrastructure.csproj",
@@ -553,7 +579,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Presentation\\Workwise.API\\appsettings.json",
               "RelativeDocumentMoniker": "src\\Presentation\\Workwise.API\\appsettings.json",
@@ -565,7 +591,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "AppDbContextInitializer.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Persistance\\DAL\\AppDbContextInitializer.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\Workwise.Persistance\\DAL\\AppDbContextInitializer.cs",
