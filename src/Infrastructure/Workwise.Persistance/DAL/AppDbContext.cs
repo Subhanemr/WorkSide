@@ -20,12 +20,17 @@ namespace Workwise.Persistance.DAL
         public DbSet<Follow> Follows { get; set; }
         public DbSet<HireAccount> HireAccounts { get; set; }
         public DbSet<Job> Jobs { get; set; }
+        public DbSet<JobComment> JobComments { get; set; }
+        public DbSet<JobReply> JobReplies { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Portfolio> Portfolios { get; set; }
         public DbSet<Project> Projects { get; set; }
+        public DbSet<ProjectComment> ProjectComments { get; set; }
+        public DbSet<ProjectLike> ProjectLikes { get; set; }
+        public DbSet<ProjectReply> ProjectReplies { get; set; }
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Skill> Skills { get; set; }
-
+        public DbSet<WorkTime> WorkTimes { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
