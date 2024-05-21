@@ -21,7 +21,8 @@ namespace Workwise.Domain.Entities
         public string? InstaLink { get; set; }
         public string? BehanceLink { get; set; }
         public string? YoutubeLink { get; set; }
-
+        public bool IsOnlinne { get; set; }
+        public string? CustomStatus { get; set; }
 
         public List<Follow>? Follows { get; set; }
         public List<Skill>? Skills { get; set; }
@@ -29,5 +30,8 @@ namespace Workwise.Domain.Entities
         public List<Experience>? Experiences { get; set; }
         public List<Portfolio>? Portfolios { get; set; }
         public List<Location>? Locations { get; set; }
+        public List<HireAccount>? HireAccounts { get; set; }
+        public List<Job>? Jobs { get; set; }
+        public List<Project>? Projects { get; set; }
     }
 }

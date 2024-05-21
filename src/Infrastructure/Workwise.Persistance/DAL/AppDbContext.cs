@@ -14,6 +14,19 @@ namespace Workwise.Persistance.DAL
             _http = http;
         }
 
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Education> Educations { get; set; }
+        public DbSet<Experience> Experiences { get; set; }
+        public DbSet<Follow> Follows { get; set; }
+        public DbSet<HireAccount> HireAccounts { get; set; }
+        public DbSet<Job> Jobs { get; set; }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<Portfolio> Portfolios { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Setting> Settings { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+
+
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             var entities = ChangeTracker.Entries<BaseEntity>();

@@ -1,0 +1,16 @@
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\bin\Debug\net6.0\Workwise.Application.deps.json
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\bin\Debug\net6.0\Workwise.Application.dll
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\bin\Debug\net6.0\Workwise.Application.pdb
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\bin\Debug\net6.0\Workwise.Domain.dll
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\bin\Debug\net6.0\Workwise.Domain.pdb
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\obj\Debug\net6.0\Workwise.Application.csproj.AssemblyReference.cache
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\obj\Debug\net6.0\Workwise.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\obj\Debug\net6.0\Workwise.Application.AssemblyInfoInputs.cache
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\obj\Debug\net6.0\Workwise.Application.AssemblyInfo.cs
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\obj\Debug\net6.0\Workwise.Application.csproj.CoreCompileInputs.cache
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\obj\Debug\net6.0\Workwise.Application.sourcelink.json
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\obj\Debug\net6.0\Workwise.04C06D90.Up2Date
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\obj\Debug\net6.0\Workwise.Application.dll
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\obj\Debug\net6.0\refint\Workwise.Application.dll
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\obj\Debug\net6.0\Workwise.Application.pdb
+C:\Users\T x\Desktop\Workwise\src\Core\Workwise.Application\obj\Debug\net6.0\ref\Workwise.Application.dll

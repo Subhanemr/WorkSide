@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Workwise.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4cb653e5b4cb22803f39a6199d453e088c1b18ad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7052f147672be6965bb96a034afba158359d8f4b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Workwise.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Workwise.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

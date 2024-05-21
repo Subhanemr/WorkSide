@@ -1,0 +1,11 @@
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\Workwise.API.csproj.AssemblyReference.cache
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\Workwise.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\Workwise.API.AssemblyInfoInputs.cache
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\Workwise.API.AssemblyInfo.cs
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\Workwise.API.csproj.CoreCompileInputs.cache
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\Workwise.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\Workwise.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\Workwise.API.sourcelink.json
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\Workwise.API.dll
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\refint\Workwise.API.dll
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\Workwise.API.pdb
