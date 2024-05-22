@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace Workwise.Domain.Entities
+﻿namespace Workwise.Domain.Entities
 {
     public class Education : BaseEntity
     {

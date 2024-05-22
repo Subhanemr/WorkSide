@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\Workwise.Infrastructure\Workwise.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Workwise.Persistance\Workwise.Persistance.csproj" />
   </ItemGroup>

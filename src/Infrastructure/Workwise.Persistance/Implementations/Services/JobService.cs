@@ -1,6 +1,8 @@
-﻿namespace Workwise.Persistance.Implementations.Services
+﻿using Workwise.Application.Abstractions.Services;
+
+namespace Workwise.Persistance.Implementations.Services
 {
-    public class JobService
+    public class JobService : IJobService
     {
     }
 }

@@ -28,7 +28,7 @@ namespace Workwise.Persistance.DAL
         public DbSet<ProjectComment> ProjectComments { get; set; }
         public DbSet<ProjectLike> ProjectLikes { get; set; }
         public DbSet<ProjectReply> ProjectReplies { get; set; }
-        public DbSet<Setting> Settings { get; set; }
+        public DbSet<Settings> Settings { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<WorkTime> WorkTimes { get; set; }
 

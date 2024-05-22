@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Workwise.Application.Abstractions.Services;
 
 namespace Workwise.Persistance.Implementations.Services
 {
-    internal class PortfolioService
+    public class PortfolioService : IPortfolioService
     {
     }
 }
