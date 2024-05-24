@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Workwise.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b89dbcffa9c96bae7e15bebdceb1881984b09bab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01826a9cb42226ac389a05d2f2104f5e526c7971")]
 [assembly: System.Reflection.AssemblyProductAttribute("Workwise.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Workwise.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

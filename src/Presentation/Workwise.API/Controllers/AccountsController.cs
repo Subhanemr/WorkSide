@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Workwise.Application.Abstractions.Services;
+using Workwise.Application.Dtos;
+using Workwise.Application.Dtos.Account;
 
 namespace Workwise.API.Controllers
 {
@@ -15,8 +18,18 @@ namespace Workwise.API.Controllers
             _service = service;
         }
 
-        [HttpGet("[Action]")]
-        public async Task<IActionResult> Get(int page, int take, bool isDeleted = false)
+        [HttpPost("[Action]")]
+        public async Task<IActionResult> Register([FromForm] RegisterDto register)
+        {
+            return NoContent();
+        }
+        [HttpPost("[Action]")]
+        public async Task<IActionResult> LogIn([FromForm] LoginDto login)
+        {
+            return Ok();
+        }
+        [HttpPost("[Action]")]
+        public async Task<IActionResult> LogInByRefresh(string refToken)
         {
             return Ok();
         }
