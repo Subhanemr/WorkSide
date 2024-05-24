@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Workwise.Application.Abstractions.Services;
-using Workwise.Application.Dtos.Categories;
+using Workwise.Application.Dtos;
 
 namespace Workwise.API.Controllers
 {

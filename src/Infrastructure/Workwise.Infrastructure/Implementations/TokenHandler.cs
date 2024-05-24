@@ -6,7 +6,7 @@ using System.Text;
 using Workwise.Application.Dtos.Token;
 using Workwise.Domain.Entities;
 
-namespace Workwise.Infrastructure.Infrastructure
+namespace Workwise.Infrastructure.Implementations
 {
     public class TokenHandler
     {

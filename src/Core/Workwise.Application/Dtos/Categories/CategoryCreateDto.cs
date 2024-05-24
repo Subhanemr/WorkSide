@@ -1,6 +1,7 @@
-﻿namespace Workwise.Application.Dtos.Categories
+﻿namespace Workwise.Application.Dtos
 {
-    public class CategoryCreateDto
+    public record CategoryCreateDto
     {
+        public string Name { get; init; } = null!;
     }
 }

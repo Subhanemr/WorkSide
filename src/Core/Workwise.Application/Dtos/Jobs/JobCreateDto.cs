@@ -1,6 +1,6 @@
 ﻿namespace Workwise.Application.Dtos
 {
-    public class JobCreateDto
+    public record JobCreateDto
     {
     }
 }

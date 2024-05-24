@@ -3,7 +3,7 @@ using CloudinaryDotNet;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 
-namespace Workwise.Infrastructure.Infrastructure
+namespace Workwise.Infrastructure.Implementations
 {
     public class CloudService
     {

@@ -86,3 +86,5 @@ C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\sco
 C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\Workwise.0723A522.Up2Date
 C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\Workwise.API.genruntimeconfig.cache
 C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\ref\Workwise.API.dll
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll

@@ -1,4 +1,4 @@
-﻿namespace Workwise.Application.Dtos.Account
+﻿namespace Workwise.Application.Dtos
 {
     public class RegisterDto
     {
