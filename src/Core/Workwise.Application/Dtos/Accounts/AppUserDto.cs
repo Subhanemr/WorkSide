@@ -25,8 +25,8 @@ namespace Workwise.Application.Dtos
         public string? CustomStatus { get; init; }
 
         public List<FollowDto>? Follows { get; set; }
-        public List<Skill>? Skills { get; set; }
-        public List<Education>? Educations { get; set; }
+        public List<SkillIncludeDto>? Skills { get; set; }
+        public List<EducationIncludeDto>? Educations { get; set; }
         public List<Experience>? Experiences { get; set; }
         public List<Portfolio>? Portfolios { get; set; }
         public List<LocationIncludeDto>? Locations { get; set; }

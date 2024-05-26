@@ -1,6 +1,4 @@
-﻿using Workwise.Application.Dtos.Account;
-
-namespace Workwise.Application.Dtos
+﻿namespace Workwise.Application.Dtos
 {
     internal class LocationItemDto
     {
