@@ -7,6 +7,7 @@
         public DateTime CreateAt { get; init; }
         public DateTime? UpdateAt { get; init; }
         public string CreatedBy { get; init; } = null!;
+
         public ICollection<JobIncludeDto>? Jobs { get; init; }
         public ICollection<ProjectIncludeDto>? Projects { get; init; }
     }

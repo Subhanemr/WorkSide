@@ -2,6 +2,7 @@
 {
     public record LocationIncludeDto
     {
+        public string Id { get; init; } = null!;
         public string Country { get; init; } = null!;
         public string City { get; init; } = null!;
         public DateTime CreateAt { get; init; }

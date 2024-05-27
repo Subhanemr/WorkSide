@@ -7,6 +7,10 @@
         public string Surname { get; init; } = null!;
         public string UserName { get; init; } = null!;
         public string Email { get; init; } = null!;
+        public string ProfileUrl { get; init; } = null!;
+        public string BanerUrl { get; init; } = null!;
+        public string Specialty { get; init; } = null!;
+        public string? Overview { get; init; }
 
         public string? FaceLink { get; init; }
         public string? TwitLink { get; init; }

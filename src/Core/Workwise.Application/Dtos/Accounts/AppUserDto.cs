@@ -1,6 +1,4 @@
-﻿using Workwise.Domain.Entities;
-
-namespace Workwise.Application.Dtos
+﻿namespace Workwise.Application.Dtos
 {
     public record AppUserDto
     {
@@ -9,10 +7,10 @@ namespace Workwise.Application.Dtos
         public string Surname { get; init; } = null!;
         public string UserName { get; init; } = null!;
         public string Email { get; init; } = null!;
-        public string ProfileUrl { get; set; } = "https://res.cloudinary.com/dzsysx73x/image/upload/v1707148401/cwlzdvof54s1fw1eo19z.png";
-        public string BanerUrl { get; set; } = "https://res.cloudinary.com/dzsysx73x/image/upload/v1707148401/cwlzdvof54s1fw1eo19z.png";
-        public string Specialty { get; set; } = null!;
-        public string? Overview { get; set; }
+        public string ProfileUrl { get; init; } = null!;
+        public string BanerUrl { get; init; } = null!;
+        public string Specialty { get; init; } = null!;
+        public string? Overview { get; init; }
 
         public string? FaceLink { get; init; }
         public string? TwitLink { get; init; }
@@ -24,14 +22,14 @@ namespace Workwise.Application.Dtos
         public bool IsOnlinne { get; init; }
         public string? CustomStatus { get; init; }
 
-        public List<FollowDto>? Follows { get; set; }
-        public List<SkillIncludeDto>? Skills { get; set; }
-        public List<EducationIncludeDto>? Educations { get; set; }
-        public List<Experience>? Experiences { get; set; }
-        public List<Portfolio>? Portfolios { get; set; }
-        public List<LocationIncludeDto>? Locations { get; set; }
-        public List<HireAccount>? HireAccounts { get; set; }
-        public List<JobIncludeDto>? Jobs { get; set; }
-        public List<ProjectIncludeDto>? Projects { get; set; }
+        public List<FollowDto>? Follows { get; init; }
+        public List<SkillIncludeDto>? Skills { get; init; }
+        public List<EducationIncludeDto>? Educations { get; init; }
+        public List<ExperienceIncludeDto>? Experiences { get; init; }
+        public List<PortfolioIncludeDto>? Portfolios { get; init; }
+        public List<LocationIncludeDto>? Locations { get; init; }
+        public List<HireAccountDto>? HireAccounts { get; init; }
+        public List<JobIncludeDto>? Jobs { get; init; }
+        public List<ProjectIncludeDto>? Projects { get; init; }
     }
 }
