@@ -1,4 +1,4 @@
-﻿namespace Workwise.Application.Dtos.Jobs
+﻿namespace Workwise.Application.Dtos
 {
     public record JobLikeDto
     {

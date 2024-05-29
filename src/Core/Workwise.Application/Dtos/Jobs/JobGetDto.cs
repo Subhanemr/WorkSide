@@ -1,4 +1,6 @@
-﻿namespace Workwise.Application.Dtos
+﻿using Workwise.Domain.Entities;
+
+namespace Workwise.Application.Dtos
 {
     public record JobGetDto
     {
@@ -14,5 +16,8 @@
 
         public string AppUserId { get; init; } = null!;
         public AppUserIncludeDto? AppUser { get; init; }
+
+        public ICollection<JobCommentDto>? JobComments { get; init; }
+        public ICollection<JobLikeDto>? JobLikes { get; init; }
     }
 }

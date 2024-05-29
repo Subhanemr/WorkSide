@@ -13,6 +13,10 @@ namespace Workwise.Application.MappingProfiles
             CreateMap<Job, JobIncludeDto>().ReverseMap();
             CreateMap<Job, JobItemDto>().ReverseMap();
             CreateMap<Job, JobUpdateDto>().ReverseMap();
+
+            CreateMap<JobComment, JobCommentDto>().ReverseMap();
+            CreateMap<JobReply, JobReplyDto>().ReverseMap();
+            CreateMap<JobLike, JobLikeDto>().ReverseMap();
         }
     }
 }

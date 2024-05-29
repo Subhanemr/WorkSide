@@ -1,4 +1,4 @@
-﻿namespace Workwise.Application.Dtos.Projects
+﻿namespace Workwise.Application.Dtos
 {
     public record ProjectCommentDto
     {

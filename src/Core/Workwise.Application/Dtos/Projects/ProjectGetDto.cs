@@ -1,4 +1,6 @@
-﻿namespace Workwise.Application.Dtos
+﻿using Workwise.Domain.Entities;
+
+namespace Workwise.Application.Dtos
 {
     public record ProjectGetDto
     {
@@ -12,7 +14,10 @@
         public DateTime? UpdateAt { get; init; }
         public string CreatedBy { get; init; } = null!;
 
-        public string AppUserId { get; set; } = null!;
-        public AppUserIncludeDto? AppUser { get; set; }
+        public string AppUserId { get; init; } = null!;
+        public AppUserIncludeDto? AppUser { get; init; }
+
+        public ICollection<ProjectComment>? ProjectComments { get; init; }
+        public ICollection<ProjectLikeDto>? ProjectLikes { get; init; }
     }
 }
