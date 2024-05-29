@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Workwise.Application.Dtos;
+using Workwise.Domain.Entities;
 
 namespace Workwise.Application.MappingProfiles
 {
@@ -6,7 +8,7 @@ namespace Workwise.Application.MappingProfiles
     {
         public FollowProfile()
         {
-            
+            CreateMap<Follow, FollowDto>().ReverseMap();
         }
     }
 }

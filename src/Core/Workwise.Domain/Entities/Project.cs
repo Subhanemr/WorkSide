@@ -9,5 +9,8 @@
 
         public string AppUserId { get; set; } = null!;
         public AppUser? AppUser { get; set; }
+
+        public ICollection<ProjectComment>? ProjectComments { get; set; }
+        public ICollection<ProjectLike>? ProjectLikes { get; set; }
     }
 }

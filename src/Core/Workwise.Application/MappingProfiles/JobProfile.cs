@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Workwise.Application.Dtos;
+using Workwise.Domain.Entities;
 
 namespace Workwise.Application.MappingProfiles
 {
@@ -6,7 +8,11 @@ namespace Workwise.Application.MappingProfiles
     {
         public JobProfile()
         {
-            
+            CreateMap<Job, JobCreateDto>().ReverseMap();
+            CreateMap<Job, JobGetDto>().ReverseMap();
+            CreateMap<Job, JobIncludeDto>().ReverseMap();
+            CreateMap<Job, JobItemDto>().ReverseMap();
+            CreateMap<Job, JobUpdateDto>().ReverseMap();
         }
     }
 }
