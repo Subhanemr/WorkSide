@@ -13,6 +13,10 @@ namespace Workwise.Application.MappingProfiles
             CreateMap<Project, ProjectIncludeDto>().ReverseMap();
             CreateMap<Project, ProjectItemDto>().ReverseMap();
             CreateMap<Project, ProjectUpdateDto>().ReverseMap();
+
+            CreateMap<ProjectComment, ProjectCommentDto>().ReverseMap();
+            CreateMap<ProjectReply, ProjectReplyDto>().ReverseMap();
+            CreateMap<ProjectLike, ProjectLikeDto>().ReverseMap();
         }
     }
 }
