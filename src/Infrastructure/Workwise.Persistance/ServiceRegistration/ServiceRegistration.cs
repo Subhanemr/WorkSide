@@ -2,8 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Workwise.Application.Abstractions.Services;
 using Workwise.Domain.Entities;
+using Workwise.Infrastructure.Implementations;
 using Workwise.Persistance.DAL;
+using Workwise.Persistance.Implementations.Services;
 
 namespace Workwise.Persistance.ServiceRegistration
 {
@@ -29,7 +32,12 @@ namespace Workwise.Persistance.ServiceRegistration
                 options.SignIn.RequireConfirmedEmail = true;
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
+
             services.AddScoped<AppDbContextInitializer>();
+
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<ITokenHandler, TokenHandler>();
 
             return services;
         }

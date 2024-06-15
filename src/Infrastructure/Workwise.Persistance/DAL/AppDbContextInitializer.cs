@@ -39,10 +39,11 @@ namespace Workwise.Persistance.DAL
         {
             AppUser admin = new AppUser
             {
-                Name = "Subhan",
-                Surname = "Neqa",
+                Name = "Admin",
+                Surname = "Admin",
                 Email = _configuration["AdminSettings:Email"],
                 UserName = _configuration["AdminSettings:UserName"],
+                Specialty = "Admin"
             };
 
             await _userManager.CreateAsync(admin, _configuration["AdminSettings:Password"]);
@@ -58,6 +59,7 @@ namespace Workwise.Persistance.DAL
                 Surname = "Neqa",
                 Email = _configuration["ModeratorSettings:Email"],
                 UserName = _configuration["ModeratorSettings:UserName"],
+                Specialty = "Moderator"
             };
 
             await _userManager.CreateAsync(moder, _configuration["ModeratorSettings:Password"]);
