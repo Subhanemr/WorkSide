@@ -5,9 +5,11 @@ namespace Workwise.Domain.Entities
     public class AppUser : IdentityUser
     {
         public string Name { get; set; } = null!;
-        public string? Surname { get; set; }
+        public string Surname { get; set; } = null!;
 
         public bool IsActivate { get; set; }
+        public string? RefreshToken { get; set; }
+        public DateTime? RefreshTokenExpireAt { get; set; }
         public string ProfileUrl { get; set; } = "https://res.cloudinary.com/dzsysx73x/image/upload/v1707148401/cwlzdvof54s1fw1eo19z.png";
         public string BanerUrl { get; set; } = "https://res.cloudinary.com/dzsysx73x/image/upload/v1707148401/cwlzdvof54s1fw1eo19z.png";
         public string Specialty { get; set; } = null!;
@@ -25,6 +27,7 @@ namespace Workwise.Domain.Entities
         public string? CustomStatus { get; set; }
 
         public List<Follow>? Follows { get; set; }
+        public List<Following>? Followings { get; set; }
         public List<Skill>? Skills { get; set; }
         public List<Education>? Educations { get; set; }
         public List<Experience>? Experiences { get; set; }

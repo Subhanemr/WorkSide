@@ -7,6 +7,8 @@
         public double PriceTo { get; set; }
         public string? Description { get; set; }
 
+        public string CategoryId { get; set; } = null!;
+        public Category? Category { get; set; }
         public string AppUserId { get; set; } = null!;
         public AppUser? AppUser { get; set; }
 

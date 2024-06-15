@@ -4,9 +4,9 @@ using Workwise.Domain.Entities;
 
 namespace Workwise.Application.MappingProfiles
 {
-    internal class ExperinceProfile : Profile
+    internal class ExperienceProfile : Profile
     {
-        public ExperinceProfile()
+        public ExperienceProfile()
         {
             CreateMap<Experience, ExperienceCreateDto>().ReverseMap();
             CreateMap<Experience, ExperienceGetDto>().ReverseMap();

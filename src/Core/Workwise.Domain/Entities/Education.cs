@@ -3,8 +3,8 @@
     public class Education : BaseEntity
     {
         public string School_University { get; set; } = null!;
-        public DateOnly From { get; set; }
-        public DateOnly To { get; set; }
+        public DateTime From { get; set; }
+        public DateTime To { get; set; }
         public string Degree { get; set; } = null!;
         public string? Description { get; set; }
 

@@ -3,12 +3,13 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Workwise.Application.Abstractions.Services;
 using Workwise.Application.Dtos.Token;
 using Workwise.Domain.Entities;
 
 namespace Workwise.Infrastructure.Implementations
 {
-    public class TokenHandler
+    public class TokenHandler : ITokenHandler
     {
         private readonly IConfiguration _configuration;
 

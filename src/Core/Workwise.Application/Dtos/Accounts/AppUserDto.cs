@@ -1,4 +1,6 @@
-﻿namespace Workwise.Application.Dtos
+﻿using Workwise.Application.Dtos.Follows;
+
+namespace Workwise.Application.Dtos
 {
     public record AppUserDto
     {
@@ -23,6 +25,7 @@
         public string? CustomStatus { get; init; }
 
         public List<FollowDto>? Follows { get; init; }
+        public List<FollowingDto>? Followings { get; init; }
         public List<SkillIncludeDto>? Skills { get; init; }
         public List<EducationIncludeDto>? Educations { get; init; }
         public List<ExperienceIncludeDto>? Experiences { get; init; }

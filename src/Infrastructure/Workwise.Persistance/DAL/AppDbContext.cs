@@ -18,6 +18,7 @@ namespace Workwise.Persistance.DAL
         public DbSet<Education> Educations { get; set; }
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Follow> Follows { get; set; }
+        public DbSet<Following> Followings { get; set; }
         public DbSet<HireAccount> HireAccounts { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<JobComment> JobComments { get; set; }

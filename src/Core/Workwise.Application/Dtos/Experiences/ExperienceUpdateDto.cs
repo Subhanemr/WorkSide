@@ -2,6 +2,6 @@
 {
     public record ExperienceUpdateDto
     {
-        public string? About { get; init; }
+        public string About { get; init; } = null!;
     }
 }

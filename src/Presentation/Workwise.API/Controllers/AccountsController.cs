@@ -18,17 +18,19 @@ namespace Workwise.API.Controllers
         [HttpPost("[Action]")]
         public async Task<IActionResult> Register([FromForm] RegisterDto register)
         {
+            await _service.RegisterAsync(register);
             return NoContent();
         }
         [HttpPost("[Action]")]
         public async Task<IActionResult> LogIn([FromForm] LoginDto login)
         {
-            return Ok();
+            var result = await _service.LogInAsync(login);
+            return Ok(result);
         }
         [HttpPost("[Action]")]
         public async Task<IActionResult> LogInByRefresh(string refToken)
         {
-            return Ok();
+            return Ok(await _service.LogInByRefreshToken(refToken));
         }
     }
 }
