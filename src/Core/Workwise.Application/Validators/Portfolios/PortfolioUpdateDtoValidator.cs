@@ -8,8 +8,10 @@ namespace Workwise.Application.Validators.Portfolios
         public PortfolioUpdateDtoValidator()
         {
             RuleFor(x => x.Name)
-            .NotEmpty().WithMessage("Name is required")
-            .Matches(@"^[a-zA-Z0-9\s,\.]*$").WithMessage("Name can only contain letters, numbers, spaces, commas, and periods");
+                .NotEmpty().WithMessage("Name is required.")
+                .MinimumLength(3).WithMessage("Name must be at least 3 characters long.")
+                .MaximumLength(100).WithMessage("Name must not exceed 100 characters.")
+                .Matches(@"^[a-zA-Z0-9\s,\.]*$").WithMessage("Name can only contain letters, numbers, spaces, commas, and periods");
 
             RuleFor(x => x.Url)
                 .NotEmpty().WithMessage("Url is required");

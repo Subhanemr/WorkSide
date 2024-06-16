@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using FluentValidation.Validators;
 using Workwise.Application.Dtos;
 
 namespace Workwise.Application.Validators.Accounts
@@ -7,37 +8,39 @@ namespace Workwise.Application.Validators.Accounts
     {
         public RegisterDtoValidator()
         {
-            RuleFor(x => x.UserName)
-                .NotEmpty().WithMessage("Username is required")
-                .Length(2, 25).WithMessage("Username max characters is 2-25")
-                .Matches(@"^[a-zA-Z0-9\s]*$").WithMessage("Username can only contain letters, numbers, and spaces");
-
             RuleFor(x => x.Name)
-                .NotEmpty().WithMessage("Name is required")
-                .Length(2, 25).WithMessage("Name max characters is 2-25")
-                .Matches(@"^[a-zA-Z0-9\s]*$").WithMessage("Name can only contain letters, numbers, and spaces");
+                .NotEmpty().WithMessage("Name is required.")
+                .MinimumLength(3).WithMessage("Name must be at least 3 characters long.")
+                .MaximumLength(100).WithMessage("Name must not exceed 100 characters.")
+                .Matches(@"^[a-zA-Z\-'.\s]+$").WithMessage("Name can only contain letters, hyphens, apostrophes, dots, and spaces.");
 
             RuleFor(x => x.Surname)
-                .NotEmpty().WithMessage("Surname is required")
-                .Length(2, 25).WithMessage("Surname max characters is 2-25")
-                .Matches(@"^[a-zA-Z0-9\s]*$").WithMessage("Surname can only contain letters, numbers, and spaces");
+                .NotEmpty().WithMessage("Surname is required.")
+                .MinimumLength(3).WithMessage("Surname must be at least 3 characters long.")
+                .MaximumLength(100).WithMessage("Surname must not exceed 100 characters.")
+                .Matches(@"^[a-zA-Z\-'.\s]+$").WithMessage("Surname can only contain letters, hyphens, apostrophes, dots, and spaces.");
+
+            RuleFor(x => x.UserName)
+                .NotEmpty().WithMessage("Username is required.")
+                .MinimumLength(3).WithMessage("Username must be at least 3 characters long.")
+                .MaximumLength(100).WithMessage("Username must not exceed 100 characters.")
+                .Matches(@"^[a-zA-Z0-9_\-]+$").WithMessage("Username can only contain letters, numbers, underscores, and hyphens.");
 
             RuleFor(x => x.Email)
-                .NotEmpty().WithMessage("Email is required")
-                .Length(10, 255).WithMessage("It should be between 10 and 255 characters")
-                .EmailAddress().WithMessage("Invalid email address")
-                .Matches(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$").WithMessage("Invalid email format");
+                .NotEmpty().WithMessage("Email is required.")
+                .MinimumLength(5).WithMessage("Email must be at least 5 characters long.")
+                .MaximumLength(256).WithMessage("Email must not exceed 256 characters.")
+                .Matches(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$").WithMessage("Email must be a valid email address.");
 
             RuleFor(x => x.Password)
-                .NotEmpty().WithMessage("Password must be entered mutled")
-                .Length(8, 25).WithMessage("Password max characters is 8-25")
-                .Matches(@"^[a-zA-Z0-9\s]*$").WithMessage("Username can only contain letters, numbers, and spaces");
+                .NotEmpty().WithMessage("Password is required.")
+                .MinimumLength(6).WithMessage("Password must be at least 6 characters long.")
+                .MaximumLength(64).WithMessage("Password must not exceed 64 characters.");
 
             RuleFor(x => x.ConfirmPassword)
-                .NotEmpty().WithMessage("Confirm Password must be entered mutled")
-                .Length(8, 25).WithMessage("Password max characters is 8-25")
-                .Equal(x => x.Password).WithMessage("The password must be the same")
-                .Matches(@"^[a-zA-Z0-9\s]*$").WithMessage("Username can only contain letters, numbers, and spaces");
+                .NotEmpty().WithMessage("Please confirm your password.")
+                .Equal(x => x.Password).WithMessage("The password and confirmation password do not match.")
+                .MaximumLength(64).WithMessage("Confirmation password must not exceed 64 characters.");
         }
     }
 }

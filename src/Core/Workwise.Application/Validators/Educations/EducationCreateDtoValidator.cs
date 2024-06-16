@@ -8,8 +8,10 @@ namespace Workwise.Application.Validators.Educations
         public EducationCreateDtoValidator()
         {
             RuleFor(x => x.School_University)
-                .Length(2, 1000).WithMessage("School or University max characters is 2-1000")
-                .NotEmpty().WithMessage("School/University is required.");
+                .NotEmpty().WithMessage("School&University is required.")
+                .MinimumLength(3).WithMessage("School&University must be at least 3 characters long.")
+                .MaximumLength(500).WithMessage("School&University must not exceed 500 characters.")
+                .Matches(@"^[a-zA-Z0-9\s]*$").WithMessage("School&University can only contain letters, numbers, and spaces");
 
             RuleFor(x => x.From)
                 .NotEmpty().WithMessage("From date is required.");
@@ -19,8 +21,10 @@ namespace Workwise.Application.Validators.Educations
                 .GreaterThanOrEqualTo(x => x.From).WithMessage("To date must be after or equal to From date.");
 
             RuleFor(x => x.Degree)
-                .Length(2, 1000).WithMessage("Degree max characters is 2-1000")
-                .NotEmpty().WithMessage("Degree is required.");
+                .NotEmpty().WithMessage("Degree is required.")
+                .MinimumLength(3).WithMessage("Degree must be at least 3 characters long.")
+                .MaximumLength(500).WithMessage("Degree must not exceed 500 characters.")
+                .Matches(@"^[a-zA-Z0-9\s]*$").WithMessage("Degree can only contain letters, numbers, and spaces");
         }
     }
 }
