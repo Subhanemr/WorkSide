@@ -9,6 +9,7 @@ using Workwise.Application.Dtos;
 using Workwise.Application.Dtos.Token;
 using Workwise.Domain.Entities;
 using Workwise.Domain.Enums;
+using Workwise.Persistance.Utilities;
 
 namespace Workwise.Persistance.Implementations.Services
 {
@@ -38,12 +39,12 @@ namespace Workwise.Persistance.Implementations.Services
             if (user == null)
             {
                 user = await _userManager.FindByEmailAsync(login.UserNameOrEmail);
-                if (user == null) throw new Exception("Username, Email or Password is incorrect");
+                if (user == null) throw new LoginException();
             }
 
             SignInResult result = await _signInManager.PasswordSignInAsync(user, login.Password, login.IsRemembered, true);
-            if (result.IsLockedOut) throw new Exception("Login is not enable please try latter");
-            if (!result.Succeeded) throw new Exception("Username, Email or Password is incorrect");
+            if (result.IsLockedOut) throw new UnAuthorizedException();
+            if (!result.Succeeded) throw new LoginException();
 
             ICollection<Claim> claims = await _userClaims(user);
 
@@ -75,8 +76,8 @@ namespace Workwise.Persistance.Implementations.Services
         public async Task<TokenResponseDto> LogInByRefreshToken(string refresh)
         {
             AppUser? user = await _userManager.Users.FirstOrDefaultAsync(x => x.RefreshToken == refresh);
-            if (user == null) throw new Exception("Not found");
-            if (user.RefreshTokenExpireAt < DateTime.UtcNow) throw new Exception("Token is Expired");
+            if (user == null) throw new NotFoundException();
+            if (user.RefreshTokenExpireAt < DateTime.UtcNow) throw new UnAuthorizedException();
 
             var tokenResponse = _tokenHandler.CreateJwt(user, await _userClaims(user), 60);
             user.RefreshToken = tokenResponse.RefreshToken;
