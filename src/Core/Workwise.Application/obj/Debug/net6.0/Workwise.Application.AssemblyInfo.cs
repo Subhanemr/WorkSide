@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Workwise.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea580868ab743a5ff05e7131aa8ef977eba157df")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64108caad8a552583e949af55aa9717205fc2a0a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Workwise.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Workwise.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
