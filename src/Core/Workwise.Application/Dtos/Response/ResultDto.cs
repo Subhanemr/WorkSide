@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace Workwise.Application.Dtos.Response
+namespace Workwise.Application.Dtos
 {
     public class ResultDto : IResult
     {

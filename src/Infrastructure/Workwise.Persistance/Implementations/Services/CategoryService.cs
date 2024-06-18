@@ -11,7 +11,5 @@ namespace Workwise.Persistance.Implementations.Services
         {
             _repository = repository;
         }
-
-
     }
 }

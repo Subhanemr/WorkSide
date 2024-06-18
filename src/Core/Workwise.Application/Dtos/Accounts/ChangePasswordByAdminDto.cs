@@ -2,7 +2,7 @@
 {
     public record ChangePasswordByAdminDto
     {
-        public int AppUserId { get; init; }
+        public string AppUserId { get; init; } = null!;
         public string NewPassword { get; init; } = null!;
         public string ConfirmNewPassword { get; init; } = null!;
     }
