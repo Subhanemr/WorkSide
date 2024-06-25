@@ -18,6 +18,7 @@ namespace Workwise.Persistance.Implementations.Services
     public class AccountService : IAccountService
     {
         private readonly UserManager<AppUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
@@ -27,7 +28,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public AccountService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
             IMapper mapper, IEmailService emailService, IHttpContextAccessor http, ITokenHandler tokenHandler,
-            IConfiguration configuration)
+            IConfiguration configuration, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -36,6 +37,7 @@ namespace Workwise.Persistance.Implementations.Services
             _http = http;
             _tokenHandler = tokenHandler;
             _configuration = configuration;
+            _roleManager = roleManager;
         }
 
         public async Task<TokenResponseDto> LogInAsync(LoginDto login)
@@ -59,6 +61,7 @@ namespace Workwise.Persistance.Implementations.Services
             var tokenResponseDto = _tokenHandler.CreateJwt(user, claims, 60);
             user.RefreshToken = tokenResponseDto.RefreshToken;
             user.RefreshTokenExpireAt = tokenResponseDto.RefreshTokenExpireAt;
+
             await _userManager.UpdateAsync(user);
 
             return tokenResponseDto;
@@ -106,6 +109,7 @@ namespace Workwise.Persistance.Implementations.Services
             TokenResponseDto tokenResponse = _tokenHandler.CreateJwt(user, await _userClaims(user), 60);
             user.RefreshToken = tokenResponse.RefreshToken;
             user.RefreshTokenExpireAt = tokenResponse.RefreshTokenExpireAt;
+
             await _userManager.UpdateAsync(user);
 
             return tokenResponse;
@@ -114,7 +118,9 @@ namespace Workwise.Persistance.Implementations.Services
         public async Task<string> GetUserRoleAsync(string userId)
         {
             AppUser user = await _getUserById(userId);
-            var roles = await _userManager.GetRolesAsync(user);
+
+            ICollection<string> roles = await _userManager.GetRolesAsync(user);
+
             return roles.FirstOrDefault() ?? "null";
         }
 
@@ -176,9 +182,7 @@ namespace Workwise.Persistance.Implementations.Services
             if (user is null)
                 throw new NotFoundException("User is not found!");
 
-            AppUserDto dto = _mapper.Map<AppUserDto>(user);
-
-            return dto;
+            return _mapper.Map<AppUserDto>(user);
         }
 
         public async Task<PaginationDto<AppUserDto>> GetUsersAsync(string? search, int take, int page, int order)
@@ -219,7 +223,7 @@ namespace Workwise.Persistance.Implementations.Services
 
             ICollection<AppUserDto> vMs = _mapper.Map<ICollection<AppUserDto>>(users);
 
-            PaginationDto<AppUserDto> pagination = new PaginationDto<AppUserDto>
+            return new PaginationDto<AppUserDto>
             {
                 Take = take,
                 Search = search,
@@ -228,8 +232,6 @@ namespace Workwise.Persistance.Implementations.Services
                 TotalPage = Math.Ceiling(count / take),
                 Items = vMs
             };
-
-            return pagination;
         }
 
         public async Task<PaginationDto<AppUserDto>> GetDeletedUsersAsync(string? search, int take, int page, int order)
@@ -269,7 +271,7 @@ namespace Workwise.Persistance.Implementations.Services
 
             ICollection<AppUserDto> vMs = _mapper.Map<ICollection<AppUserDto>>(users);
 
-            PaginationDto<AppUserDto> pagination = new PaginationDto<AppUserDto>
+            return new PaginationDto<AppUserDto>
             {
                 Take = take,
                 Search = search,
@@ -278,17 +280,32 @@ namespace Workwise.Persistance.Implementations.Services
                 TotalPage = Math.Ceiling(count / take),
                 Items = vMs
             };
-
-            return pagination;
         }
 
-        private async Task<AppUserGetDto> GetCurrentUserAsync()
+        public async Task<AppUserGetDto> CheckResetPasswordToken(ForgetPasswordTokenDto dto)
+        {
+            AppUser user = await _getUserById(dto.AppUserId);
+
+            return _mapper.Map<AppUserGetDto>(user);
+        }
+        public async Task<TokenResponseDto> ResetPasswordAsync(ResetPasswordTokenDto dto)
+        {
+            AppUser user = await _getUserById(dto.AppUserId);
+
+            IdentityResult result = await _userManager.ResetPasswordAsync(user, dto.Token, dto.Password);
+            if (!result.Succeeded)
+                throw new InvalidInputException(string.Join(" ", result.Errors.Select(e => e.Description)));
+
+            return await _createAccesToken(user);
+        }
+
+        public async Task<AppUserGetDto> GetCurrentUserAsync()
         {
             string? id = _http.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (id is null)
                 throw new UnAuthorizedException();
 
-            AppUser user = await _userManager.FindByIdAsync(id);
+            AppUser? user = await _userManager.FindByIdAsync(id);
             if (user is null)
                 throw new UnAuthorizedException();
 
@@ -299,12 +316,96 @@ namespace Workwise.Persistance.Implementations.Services
             return dto;
         }
 
+        public async Task<ResultDto> SendForgetPasswordMail(ForgetPasswordDto dto)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(dto.Email);
+            if (user is null)
+                throw new NotFoundException($"{dto.Email}-this user is not found!");
+
+            string token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            string path = Path.Combine("http://localhost:3000", $"ForgetPassword?AppUserId={user.Id}&token={token}");
+            string body = _resetPasswordBody.Replace("{Replace_Link_1}", path);
+            body = body.Replace("{Replace_Link_2}", path);
+            body = body.Replace("{Replace_Link_3}", path);
+
+            await _emailService.SendMailAsync(user.Email, "WorkWise Password Reset", body, true);
+
+            return new("The password reset link has been successfully sent to your email");
+        }
+
+        public async Task<ResultDto> ChangeUserRoleAsync(ChangeRoleDto dto)
+        {
+            AppUser user = await _userManager.FindByIdAsync(dto.AppUserId.ToString());
+            if (user is null)
+                throw new NotFoundException($"{dto.AppUserId}-this user is not found");
+
+            IdentityRole role = await _roleManager.FindByNameAsync(dto.Role);
+            if (role is null)
+                throw new NotFoundException($"{dto.Role}-this role is not found");
+            string existRole = await GetUserRoleAsync(dto.AppUserId);
+
+            ICollection<Claim> existClaims = await _userManager.GetClaimsAsync(user);
+
+            IdentityResult result = await _userManager.AddToRoleAsync(user, role.Name);
+            if (!result.Succeeded)
+                throw new InvalidInputException();
+            result = await _userManager.RemoveFromRoleAsync(user, existRole);
+            if (!result.Succeeded)
+                throw new InvalidInputException();
+
+
+            await _userManager.RemoveClaimsAsync(user, existClaims);
+
+            ICollection<Claim> newClaims = await _userClaims(user);
+            await _userManager.AddClaimsAsync(user, newClaims);
+
+            return new($"{user.UserName}-User's role is successfully changed");
+        }
+
+        public async Task<AppUserDto> GetUserByUsernameAsync(string userName)
+        {
+            AppUser? user = await _userManager.Users
+                .Include(x => x.Follows)
+                .Include(x => x.Followings)
+                .Include(x => x.Skills)
+                .Include(x => x.Educations)
+                .Include(x => x.Experiences)
+                .Include(x => x.Portfolios)
+                .Include(x => x.Locations)
+                .Include(x => x.HireAccounts)
+                .Include(x => x.Jobs)
+                .Include(x => x.Projects).FirstOrDefaultAsync(x => x.UserName == userName);
+            if (user is null)
+                throw new NotFoundException($"{userName}-User is not found!");
+
+            return _mapper.Map<AppUserDto>(user);
+        }
+
+        public async Task<ResultDto> ChangePasswordByAdminAsync(ChangePasswordByAdminDto dto)
+        {
+            AppUser user = await _getUserById(dto.AppUserId.ToString());
+
+            IdentityResult result = await _userManager.RemovePasswordAsync(user);
+            if (!result.Succeeded)
+                throw new InvalidInputException(string.Join(" ", result.Errors.Select(e => e.Description)));
+
+
+            result = await _userManager.AddPasswordAsync(user, dto.NewPassword);
+
+            if (!result.Succeeded)
+                throw new InvalidInputException(string.Join(" ", result.Errors.Select(e => e.Description)));
+
+            return new($"{user.Id}-User's password is successfully changed");
+        }
+
         private async Task<AppUser> _getUserById(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
 
             if (user is null)
                 throw new NotFoundException("This user is not found");
+
             return user;
         }
 
@@ -316,18 +417,16 @@ namespace Workwise.Persistance.Implementations.Services
             body = body.Replace("{Replace_Link_2}", path);
             body = body.Replace("{Replace_Link_3}", path);
 
-
             await _emailService.SendMailAsync(user.Email, "WorkWise Email Confirm", path, true);
         }
 
         private async Task SendEmailChangeRequest(AppUser user, string email)
         {
-            string token = await _userManager.GenerateChangeEmailTokenAsync(user, email); 
+            string token = await _userManager.GenerateChangeEmailTokenAsync(user, email);
             string path = Path.Combine("http://localhost:3000", $"ChangeEmail?AppUserId={user.Id}&token={token}&email={email}");
             string body = _confirmEmailBody.Replace("{Replace_Link_1}", path);
             body = body.Replace("{Replace_Link_2}", path);
             body = body.Replace("{Replace_Link_3}", path);
-
 
             await _emailService.SendMailAsync(email, "WorkWise Change Email", body, true);
         }
@@ -358,6 +457,7 @@ namespace Workwise.Persistance.Implementations.Services
             {
                 claims.Add(new Claim(ClaimTypes.Role, role));
             }
+
             return claims;
         }
 

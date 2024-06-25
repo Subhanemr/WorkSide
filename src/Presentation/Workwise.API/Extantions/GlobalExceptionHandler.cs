@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using System.Net;
 using Workwise.Application.Abstractions.Utilities;
-using Workwise.Application.Dtos.Response;
+using Workwise.Application.Dtos;
 
 namespace Workwise.API.Extantions
 {

@@ -8,7 +8,7 @@ namespace Workwise.Application.Validators.Accounts
         public ChangePasswordByAdminDtoValidator()
         {
             RuleFor(x => x.AppUserId)
-                .GreaterThan(0).WithMessage("AppUserId must be greater than 0.");
+                .NotEmpty().WithMessage("Id must not be empty.");
 
             RuleFor(x => x.NewPassword)
                 .NotEmpty().WithMessage("New password is required.")
