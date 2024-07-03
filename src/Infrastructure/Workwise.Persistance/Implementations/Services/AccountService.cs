@@ -126,7 +126,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<TokenResponseDto> ChangePasswordAsync(ChangePasswordDto dto)
         {
-            AppUser user = await _userManager.FindByIdAsync(_http.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            AppUser user = await _getUserById(_http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
             if (user is null)
                 throw new NotFoundException("User is not found!");
 
@@ -139,7 +139,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<TokenResponseDto> ConfirmEmailAsync(ConfirmEmailDto dto)
         {
-            AppUser user = await _userManager.FindByIdAsync(dto.AppUserId);
+            AppUser user = await _getUserById(dto.AppUserId);
             if (user is null)
                 throw new NotFoundException("User is not found!");
 
@@ -166,18 +166,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<AppUserDto> GetUserByIdAsync(string id)
         {
-            AppUser? user = await _userManager.Users
-                .Include(x => x.Follows)
-                .Include(x => x.Followings)
-                .Include(x => x.Skills)
-                .Include(x => x.Educations)
-                .Include(x => x.Experiences)
-                .Include(x => x.Portfolios)
-                .Include(x => x.Locations)
-                .Include(x => x.HireAccounts)
-                .Include(x => x.Jobs)
-                .Include(x => x.Projects).FirstOrDefaultAsync(x => x.Id == id);
-
+            AppUser? user = await _getByIdAsync(id, false, true);
 
             if (user is null)
                 throw new NotFoundException("User is not found!");
@@ -288,7 +277,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> ChangeUserRoleAsync(ChangeRoleDto dto)
         {
-            AppUser user = await _userManager.FindByIdAsync(dto.AppUserId.ToString());
+            AppUser user = await _getUserById(dto.AppUserId);
             if (user is null)
                 throw new NotFoundException($"{dto.AppUserId}-this user is not found");
 
@@ -317,17 +306,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<AppUserDto> GetUserByUsernameAsync(string userName)
         {
-            AppUser? user = await _userManager.Users
-                .Include(x => x.Follows)
-                .Include(x => x.Followings)
-                .Include(x => x.Skills)
-                .Include(x => x.Educations)
-                .Include(x => x.Experiences)
-                .Include(x => x.Portfolios)
-                .Include(x => x.Locations)
-                .Include(x => x.HireAccounts)
-                .Include(x => x.Jobs)
-                .Include(x => x.Projects).FirstOrDefaultAsync(x => x.UserName == userName);
+            AppUser? user = await _getByUserNameAsync(userName, false, true);
             if (user is null)
                 throw new NotFoundException($"{userName}-User is not found!");
 
@@ -336,12 +315,11 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> ChangePasswordByAdminAsync(ChangePasswordByAdminDto dto)
         {
-            AppUser user = await _getUserById(dto.AppUserId.ToString());
+            AppUser user = await _getUserById(dto.AppUserId);
 
             IdentityResult result = await _userManager.RemovePasswordAsync(user);
             if (!result.Succeeded)
                 throw new InvalidInputException(string.Join(" ", result.Errors.Select(e => e.Description)));
-
 
             result = await _userManager.AddPasswordAsync(user, dto.NewPassword);
 
@@ -357,6 +335,58 @@ namespace Workwise.Persistance.Implementations.Services
 
             if (user is null)
                 throw new NotFoundException("This user is not found");
+
+            return user;
+        }
+
+        private async Task<AppUser> _getByIdAsync(string id, bool isTracking = true, bool includes = false)
+        {
+            IQueryable<AppUser> query = _userManager.Users;
+
+            if (includes)
+                query = query
+                    .Include(x => x.Follows)
+                    .Include(x => x.Followings)
+                    .Include(x => x.Skills)
+                    .Include(x => x.Educations)
+                    .Include(x => x.Experiences)
+                    .Include(x => x.Portfolios)
+                    .Include(x => x.Locations)
+                    .Include(x => x.HireAccounts)
+                    .Include(x => x.Jobs)
+                    .Include(x => x.Projects);
+
+            if (!isTracking) query = query.AsNoTracking();
+
+            AppUser? user = await query.FirstOrDefaultAsync(x => x.Id == id);
+            if (user is null)
+                throw new NotFoundException($"User not found({id})!");
+
+            return user;
+        }
+
+        private async Task<AppUser> _getByUserNameAsync(string userName, bool isTracking = true, bool includes = false)
+        {
+            IQueryable<AppUser> query = _userManager.Users;
+
+            if (includes)
+                query = query
+                    .Include(x => x.Follows)
+                    .Include(x => x.Followings)
+                    .Include(x => x.Skills)
+                    .Include(x => x.Educations)
+                    .Include(x => x.Experiences)
+                    .Include(x => x.Portfolios)
+                    .Include(x => x.Locations)
+                    .Include(x => x.HireAccounts)
+                    .Include(x => x.Jobs)
+                    .Include(x => x.Projects);
+
+            if (!isTracking) query = query.AsNoTracking();
+
+            AppUser? user = await query.FirstOrDefaultAsync(x => x.UserName == userName);
+            if (user is null)
+                throw new NotFoundException($"User not found({userName})!");
 
             return user;
         }
