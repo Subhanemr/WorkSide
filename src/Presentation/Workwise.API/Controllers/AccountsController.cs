@@ -98,7 +98,7 @@ namespace Workwise.API.Controllers
         [HttpPost("[Action]")]
         public async Task<IActionResult> GetDeletedUsers(string? search, int take, int page, int order = 1)
         {
-            return Ok(await _service.GetDeletedUsersAsync(search, take, page, order));
+            return Ok(await _service.GetUsersAsync(search, take, page, order, true));
         }
     }
 }

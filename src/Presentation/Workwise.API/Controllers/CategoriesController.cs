@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CloudinaryDotNet.Actions;
+using CloudinaryDotNet;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Workwise.Application.Abstractions.Services;
 using Workwise.Application.Dtos;
@@ -17,44 +19,49 @@ namespace Workwise.API.Controllers
         }
 
         [HttpGet("[Action]")]
-        public async Task<IActionResult> Get(int page, int take, bool isDeleted = false)
+        public async Task<IActionResult> Get(string? search, int take, int page, int order)
         {
-            return Ok();
+            return Ok(await _service.GetFilteredAsync(search, take, page, order));
+        }
+        [HttpGet("[Action]")]
+        public async Task<IActionResult> GetDeleted(string? search, int take, int page, int order)
+        {
+            return Ok(await _service.GetFilteredAsync(search, take, page, order, true));
         }
         [HttpGet("[Action]/{id}")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(string id)
         {
-            return Ok();
+            return Ok(await _service.GetByIdAsync(id));
         }
         [HttpPost("[Action]")]
         [Authorize(Roles = "Admin,Moderator")]
-        public async Task<IActionResult> Create([FromForm] CategoryCreateDto create)
+        public async Task<IActionResult> Create([FromForm] CategoryCreateDto dto)
         {
-            return StatusCode(StatusCodes.Status201Created);
+            return Ok(await _service.CreateAsync(dto));
         }
         [HttpPut("[Action]/{id}")]
         [Authorize(Roles = "Admin,Moderator")]
-        public async Task<IActionResult> Update(int id, [FromForm] CategoryUpdateDto update)
+        public async Task<IActionResult> Update([FromForm] CategoryUpdateDto dto)
         {
-            return NoContent();
+            return Ok(await _service.UpdateAsync(dto));
         }
         [HttpDelete("[Action]/{id}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
-            return NoContent();
+            return Ok(await _service.DeleteAsync(id));
         }
         [HttpDelete("[Action]/{id}")]
         [Authorize(Roles = "Admin,Moderator")]
-        public async Task<IActionResult> SoftDelete(int id)
+        public async Task<IActionResult> SoftDelete(string id)
         {
-            return NoContent();
+            return Ok(await _service.SoftDeleteAsync(id));
         }
         [HttpDelete("[Action]/{id}")]
         [Authorize(Roles = "Admin,Moderator")]
-        public async Task<IActionResult> ReverseSoftDelete(int id)
+        public async Task<IActionResult> ReverseSoftDelete(string id)
         {
-            return NoContent();
+            return Ok(await _service.ReverseSoftDeleteAsync(id));
         }
     }
 }
