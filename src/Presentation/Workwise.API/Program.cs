@@ -12,8 +12,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAplicationServices();
 builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.AddInfrastructureServices(builder.Configuration);
+
 builder.Services.AddCorsConfig();
 builder.Services.IdentitySwagger();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

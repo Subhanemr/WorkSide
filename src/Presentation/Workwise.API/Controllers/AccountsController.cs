@@ -45,24 +45,24 @@ namespace Workwise.API.Controllers
         {
             return Ok(await _service.SendForgetPasswordMail(dto));
         }
-        [HttpPost("[Action]")]
+        [HttpPut("[Action]")]
         [Authorize]
         public async Task<IActionResult> ChangePassword(ChangePasswordDto dto)
         {
             return Ok(await _service.ChangePasswordAsync(dto));
         }
-        [HttpPost("[Action]")]
-        public async Task<IActionResult> ForgetPassword(ResetPasswordTokenDto dto)
+        [HttpPut("[Action]")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordTokenDto dto)
         {
             return Ok(await _service.ResetPasswordAsync(dto));
         }
-        [HttpPost("[Action]")]
+        [HttpPatch("[Action]")]
         [Authorize]
         public async Task<IActionResult> ChangeEmail(ChangeEmailDto dto)
         {
             return Ok(await _service.ChangeEmailAsync(dto));
         }
-        [HttpPost("[Action]")]
+        [HttpPatch("[Action]")]
         public async Task<IActionResult> ConfirmEmail(ConfirmEmailDto dto)
         {
             return Ok(await _service.ConfirmEmailAsync(dto));
