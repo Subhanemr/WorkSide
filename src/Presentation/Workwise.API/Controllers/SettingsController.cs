@@ -30,7 +30,7 @@ namespace Workwise.API.Controllers
         }
         [HttpPut("[Action]")]
         [Authorize(Roles = "Admin,Moderator")]
-        public async Task<IActionResult> Update([FromForm] CategoryUpdateDto dto)
+        public async Task<IActionResult> Update([FromForm] SettingUpdateDto dto)
         {
             return Ok(await _service.UpdateAsync(dto));
         }

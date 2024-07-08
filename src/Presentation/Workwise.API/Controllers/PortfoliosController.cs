@@ -34,13 +34,13 @@ namespace Workwise.API.Controllers
         }
         [HttpPost("[Action]")]
         [Authorize(Roles = "Admin,Moderator")]
-        public async Task<IActionResult> Create([FromForm] CategoryCreateDto dto)
+        public async Task<IActionResult> Create([FromForm] PortfolioCreateDto dto)
         {
             return Ok(await _service.CreateAsync(dto));
         }
         [HttpPut("[Action]")]
         [Authorize(Roles = "Admin,Moderator")]
-        public async Task<IActionResult> Update([FromForm] CategoryUpdateDto dto)
+        public async Task<IActionResult> Update([FromForm] PortfolioUpdateDto dto)
         {
             return Ok(await _service.UpdateAsync(dto));
         }
