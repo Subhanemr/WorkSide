@@ -9,5 +9,7 @@ namespace Workwise.Application.Dtos
         public double Price { get; init; }
         public double PriceTo { get; init; }
         public string? Description { get; init; }
+
+        public string CategoryId { get; init; } = null!;
     }
 }

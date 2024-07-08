@@ -18,20 +18,21 @@ namespace Workwise.API.Controllers
         }
 
         [HttpGet("[Action]")]
-        public async Task<IActionResult> Get(int page, int take, bool isDeleted = false)
+        [HttpGet("[Action]")]
+        public async Task<IActionResult> Get(string? search, int take, int page, int order)
         {
-            return Ok();
+            return Ok(await _service.GetFilteredAsync(search, take, page, order));
         }
         [HttpGet("[Action]/{id}")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(string id)
         {
-            return Ok();
+            return Ok(await _service.GetByIdAsync(id));
         }
-        [HttpPut("[Action]/{id}")]
+        [HttpPut("[Action]")]
         [Authorize(Roles = "Admin,Moderator")]
-        public async Task<IActionResult> Update(int id, [FromForm] CategoryUpdateDto update)
+        public async Task<IActionResult> Update([FromForm] CategoryUpdateDto dto)
         {
-            return NoContent();
+            return Ok(await _service.UpdateAsync(dto));
         }
     }
 }

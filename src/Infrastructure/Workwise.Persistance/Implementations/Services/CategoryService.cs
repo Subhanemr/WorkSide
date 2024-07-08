@@ -23,9 +23,9 @@ namespace Workwise.Persistance.Implementations.Services
         {
             if (await _repository.CheckUniqueAsync(x => x.Name == dto.Name))
                 throw new AlreadyExistException($"{dto.Name} - This Category is already exist!");
-            Category category = _mapper.Map<Category>(dto);
+            Category item = _mapper.Map<Category>(dto);
 
-            await _repository.AddAsync(category);
+            await _repository.AddAsync(item);
             await _repository.SaveChangeAsync();
 
             return new($"{dto.Name} - Category is successfully created");
@@ -35,36 +35,36 @@ namespace Workwise.Persistance.Implementations.Services
         {
             if (string.IsNullOrEmpty(id))
                 throw new WrongRequestException("The provided id is null or empty");
-            Category category = await _getCategoryByIdAsync(id);
+            Category item = await _getByIdAsync(id);
 
-            _repository.SoftDelete(category);
+            _repository.SoftDelete(item);
             await _repository.SaveChangeAsync();
 
-            return new($"{category.Name} category has been successfully soft deleted");
+            return new($"{item.Name} category has been successfully soft deleted");
         }
 
         public async Task<ResultDto> ReverseSoftDeleteAsync(string id)
         {
             if (string.IsNullOrEmpty(id))
                 throw new WrongRequestException("The provided id is null or empty");
-            Category category = await _getCategoryByIdAsync(id);
+            Category item = await _getByIdAsync(id);
 
-            _repository.ReverseSoftDelete(category);
+            _repository.ReverseSoftDelete(item);
             await _repository.SaveChangeAsync();
 
-            return new($"{category.Name} category has been successfully restored");
+            return new($"{item.Name} category has been successfully restored");
         }
 
         public async Task<ResultDto> DeleteAsync(string id)
         {
             if (string.IsNullOrEmpty(id))
                 throw new WrongRequestException("The provided id is null or empty");
-            Category category = await _getCategoryByIdAsync(id);
+            Category item = await _getByIdAsync(id);
 
-            _repository.Delete(category);
+            _repository.Delete(item);
             await _repository.SaveChangeAsync();
 
-            return new($"{category.Name} category has been permanently deleted");
+            return new($"{item.Name} category has been permanently deleted");
         }
 
         public async Task<PaginationDto<CategoryItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
@@ -93,16 +93,16 @@ namespace Workwise.Persistance.Implementations.Services
                 case 3:
                     items = await _repository
                     .GetAllWhereByOrder(x => !string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true,
-                        x => x.Name, true, isDeleted, (page - 1) * take, take: take, false, includes).ToListAsync();
+                        x => x.Name, true, isDeleted, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
                 case 4:
                     items = await _repository
                      .GetAllWhereByOrder(x => !string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true,
-                      x => x.CreateAt, true, isDeleted, (page - 1) * take, take: take, IsTracking: false, includes: includes).ToListAsync();
+                      x => x.CreateAt, true, isDeleted, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
             }
 
-            ICollection<CategoryItemDto> vMs = _mapper.Map<ICollection<CategoryItemDto>>(items);
+            ICollection<CategoryItemDto> dtos = _mapper.Map<ICollection<CategoryItemDto>>(items);
 
             PaginationDto<CategoryItemDto> pagination = new PaginationDto<CategoryItemDto>
             {
@@ -111,7 +111,7 @@ namespace Workwise.Persistance.Implementations.Services
                 Order = order,
                 CurrentPage = page,
                 TotalPage = Math.Ceiling(count / take),
-                Items = vMs
+                Items = dtos
             };
 
             return pagination;
@@ -122,33 +122,33 @@ namespace Workwise.Persistance.Implementations.Services
             if (string.IsNullOrEmpty(id))
                 throw new WrongRequestException("The provided id is null or empty");
             string[] includes = { $"{nameof(Category.Jobs)}", $"{nameof(Category.Projects)}" };
-            Category category = await _getCategoryByIdAsync(id, false, includes);
+            Category item = await _getByIdAsync(id, false, includes);
 
-            var dto = _mapper.Map<CategoryGetDto>(category);
+            CategoryGetDto dto = _mapper.Map<CategoryGetDto>(item);
             return dto;
         }
 
         public async Task<ResultDto> UpdateAsync(CategoryUpdateDto dto)
         {
-            Category existedCategory = await _getCategoryByIdAsync(dto.Id);
+            Category existedItem = await _getByIdAsync(dto.Id);
 
             if (await _repository.CheckUniqueAsync(x => x.Name.ToLower() == dto.Name.ToLower().Trim() && x.Id != dto.Id))
                 throw new AlreadyExistException($"{dto.Name}-This Category is already exist!");
 
-            existedCategory = _mapper.Map(dto, existedCategory);
-            _repository.Update(existedCategory);
+            existedItem = _mapper.Map(dto, existedItem);
+            _repository.Update(existedItem);
             await _repository.SaveChangeAsync();
 
             return new($"{dto.Name} - Category is successfully updated");
         }
 
-        private async Task<Category> _getCategoryByIdAsync(string id, bool isTracking = true, params string[] includes)
+        private async Task<Category> _getByIdAsync(string id, bool isTracking = true, params string[] includes)
         {
-            Category category = await _repository.GetByIdAsync(id, isTracking, includes);
-            if (category is null)
+            Category item = await _repository.GetByIdAsync(id, isTracking, includes);
+            if (item is null)
                 throw new NotFoundException($"Category not found({id})!");
 
-            return category;
+            return item;
         }
     }
 }

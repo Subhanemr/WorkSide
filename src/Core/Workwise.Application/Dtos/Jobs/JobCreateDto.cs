@@ -1,4 +1,6 @@
-﻿namespace Workwise.Application.Dtos
+﻿using Workwise.Domain.Entities;
+
+namespace Workwise.Application.Dtos
 {
     public record JobCreateDto
     {
@@ -7,5 +9,7 @@
         public double Price { get; init; }
         public string Time { get; init; } = null!;
         public string? Description { get; init; }
+
+        public string CategoryId { get; init; } = null!;
     }
 }

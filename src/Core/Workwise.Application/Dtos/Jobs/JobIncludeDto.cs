@@ -11,5 +11,7 @@
         public DateTime CreateAt { get; init; }
         public DateTime? UpdateAt { get; init; }
         public string CreatedBy { get; init; } = null!;
+
+        public string CategoryId { get; init; } = null!;
     }
 }
