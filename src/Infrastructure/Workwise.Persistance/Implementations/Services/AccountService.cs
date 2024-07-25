@@ -345,8 +345,8 @@ namespace Workwise.Persistance.Implementations.Services
 
             if (includes)
                 query = query
-                    .Include(x => x.Follows)
-                    .Include(x => x.Followings)
+                    .Include(x => x.Followers)
+                    .Include(x => x.Following)
                     .Include(x => x.Skills)
                     .Include(x => x.Educations)
                     .Include(x => x.Experiences)
@@ -371,8 +371,8 @@ namespace Workwise.Persistance.Implementations.Services
 
             if (includes)
                 query = query
-                    .Include(x => x.Follows)
-                    .Include(x => x.Followings)
+                    .Include(x => x.Followers)
+                    .Include(x => x.Following)
                     .Include(x => x.Skills)
                     .Include(x => x.Educations)
                     .Include(x => x.Experiences)

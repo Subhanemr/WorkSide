@@ -2,7 +2,10 @@
 {
     public class Follow : BaseEntity
     {
-        public string AppUserId { get; set; } = null!;
-        public AppUser? AppUser { get; set; }
+        public string FollowerId { get; set; } = null!;
+        public string FollowingId { get; set; } = null!;
+
+        public AppUser? Follower { get; set; }
+        public AppUser? Following { get; set; }
     }
 }

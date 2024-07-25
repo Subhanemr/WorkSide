@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 using Workwise.Domain.Entities;
+using Workwise.Persistance.Common;
 
 namespace Workwise.Persistance.DAL
 {
@@ -18,7 +20,6 @@ namespace Workwise.Persistance.DAL
         public DbSet<Education> Educations { get; set; }
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Follow> Follows { get; set; }
-        public DbSet<Following> Followings { get; set; }
         public DbSet<HireAccount> HireAccounts { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<JobComment> JobComments { get; set; }
@@ -32,6 +33,19 @@ namespace Workwise.Persistance.DAL
         public DbSet<Settings> Settings { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<WorkTime> WorkTimes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.FollowDbSettings();
+            modelBuilder.JobCommentReplyDbSettings();
+            modelBuilder.JobLikeDbSettings();
+            modelBuilder.ProjectCommentReplyDbSettings();
+            modelBuilder.ProjectLikeDbSettings();
+
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            base.OnModelCreating(modelBuilder);
+        }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

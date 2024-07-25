@@ -387,11 +387,10 @@ namespace Workwise.Persistance.DAL.Migrations
 
             modelBuilder.Entity("Workwise.Domain.Entities.Follow", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("FollowerId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("AppUserId")
-                        .IsRequired()
+                    b.Property<string>("FollowingId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreateAt")
@@ -401,46 +400,20 @@ namespace Workwise.Persistance.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+                    b.HasKey("FollowerId", "FollowingId");
 
-                    b.HasIndex("AppUserId");
+                    b.HasIndex("FollowingId");
 
                     b.ToTable("Follows");
-                });
-
-            modelBuilder.Entity("Workwise.Domain.Entities.Following", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("AppUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreateAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("UpdateAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
-
-                    b.ToTable("Followings");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.HireAccount", b =>
@@ -1047,24 +1020,21 @@ namespace Workwise.Persistance.DAL.Migrations
 
             modelBuilder.Entity("Workwise.Domain.Entities.Follow", b =>
                 {
-                    b.HasOne("Workwise.Domain.Entities.AppUser", "AppUser")
-                        .WithMany("Follows")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("Workwise.Domain.Entities.AppUser", "Follower")
+                        .WithMany("Following")
+                        .HasForeignKey("FollowerId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("AppUser");
-                });
-
-            modelBuilder.Entity("Workwise.Domain.Entities.Following", b =>
-                {
-                    b.HasOne("Workwise.Domain.Entities.AppUser", "AppUser")
-                        .WithMany("Followings")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("Workwise.Domain.Entities.AppUser", "Following")
+                        .WithMany("Followers")
+                        .HasForeignKey("FollowingId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("AppUser");
+                    b.Navigation("Follower");
+
+                    b.Navigation("Following");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.HireAccount", b =>
@@ -1100,15 +1070,15 @@ namespace Workwise.Persistance.DAL.Migrations
             modelBuilder.Entity("Workwise.Domain.Entities.JobComment", b =>
                 {
                     b.HasOne("Workwise.Domain.Entities.AppUser", "AppUser")
-                        .WithMany()
+                        .WithMany("JobComments")
                         .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Workwise.Domain.Entities.Job", "Job")
                         .WithMany("JobComments")
                         .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("AppUser");
@@ -1119,15 +1089,15 @@ namespace Workwise.Persistance.DAL.Migrations
             modelBuilder.Entity("Workwise.Domain.Entities.JobLike", b =>
                 {
                     b.HasOne("Workwise.Domain.Entities.AppUser", "AppUser")
-                        .WithMany()
+                        .WithMany("JobLikes")
                         .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Workwise.Domain.Entities.Job", "Jobs")
                         .WithMany("JobLikes")
                         .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("AppUser");
@@ -1138,15 +1108,15 @@ namespace Workwise.Persistance.DAL.Migrations
             modelBuilder.Entity("Workwise.Domain.Entities.JobReply", b =>
                 {
                     b.HasOne("Workwise.Domain.Entities.AppUser", "AppUser")
-                        .WithMany()
+                        .WithMany("JobReplies")
                         .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Workwise.Domain.Entities.JobComment", "JobComment")
                         .WithMany("JobReplies")
                         .HasForeignKey("JobCommentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("AppUser");
@@ -1198,15 +1168,15 @@ namespace Workwise.Persistance.DAL.Migrations
             modelBuilder.Entity("Workwise.Domain.Entities.ProjectComment", b =>
                 {
                     b.HasOne("Workwise.Domain.Entities.AppUser", "AppUser")
-                        .WithMany()
+                        .WithMany("ProjectComments")
                         .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Workwise.Domain.Entities.Project", "Project")
                         .WithMany("ProjectComments")
                         .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("AppUser");
@@ -1217,15 +1187,15 @@ namespace Workwise.Persistance.DAL.Migrations
             modelBuilder.Entity("Workwise.Domain.Entities.ProjectLike", b =>
                 {
                     b.HasOne("Workwise.Domain.Entities.AppUser", "AppUser")
-                        .WithMany()
+                        .WithMany("ProjectLikes")
                         .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Workwise.Domain.Entities.Project", "Project")
                         .WithMany("ProjectLikes")
                         .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("AppUser");
@@ -1236,15 +1206,15 @@ namespace Workwise.Persistance.DAL.Migrations
             modelBuilder.Entity("Workwise.Domain.Entities.ProjectReply", b =>
                 {
                     b.HasOne("Workwise.Domain.Entities.AppUser", "AppUser")
-                        .WithMany()
+                        .WithMany("ProjectReplies")
                         .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Workwise.Domain.Entities.ProjectComment", "ProjectComment")
                         .WithMany("ProjectReplies")
                         .HasForeignKey("ProjectCommentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("AppUser");
@@ -1269,17 +1239,29 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.Navigation("Experiences");
 
-                    b.Navigation("Followings");
+                    b.Navigation("Followers");
 
-                    b.Navigation("Follows");
+                    b.Navigation("Following");
 
                     b.Navigation("HireAccounts");
+
+                    b.Navigation("JobComments");
+
+                    b.Navigation("JobLikes");
+
+                    b.Navigation("JobReplies");
 
                     b.Navigation("Jobs");
 
                     b.Navigation("Locations");
 
                     b.Navigation("Portfolios");
+
+                    b.Navigation("ProjectComments");
+
+                    b.Navigation("ProjectLikes");
+
+                    b.Navigation("ProjectReplies");
 
                     b.Navigation("Projects");
 

@@ -26,15 +26,21 @@ namespace Workwise.Domain.Entities
         public bool IsOnlinne { get; set; }
         public string? CustomStatus { get; set; }
 
-        public List<Follow>? Follows { get; set; }
-        public List<Following>? Followings { get; set; }
-        public List<Skill>? Skills { get; set; }
-        public List<Education>? Educations { get; set; }
-        public List<Experience>? Experiences { get; set; }
-        public List<Portfolio>? Portfolios { get; set; }
-        public List<Location>? Locations { get; set; }
-        public List<HireAccount>? HireAccounts { get; set; }
-        public List<Job>? Jobs { get; set; }
-        public List<Project>? Projects { get; set; }
+        public ICollection<Follow>? Followers { get; set; }
+        public ICollection<Follow>? Following { get; set; }
+        public ICollection<Skill>? Skills { get; set; }
+        public ICollection<Education>? Educations { get; set; }
+        public ICollection<Experience>? Experiences { get; set; }
+        public ICollection<Portfolio>? Portfolios { get; set; }
+        public ICollection<Location>? Locations { get; set; }
+        public ICollection<HireAccount>? HireAccounts { get; set; }
+        public ICollection<Job>? Jobs { get; set; }
+        public ICollection<Project>? Projects { get; set; }
+        public ICollection<JobComment>? JobComments { get; set; }
+        public ICollection<JobLike>? JobLikes { get; set; }
+        public ICollection<JobReply>? JobReplies { get; set; }
+        public ICollection<ProjectComment>? ProjectComments { get; set; }
+        public ICollection<ProjectReply>? ProjectReplies { get; set; }
+        public ICollection<ProjectLike>? ProjectLikes { get; set; }
     }
 }

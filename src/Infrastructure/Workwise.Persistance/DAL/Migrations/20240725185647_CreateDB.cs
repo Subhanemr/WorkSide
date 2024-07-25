@@ -272,33 +272,12 @@ namespace Workwise.Persistance.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Followings",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Followings", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Followings_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Follows",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FollowerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FollowingId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -306,13 +285,19 @@ namespace Workwise.Persistance.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Follows", x => x.Id);
+                    table.PrimaryKey("PK_Follows", x => new { x.FollowerId, x.FollowingId });
                     table.ForeignKey(
-                        name: "FK_Follows_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
+                        name: "FK_Follows_AspNetUsers_FollowerId",
+                        column: x => x.FollowerId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Follows_AspNetUsers_FollowingId",
+                        column: x => x.FollowingId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -498,7 +483,7 @@ namespace Workwise.Persistance.DAL.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_JobComments_Jobs_JobId",
                         column: x => x.JobId,
@@ -527,7 +512,7 @@ namespace Workwise.Persistance.DAL.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_JobLike_Jobs_JobId",
                         column: x => x.JobId,
@@ -557,7 +542,7 @@ namespace Workwise.Persistance.DAL.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ProjectComments_Projects_ProjectId",
                         column: x => x.ProjectId,
@@ -586,7 +571,7 @@ namespace Workwise.Persistance.DAL.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ProjectLikes_Projects_ProjectId",
                         column: x => x.ProjectId,
@@ -616,7 +601,7 @@ namespace Workwise.Persistance.DAL.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_JobReplies_JobComments_JobCommentId",
                         column: x => x.JobCommentId,
@@ -646,7 +631,7 @@ namespace Workwise.Persistance.DAL.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ProjectReplies_ProjectComments_ProjectCommentId",
                         column: x => x.ProjectCommentId,
@@ -705,14 +690,9 @@ namespace Workwise.Persistance.DAL.Migrations
                 column: "AppUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Followings_AppUserId",
-                table: "Followings",
-                column: "AppUserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Follows_AppUserId",
+                name: "IX_Follows_FollowingId",
                 table: "Follows",
-                column: "AppUserId");
+                column: "FollowingId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_HireAccounts_AppUserId",
@@ -837,9 +817,6 @@ namespace Workwise.Persistance.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Experiences");
-
-            migrationBuilder.DropTable(
-                name: "Followings");
 
             migrationBuilder.DropTable(
                 name: "Follows");
