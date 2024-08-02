@@ -481,8 +481,8 @@ namespace Workwise.Persistance.Implementations.Services
 
             if (includes)
                 query = query
-                    .Include(x => x.Followers)
-                    .Include(x => x.Followings)
+                    .Include(x => x.Followers.Where(f=> f.FollowingId == id))
+                    .Include(x => x.Followings.Where(f=> f.FollowerId == id))
                     .Include(x => x.Skills)
                     .Include(x => x.Educations)
                     .Include(x => x.Experiences)
@@ -507,8 +507,8 @@ namespace Workwise.Persistance.Implementations.Services
 
             if (includes)
                 query = query
-                    .Include(x => x.Followers)
-                    .Include(x => x.Followings)
+                    .Include(x => x.Followers.Where(f => f.Following.UserName == userName))
+                    .Include(x => x.Followings.Where(f => f.Follower.UserName == userName))
                     .Include(x => x.Skills)
                     .Include(x => x.Educations)
                     .Include(x => x.Experiences)

@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|solutionrelative:src\\infrastructure\\workwise.persistance\\implementations\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.domain\\entities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|solutionrelative:src\\core\\workwise.domain\\entities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{417BF6A4-CE3C-49D1-BCE9-42544E390CBD}|src\\Core\\Workwise.Application\\Workwise.Application.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.application\\mappingprofiles\\followprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{417BF6A4-CE3C-49D1-BCE9-42544E390CBD}|src\\Core\\Workwise.Application\\Workwise.Application.csproj|solutionrelative:src\\core\\workwise.application\\mappingprofiles\\followprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -57,10 +61,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{417BF6A4-CE3C-49D1-BCE9-42544E390CBD}|src\\Core\\Workwise.Application\\Workwise.Application.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.application\\dtos\\accounts\\appusergetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{417BF6A4-CE3C-49D1-BCE9-42544E390CBD}|src\\Core\\Workwise.Application\\Workwise.Application.csproj|solutionrelative:src\\core\\workwise.application\\dtos\\accounts\\appusergetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|c:\\users\\t x\\desktop\\workwise\\src\\core\\workwise.domain\\entities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A2BDEF0-D40B-45C1-9E4B-8BD5025FCD5E}|src\\Core\\Workwise.Domain\\Workwise.Domain.csproj|solutionrelative:src\\core\\workwise.domain\\entities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{85FDDD84-E465-4461-B50C-03AC186E9559}|src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj|c:\\users\\t x\\desktop\\workwise\\src\\infrastructure\\workwise.persistance\\common\\followdbsetting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -618,7 +618,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "FollowProfile.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\MappingProfiles\\FollowProfile.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Application\\MappingProfiles\\FollowProfile.cs",
@@ -626,12 +626,11 @@
               "RelativeToolTip": "src\\Core\\Workwise.Application\\MappingProfiles\\FollowProfile.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T08:34:21.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T08:34:21.704Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "AccountProfile.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\MappingProfiles\\AccountProfile.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Application\\MappingProfiles\\AccountProfile.cs",
@@ -639,12 +638,11 @@
               "RelativeToolTip": "src\\Core\\Workwise.Application\\MappingProfiles\\AccountProfile.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T08:34:18.746Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T08:34:18.746Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "FollowingDto.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\Dtos\\Follows\\FollowingDto.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Application\\Dtos\\Follows\\FollowingDto.cs",
@@ -652,12 +650,11 @@
               "RelativeToolTip": "src\\Core\\Workwise.Application\\Dtos\\Follows\\FollowingDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T08:33:24.498Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T08:33:24.498Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "ServiceRegistration.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Persistance\\ServiceRegistration\\ServiceRegistration.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\Workwise.Persistance\\ServiceRegistration\\ServiceRegistration.cs",
@@ -669,7 +666,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Presentation\\Workwise.API\\Program.cs",
               "RelativeDocumentMoniker": "src\\Presentation\\Workwise.API\\Program.cs",
@@ -681,7 +678,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "ProjectsController.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Presentation\\Workwise.API\\Controllers\\ProjectsController.cs",
               "RelativeDocumentMoniker": "src\\Presentation\\Workwise.API\\Controllers\\ProjectsController.cs",
@@ -693,7 +690,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Persistance\\DAL\\AppDbContext.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\Workwise.Persistance\\DAL\\AppDbContext.cs",
@@ -705,7 +702,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "FollowDto.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\Dtos\\Follows\\FollowDto.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Application\\Dtos\\Follows\\FollowDto.cs",
@@ -713,8 +710,7 @@
               "RelativeToolTip": "src\\Core\\Workwise.Application\\Dtos\\Follows\\FollowDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T19:29:01.914Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T19:29:01.914Z"
             },
             {
               "$type": "Document",
@@ -724,14 +720,27 @@
               "RelativeDocumentMoniker": "src\\Infrastructure\\Workwise.Persistance\\Implementations\\Services\\AccountService.cs",
               "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Persistance\\Implementations\\Services\\AccountService.cs",
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\Implementations\\Services\\AccountService.cs",
-              "ViewState": "AQIAAJcBAAAAAAAAAAAAAB4AAAAAAAAA",
+              "ViewState": "AQIAAAACAAAAAAAAAAAIwP4BAABZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-15T07:59:35.563Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 1,
+              "Title": "AppUser.cs",
+              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
+              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
+              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
+              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAADwvxwAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T18:14:25.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "AppUserGetDto.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\Dtos\\Accounts\\AppUserGetDto.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Application\\Dtos\\Accounts\\AppUserGetDto.cs",
@@ -743,7 +752,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "AppUserDto.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Application\\Dtos\\Accounts\\AppUserDto.cs",
               "RelativeDocumentMoniker": "src\\Core\\Workwise.Application\\Dtos\\Accounts\\AppUserDto.cs",
@@ -751,8 +760,7 @@
               "RelativeToolTip": "src\\Core\\Workwise.Application\\Dtos\\Accounts\\AppUserDto.cs",
               "ViewState": "AQIAAAUAAAAAAAAAAAAxwBkAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T09:19:21.451Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T09:19:21.451Z"
             },
             {
               "$type": "Document",
@@ -768,7 +776,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "AccountsController.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Presentation\\Workwise.API\\Controllers\\AccountsController.cs",
               "RelativeDocumentMoniker": "src\\Presentation\\Workwise.API\\Controllers\\AccountsController.cs",
@@ -780,7 +788,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "SettingsController.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Presentation\\Workwise.API\\Controllers\\SettingsController.cs",
               "RelativeDocumentMoniker": "src\\Presentation\\Workwise.API\\Controllers\\SettingsController.cs",
@@ -788,8 +796,7 @@
               "RelativeToolTip": "src\\Presentation\\Workwise.API\\Controllers\\SettingsController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T04:22:20.297Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-16T04:22:20.297Z"
             },
             {
               "$type": "Document",
@@ -817,19 +824,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "AppUser.cs",
-              "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
-              "RelativeDocumentMoniker": "src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
-              "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
-              "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAA4wB0AAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T18:14:25.274Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "CategoriesController.cs",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Presentation\\Workwise.API\\Controllers\\CategoriesController.cs",
               "RelativeDocumentMoniker": "src\\Presentation\\Workwise.API\\Controllers\\CategoriesController.cs",
