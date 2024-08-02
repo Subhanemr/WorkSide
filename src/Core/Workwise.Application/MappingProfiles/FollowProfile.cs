@@ -9,6 +9,7 @@ namespace Workwise.Application.MappingProfiles
         public FollowProfile()
         {
             CreateMap<Follow, FollowDto>().ReverseMap();
+            CreateMap<Follow, FollowingDto>().ReverseMap();
         }
     }
 }

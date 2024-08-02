@@ -23,7 +23,7 @@
         public string? CustomStatus { get; init; }
 
         public ICollection<FollowDto>? Followers { get; init; }
-        public ICollection<FollowDto>? Followings { get; set; }
+        public ICollection<FollowingDto>? Followings { get; set; }
         public ICollection<SkillIncludeDto>? Skills { get; init; }
         public ICollection<EducationIncludeDto>? Educations { get; init; }
         public ICollection<ExperienceIncludeDto>? Experiences { get; init; }
