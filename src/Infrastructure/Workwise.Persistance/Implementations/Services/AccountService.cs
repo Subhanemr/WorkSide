@@ -335,10 +335,14 @@ namespace Workwise.Persistance.Implementations.Services
             return new($"{user.Id}-User's password is successfully changed");
         }
 
-        public async Task<ResultDto> FollowUserAsync(string followerId, string followingId)
+        public async Task<ResultDto> FollowUserAsync(string followingId)
         {
+            string followerId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (followerId == followingId)
+                throw new WrongRequestException("You cannot follow yourself.");
+
             AppUser userFollower = await _getByIdAsync(followerId);
-            AppUser userFollowing = await _getByIdAsync(followerId);
+            AppUser userFollowing = await _getByIdAsync(followingId);
             if(userFollower == null || userFollowing == null)
                 throw new NotFoundException($"User is not found!");
 
@@ -358,10 +362,14 @@ namespace Workwise.Persistance.Implementations.Services
             return new("You have successfully followed the user.");
         }
 
-        public async Task<ResultDto> UnFollowUserAsync(string followerId, string followingId)
+        public async Task<ResultDto> UnFollowUserAsync(string followingId)
         {
+            string followerId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (followerId == followingId)
+                throw new WrongRequestException("You cannot unfollow yourself.");
+
             AppUser userFollower = await _getByIdAsync(followerId);
-            AppUser userFollowing = await _getByIdAsync(followerId);
+            AppUser userFollowing = await _getByIdAsync(followingId);
             if (userFollower == null || userFollowing == null)
                 throw new NotFoundException($"User is not found!");
 
@@ -377,13 +385,17 @@ namespace Workwise.Persistance.Implementations.Services
             return new("You have successfully unfollowed the user.");
         }
 
-        public async Task<ResultDto> LikeJobAsync(string userId, string jobId)
+        public async Task<ResultDto> LikeJobAsync(string jobId)
         {
-            AppUser user = await _getByIdAsync(userId);
-            if (user == null) throw new NotFoundException($"User is not found!");
+            string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             Job job = await _jobRepository.GetByIdAsync(jobId);
-            if (job == null) throw new NotFoundException($"Job is not found!");
+            if (job == null) 
+                throw new NotFoundException($"Job is not found!");
+
+            AppUser user = await _getByIdAsync(userId);
+            if (user == null) 
+                throw new NotFoundException($"User is not found!");
 
             JobLike jobLike = user.JobLikes.FirstOrDefault(x => x.JobId == jobId);
 
@@ -401,13 +413,17 @@ namespace Workwise.Persistance.Implementations.Services
             return new("You have successfully liked the job.");
         }
 
-        public async Task<ResultDto> UnLikeJobAsync(string userId, string jobId)
+        public async Task<ResultDto> UnLikeJobAsync(string jobId)
         {
-            AppUser user = await _getByIdAsync(userId);
-            if (user == null) throw new NotFoundException($"User is not found!");
+            string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             Job job = await _jobRepository.GetByIdAsync(jobId);
-            if (job == null) throw new NotFoundException($"Job is not found!");
+            if (job == null)
+                throw new NotFoundException($"Job is not found!");
+
+            AppUser user = await _getByIdAsync(userId);
+            if (user == null) 
+                throw new NotFoundException($"User is not found!");
 
             JobLike jobLike = user.JobLikes.FirstOrDefault(x => x.JobId == jobId);
 
@@ -421,13 +437,17 @@ namespace Workwise.Persistance.Implementations.Services
             return new("You have successfully unliked the job.");
         }
 
-        public async Task<ResultDto> LikeProjectAsync(string userId, string projectId)
+        public async Task<ResultDto> LikeProjectAsync(string projectId)
         {
-            AppUser user = await _getByIdAsync(userId);
-            if (user == null) throw new NotFoundException($"User is not found!");
+            string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             Project project = await _projectRepository.GetByIdAsync(projectId);
-            if (project == null) throw new NotFoundException($"Project is not found!");
+            if (project == null)
+                throw new NotFoundException($"Project is not found!");
+
+            AppUser user = await _getByIdAsync(userId);
+            if (user == null) 
+                throw new NotFoundException($"User is not found!");
 
             ProjectLike? projectLike = user.ProjectLikes.FirstOrDefault(x => x.ProjectId == projectId);
 
@@ -445,13 +465,17 @@ namespace Workwise.Persistance.Implementations.Services
             return new("You have successfully liked the project.");
         }
 
-        public async Task<ResultDto> UnLikeProjectAsync(string userId, string projectId)
+        public async Task<ResultDto> UnLikeProjectAsync(string projectId)
         {
-            AppUser user = await _getByIdAsync(userId);
-            if (user == null) throw new NotFoundException($"User is not found!");
+            string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             Project project = await _projectRepository.GetByIdAsync(projectId);
-            if (project == null) throw new NotFoundException($"Project is not found!");
+            if (project == null)
+                throw new NotFoundException($"Project is not found!");
+
+            AppUser user = await _getByIdAsync(userId);
+            if (user == null) 
+                throw new NotFoundException($"User is not found!");
 
             ProjectLike? projectLike = user.ProjectLikes.FirstOrDefault(x => x.ProjectId == projectId);
 

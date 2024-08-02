@@ -23,11 +23,11 @@ namespace Workwise.Application.Abstractions.Services
         Task<PaginationDto<AppUserDto>> GetUsersAsync(string? search, int take, int page, int order, bool isActivate = false);
         Task<AppUserGetDto> CheckResetPasswordToken(ForgetPasswordTokenDto dto);
         Task<ResultDto> ChangePasswordByAdminAsync(ChangePasswordByAdminDto dto);
-        Task<ResultDto> FollowUserAsync(string followerId, string followingId);
-        Task<ResultDto> UnFollowUserAsync(string followerId, string followingId);
-        Task<ResultDto> LikeJobAsync(string userId, string jobId);
-        Task<ResultDto> UnLikeJobAsync(string userId, string jobId);
-        Task<ResultDto> LikeProjectAsync(string userId, string projectId);
-        Task<ResultDto> UnLikeProjectAsync(string userId, string projectId);
+        Task<ResultDto> FollowUserAsync(string followingId);
+        Task<ResultDto> UnFollowUserAsync(string followingId);
+        Task<ResultDto> LikeJobAsync(string jobId);
+        Task<ResultDto> UnLikeJobAsync(string jobId);
+        Task<ResultDto> LikeProjectAsync(string projectId);
+        Task<ResultDto> UnLikeProjectAsync(string projectId);
     }
 }

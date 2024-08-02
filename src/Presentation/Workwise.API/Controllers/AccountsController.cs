@@ -102,39 +102,39 @@ namespace Workwise.API.Controllers
         }
         [HttpPut("[Action]")]
         [Authorize]
-        public async Task<IActionResult> FollowUser(string followerId, string followingId)
+        public async Task<IActionResult> FollowUser(string followingId)
         {
-            return Ok(await _service.FollowUserAsync(followerId, followingId));
+            return Ok(await _service.FollowUserAsync(followingId));
         }
         [HttpPut("[Action]")]
         [Authorize]
-        public async Task<IActionResult> UnFollowUser(string followerId, string followingId)
+        public async Task<IActionResult> UnFollowUser(string followingId)
         {
-            return Ok(await _service.UnFollowUserAsync(followerId, followingId));
+            return Ok(await _service.UnFollowUserAsync(followingId));
         }
         [HttpPut("[Action]")]
         [Authorize]
-        public async Task<IActionResult> LikeJob(string userId, string jobId)
+        public async Task<IActionResult> LikeJob(string jobId)
         {
-            return Ok(await _service.LikeJobAsync(userId, jobId));
+            return Ok(await _service.LikeJobAsync(jobId));
         }
         [HttpPut("[Action]")]
         [Authorize]
-        public async Task<IActionResult> UnLikeJob(string userId, string jobId)
+        public async Task<IActionResult> UnLikeJob(string jobId)
         {
-            return Ok(await _service.UnLikeJobAsync(userId, jobId));
+            return Ok(await _service.UnLikeJobAsync(jobId));
         }
         [HttpPut("[Action]")]
         [Authorize]
-        public async Task<IActionResult> LikeProject(string userId, string projectId)
+        public async Task<IActionResult> LikeProject(string projectId)
         {
-            return Ok(await _service.LikeProjectAsync(userId, projectId));
+            return Ok(await _service.LikeProjectAsync(projectId));
         }
         [HttpPut("[Action]")]
         [Authorize]
-        public async Task<IActionResult> UnLikeProject(string userId, string projectId)
+        public async Task<IActionResult> UnLikeProject(string projectId)
         {
-            return Ok(await _service.UnLikeProjectAsync(userId, projectId));
+            return Ok(await _service.UnLikeProjectAsync(projectId));
         }
     }
 }
