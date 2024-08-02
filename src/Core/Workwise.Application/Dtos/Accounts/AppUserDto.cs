@@ -1,6 +1,4 @@
-﻿using Workwise.Application.Dtos.Follows;
-
-namespace Workwise.Application.Dtos
+﻿namespace Workwise.Application.Dtos
 {
     public record AppUserDto
     {
@@ -24,15 +22,15 @@ namespace Workwise.Application.Dtos
         public bool IsOnlinne { get; init; }
         public string? CustomStatus { get; init; }
 
-        public List<FollowDto>? Follows { get; init; }
-        public List<FollowingDto>? Followings { get; init; }
-        public List<SkillIncludeDto>? Skills { get; init; }
-        public List<EducationIncludeDto>? Educations { get; init; }
-        public List<ExperienceIncludeDto>? Experiences { get; init; }
-        public List<PortfolioIncludeDto>? Portfolios { get; init; }
-        public List<LocationIncludeDto>? Locations { get; init; }
-        public List<HireAccountDto>? HireAccounts { get; init; }
-        public List<JobIncludeDto>? Jobs { get; init; }
-        public List<ProjectIncludeDto>? Projects { get; init; }
+        public ICollection<FollowDto>? Followers { get; init; }
+        public ICollection<FollowDto>? Followings { get; set; }
+        public ICollection<SkillIncludeDto>? Skills { get; init; }
+        public ICollection<EducationIncludeDto>? Educations { get; init; }
+        public ICollection<ExperienceIncludeDto>? Experiences { get; init; }
+        public ICollection<PortfolioIncludeDto>? Portfolios { get; init; }
+        public ICollection<LocationIncludeDto>? Locations { get; init; }
+        public ICollection<HireAccountDto>? HireAccounts { get; init; }
+        public ICollection<JobIncludeDto>? Jobs { get; init; }
+        public ICollection<ProjectIncludeDto>? Projects { get; init; }
     }
 }

@@ -303,7 +303,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Education", b =>
@@ -349,7 +349,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Educations");
+                    b.ToTable("Educations", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Experience", b =>
@@ -382,7 +382,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Experiences");
+                    b.ToTable("Experiences", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Follow", b =>
@@ -413,7 +413,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("FollowingId");
 
-                    b.ToTable("Follows");
+                    b.ToTable("Follows", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.HireAccount", b =>
@@ -442,7 +442,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("HireAccounts");
+                    b.ToTable("HireAccounts", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Job", b =>
@@ -495,7 +495,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Jobs");
+                    b.ToTable("Jobs", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.JobComment", b =>
@@ -534,7 +534,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("JobId");
 
-                    b.ToTable("JobComments");
+                    b.ToTable("JobComments", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.JobLike", b =>
@@ -569,7 +569,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("JobId");
 
-                    b.ToTable("JobLike");
+                    b.ToTable("JobLike", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.JobReply", b =>
@@ -608,7 +608,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("JobCommentId");
 
-                    b.ToTable("JobReplies");
+                    b.ToTable("JobReplies", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Location", b =>
@@ -645,7 +645,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Locations");
+                    b.ToTable("Locations", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Portfolio", b =>
@@ -686,7 +686,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Portfolios");
+                    b.ToTable("Portfolios", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Project", b =>
@@ -738,7 +738,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Projects");
+                    b.ToTable("Projects", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.ProjectComment", b =>
@@ -777,7 +777,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("ProjectComments");
+                    b.ToTable("ProjectComments", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.ProjectLike", b =>
@@ -812,7 +812,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("ProjectLikes");
+                    b.ToTable("ProjectLikes", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.ProjectReply", b =>
@@ -851,7 +851,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("ProjectCommentId");
 
-                    b.ToTable("ProjectReplies");
+                    b.ToTable("ProjectReplies", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Settings", b =>
@@ -882,7 +882,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Settings");
+                    b.ToTable("Settings", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Skill", b =>
@@ -915,7 +915,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Skills");
+                    b.ToTable("Skills", (string)null);
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.WorkTime", b =>
@@ -942,7 +942,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WorkTimes");
+                    b.ToTable("WorkTimes", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

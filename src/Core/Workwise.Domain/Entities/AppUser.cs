@@ -27,7 +27,7 @@ namespace Workwise.Domain.Entities
         public string? CustomStatus { get; set; }
 
         public ICollection<Follow>? Followers { get; set; }
-        public ICollection<Follow>? Following { get; set; }
+        public ICollection<Follow>? Followings { get; set; }
         public ICollection<Skill>? Skills { get; set; }
         public ICollection<Education>? Educations { get; set; }
         public ICollection<Experience>? Experiences { get; set; }

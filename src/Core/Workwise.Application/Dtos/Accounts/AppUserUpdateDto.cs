@@ -1,6 +1,4 @@
-﻿using Workwise.Application.Dtos.Follows;
-
-namespace Workwise.Application.Dtos
+﻿namespace Workwise.Application.Dtos
 {
     public record AppUserUpdateDto
     {

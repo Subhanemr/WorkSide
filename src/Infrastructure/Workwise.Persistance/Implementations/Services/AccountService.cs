@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
 using System.Text;
+using Workwise.Application.Abstractions.Repositories;
 using Workwise.Application.Abstractions.Services;
 using Workwise.Application.Dtos;
 using Workwise.Application.Dtos.Accounts;
@@ -20,6 +21,8 @@ namespace Workwise.Persistance.Implementations.Services
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly IJobRepository _jobRepository;
+        private readonly IProjectRepository _projectRepository;
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
         private readonly IEmailService _emailService;
@@ -28,7 +31,8 @@ namespace Workwise.Persistance.Implementations.Services
 
         public AccountService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
             IMapper mapper, IEmailService emailService, IHttpContextAccessor http, ITokenHandler tokenHandler,
-            IConfiguration configuration, RoleManager<IdentityRole> roleManager)
+            IConfiguration configuration, RoleManager<IdentityRole> roleManager, IJobRepository jobRepository, 
+            IProjectRepository projectRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -38,6 +42,8 @@ namespace Workwise.Persistance.Implementations.Services
             _tokenHandler = tokenHandler;
             _configuration = configuration;
             _roleManager = roleManager;
+            _jobRepository = jobRepository;
+            _projectRepository = projectRepository;
         }
 
         public async Task<TokenResponseDto> LogInAsync(LoginDto login)
@@ -329,6 +335,136 @@ namespace Workwise.Persistance.Implementations.Services
             return new($"{user.Id}-User's password is successfully changed");
         }
 
+        public async Task<ResultDto> FollowUserAsync(string followerId, string followingId)
+        {
+            AppUser userFollower = await _getByIdAsync(followerId);
+            AppUser userFollowing = await _getByIdAsync(followerId);
+            if(userFollower == null || userFollowing == null)
+                throw new NotFoundException($"User is not found!");
+
+            Follow followToRemove = userFollower.Followers.FirstOrDefault(f => f.FollowingId == followingId);
+
+            if (followToRemove != null)
+                throw new AlreadyExistException("You are already following this user.");
+
+            userFollower.Followers.Add(new Follow
+            {
+                FollowerId = followerId,
+                FollowingId = followingId
+            });
+
+            await _userManager.UpdateAsync(userFollower);
+
+            return new("You have successfully followed the user.");
+        }
+
+        public async Task<ResultDto> UnFollowUserAsync(string followerId, string followingId)
+        {
+            AppUser userFollower = await _getByIdAsync(followerId);
+            AppUser userFollowing = await _getByIdAsync(followerId);
+            if (userFollower == null || userFollowing == null)
+                throw new NotFoundException($"User is not found!");
+
+            Follow followToRemove = userFollower.Followers.FirstOrDefault(f => f.FollowingId == followingId);
+
+            if(followToRemove == null)
+                throw new NotFoundException("Follow relationship not found!");
+
+            userFollower.Followers.Remove(followToRemove);
+
+            await _userManager.UpdateAsync(userFollower);
+
+            return new("You have successfully unfollowed the user.");
+        }
+
+        public async Task<ResultDto> LikeJobAsync(string userId, string jobId)
+        {
+            AppUser user = await _getByIdAsync(userId);
+            if (user == null) throw new NotFoundException($"User is not found!");
+
+            Job job = await _jobRepository.GetByIdAsync(jobId);
+            if (job == null) throw new NotFoundException($"Job is not found!");
+
+            JobLike jobLike = user.JobLikes.FirstOrDefault(x => x.JobId == jobId);
+
+            if (jobLike != null)
+                throw new AlreadyExistException("You are already like this Job.");
+
+            user.JobLikes.Add(new JobLike
+            {
+                AppUserId = userId,
+                JobId = jobId
+            });
+
+            await _userManager.UpdateAsync(user);
+
+            return new("You have successfully liked the job.");
+        }
+
+        public async Task<ResultDto> UnLikeJobAsync(string userId, string jobId)
+        {
+            AppUser user = await _getByIdAsync(userId);
+            if (user == null) throw new NotFoundException($"User is not found!");
+
+            Job job = await _jobRepository.GetByIdAsync(jobId);
+            if (job == null) throw new NotFoundException($"Job is not found!");
+
+            JobLike jobLike = user.JobLikes.FirstOrDefault(x => x.JobId == jobId);
+
+            if (jobLike == null)
+                throw new NotFoundException("Job&Like relationship not found!");
+
+            user.JobLikes.Remove(jobLike);
+
+            await _userManager.UpdateAsync(user);
+
+            return new("You have successfully unliked the job.");
+        }
+
+        public async Task<ResultDto> LikeProjectAsync(string userId, string projectId)
+        {
+            AppUser user = await _getByIdAsync(userId);
+            if (user == null) throw new NotFoundException($"User is not found!");
+
+            Project project = await _projectRepository.GetByIdAsync(projectId);
+            if (project == null) throw new NotFoundException($"Project is not found!");
+
+            ProjectLike? projectLike = user.ProjectLikes.FirstOrDefault(x => x.ProjectId == projectId);
+
+            if (projectLike != null)
+                throw new AlreadyExistException("You are already like this Project.");
+
+            user.ProjectLikes.Add(new ProjectLike
+            {
+                AppUserId = userId,
+                ProjectId = projectId
+            });
+
+            await _userManager.UpdateAsync(user);
+
+            return new("You have successfully liked the project.");
+        }
+
+        public async Task<ResultDto> UnLikeProjectAsync(string userId, string projectId)
+        {
+            AppUser user = await _getByIdAsync(userId);
+            if (user == null) throw new NotFoundException($"User is not found!");
+
+            Project project = await _projectRepository.GetByIdAsync(projectId);
+            if (project == null) throw new NotFoundException($"Project is not found!");
+
+            ProjectLike? projectLike = user.ProjectLikes.FirstOrDefault(x => x.ProjectId == projectId);
+
+            if (projectLike == null)
+                throw new NotFoundException("Project&Like relationship not found!");
+
+            user.ProjectLikes.Remove(projectLike);
+
+            await _userManager.UpdateAsync(user);
+
+            return new("You have successfully unliked the project.");
+        }
+
         private async Task<AppUser> _getUserById(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -346,7 +482,7 @@ namespace Workwise.Persistance.Implementations.Services
             if (includes)
                 query = query
                     .Include(x => x.Followers)
-                    .Include(x => x.Following)
+                    .Include(x => x.Followings)
                     .Include(x => x.Skills)
                     .Include(x => x.Educations)
                     .Include(x => x.Experiences)
@@ -372,7 +508,7 @@ namespace Workwise.Persistance.Implementations.Services
             if (includes)
                 query = query
                     .Include(x => x.Followers)
-                    .Include(x => x.Following)
+                    .Include(x => x.Followings)
                     .Include(x => x.Skills)
                     .Include(x => x.Educations)
                     .Include(x => x.Experiences)

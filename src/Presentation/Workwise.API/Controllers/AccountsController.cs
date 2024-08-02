@@ -78,7 +78,7 @@ namespace Workwise.API.Controllers
         {
             return Ok(await _service.GetCurrentUserAsync());
         }
-        [HttpPut("[action]")]
+        [HttpPut("[Action]")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ChangeUserRole(ChangeRoleDto dto)
         {
@@ -99,6 +99,42 @@ namespace Workwise.API.Controllers
         public async Task<IActionResult> GetDeletedUsers(string? search, int take, int page, int order = 1)
         {
             return Ok(await _service.GetUsersAsync(search, take, page, order, true));
+        }
+        [HttpPut("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> FollowUser(string followerId, string followingId)
+        {
+            return Ok(await _service.FollowUserAsync(followerId, followingId));
+        }
+        [HttpPut("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> UnFollowUser(string followerId, string followingId)
+        {
+            return Ok(await _service.UnFollowUserAsync(followerId, followingId));
+        }
+        [HttpPut("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> LikeJob(string userId, string jobId)
+        {
+            return Ok(await _service.LikeJobAsync(userId, jobId));
+        }
+        [HttpPut("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> UnLikeJob(string userId, string jobId)
+        {
+            return Ok(await _service.UnLikeJobAsync(userId, jobId));
+        }
+        [HttpPut("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> LikeProject(string userId, string projectId)
+        {
+            return Ok(await _service.LikeProjectAsync(userId, projectId));
+        }
+        [HttpPut("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> UnLikeProject(string userId, string projectId)
+        {
+            return Ok(await _service.UnLikeProjectAsync(userId, projectId));
         }
     }
 }

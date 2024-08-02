@@ -13,7 +13,7 @@ namespace Workwise.Persistance.Common
 
             modelBuilder.Entity<Follow>()
                 .HasOne(f => f.Follower)
-                .WithMany(u => u.Following)
+                .WithMany(u => u.Followings)
                 .HasForeignKey(f => f.FollowerId)
                 .OnDelete(DeleteBehavior.Restrict);
 
