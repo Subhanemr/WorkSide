@@ -15,7 +15,9 @@ namespace Workwise.Application.MappingProfiles
             CreateMap<Job, JobUpdateDto>().ReverseMap();
 
             CreateMap<JobComment, JobCommentDto>().ReverseMap();
+            CreateMap<JobComment, AddJobCommentDto>().ReverseMap();
             CreateMap<JobReply, JobReplyDto>().ReverseMap();
+            CreateMap<JobReply, AddJobReplyDto>().ReverseMap();
             CreateMap<JobLike, JobLikeDto>().ReverseMap();
         }
     }

@@ -50,16 +50,40 @@ namespace Workwise.API.Controllers
             return Ok(await _service.DeleteAsync(id));
         }
         [HttpDelete("[Action]/{id}")]
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize]
         public async Task<IActionResult> SoftDelete(string id)
         {
             return Ok(await _service.SoftDeleteAsync(id));
         }
         [HttpDelete("[Action]/{id}")]
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize]
         public async Task<IActionResult> ReverseSoftDelete(string id)
         {
             return Ok(await _service.ReverseSoftDeleteAsync(id));
+        }
+        [HttpPost("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> AddComment([FromForm]AddJobCommentDto dto)
+        {
+            return Ok(await _service.AddCommentAsync(dto));
+        }
+        [HttpPut("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> DeleteComment(string jobId, string jobCommentId)
+        {
+            return Ok(await _service.DeleteCommentAsync(jobId, jobCommentId));
+        }
+        [HttpPost("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> AddReply([FromForm] AddJobReplyDto dto)
+        {
+            return Ok(await _service.AddReplyAsync(dto));
+        }
+        [HttpPut("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> DeleteReply(string jobId, string jobCommentId, string jobReplyId)
+        {
+            return Ok(await _service.DeleteReplyAsync(jobId, jobCommentId, jobReplyId));
         }
     }
 }

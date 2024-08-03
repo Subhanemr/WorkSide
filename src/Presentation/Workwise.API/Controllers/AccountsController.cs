@@ -100,7 +100,7 @@ namespace Workwise.API.Controllers
         {
             return Ok(await _service.GetUsersAsync(search, take, page, order, true));
         }
-        [HttpPut("[Action]")]
+        [HttpPost("[Action]")]
         [Authorize]
         public async Task<IActionResult> FollowUser(string followingId)
         {
@@ -112,7 +112,7 @@ namespace Workwise.API.Controllers
         {
             return Ok(await _service.UnFollowUserAsync(followingId));
         }
-        [HttpPut("[Action]")]
+        [HttpPost("[Action]")]
         [Authorize]
         public async Task<IActionResult> LikeJob(string jobId)
         {
@@ -124,7 +124,7 @@ namespace Workwise.API.Controllers
         {
             return Ok(await _service.UnLikeJobAsync(jobId));
         }
-        [HttpPut("[Action]")]
+        [HttpPost("[Action]")]
         [Authorize]
         public async Task<IActionResult> LikeProject(string projectId)
         {

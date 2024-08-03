@@ -59,7 +59,9 @@ namespace Workwise.Persistance.Implementations.Services
         {
             if (string.IsNullOrEmpty(id))
                 throw new WrongRequestException("The provided id is null or empty");
-            Category item = await _getByIdAsync(id);
+
+            string[] includes = { $"{nameof(Category.Jobs)}", $"{nameof(Category.Projects)}" };
+            Category item = await _getByIdAsync(id, true, includes);
 
             _repository.Delete(item);
             await _repository.SaveChangeAsync();

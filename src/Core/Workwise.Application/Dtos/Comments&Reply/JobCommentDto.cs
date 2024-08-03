@@ -1,6 +1,4 @@
-﻿using Workwise.Domain.Entities;
-
-namespace Workwise.Application.Dtos
+﻿namespace Workwise.Application.Dtos
 {
     public record JobCommentDto
     {

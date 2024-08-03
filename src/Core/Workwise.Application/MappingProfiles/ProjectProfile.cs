@@ -15,7 +15,9 @@ namespace Workwise.Application.MappingProfiles
             CreateMap<Project, ProjectUpdateDto>().ReverseMap();
 
             CreateMap<ProjectComment, ProjectCommentDto>().ReverseMap();
+            CreateMap<ProjectComment, AddProjectCommentDto>().ReverseMap();
             CreateMap<ProjectReply, ProjectReplyDto>().ReverseMap();
+            CreateMap<ProjectReply, AddProjectReplyDto>().ReverseMap();
             CreateMap<ProjectLike, ProjectLikeDto>().ReverseMap();
         }
     }

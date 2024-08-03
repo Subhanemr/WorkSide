@@ -1,6 +1,4 @@
-﻿using Workwise.Domain.Entities;
-
-namespace Workwise.Application.Dtos
+﻿namespace Workwise.Application.Dtos
 {
     public record ProjectItemDto
     {
@@ -20,7 +18,7 @@ namespace Workwise.Application.Dtos
         public string AppUserId { get; init; } = null!;
         public AppUserIncludeDto? AppUser { get; init; }
 
-        public ICollection<ProjectComment>? ProjectComments { get; init; }
+        public ICollection<ProjectCommentDto>? ProjectComments { get; init; }
         public ICollection<ProjectLikeDto>? ProjectLikes { get; init; }
     }
 }

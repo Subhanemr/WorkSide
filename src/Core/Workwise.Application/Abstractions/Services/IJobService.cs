@@ -11,5 +11,9 @@ namespace Workwise.Application.Abstractions.Services
         Task<PaginationDto<JobItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false);
         Task<JobGetDto> GetByIdAsync(string id);
         Task<ResultDto> UpdateAsync(JobUpdateDto dto);
+        Task<ResultDto> AddCommentAsync(AddJobCommentDto dto);
+        Task<ResultDto> DeleteCommentAsync(string jobId, string jobCommentId);
+        Task<ResultDto> AddReplyAsync(AddJobReplyDto dto);
+        Task<ResultDto> DeleteReplyAsync(string jobId, string jobCommentId, string jobReplyId);
     }
 }

@@ -32,13 +32,13 @@ namespace Workwise.API.Controllers
             return Ok(await _service.GetByIdAsync(id));
         }
         [HttpPost("[Action]")]
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize]
         public async Task<IActionResult> Create([FromForm] ProjectCreateDto dto)
         {
             return Ok(await _service.CreateAsync(dto));
         }
         [HttpPut("[Action]")]
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize]
         public async Task<IActionResult> Update([FromForm] ProjectUpdateDto dto)
         {
             return Ok(await _service.UpdateAsync(dto));
@@ -50,16 +50,40 @@ namespace Workwise.API.Controllers
             return Ok(await _service.DeleteAsync(id));
         }
         [HttpDelete("[Action]/{id}")]
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize]
         public async Task<IActionResult> SoftDelete(string id)
         {
             return Ok(await _service.SoftDeleteAsync(id));
         }
         [HttpDelete("[Action]/{id}")]
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize]
         public async Task<IActionResult> ReverseSoftDelete(string id)
         {
             return Ok(await _service.ReverseSoftDeleteAsync(id));
+        }
+        [HttpPost("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> AddComment([FromForm] AddProjectCommentDto dto)
+        {
+            return Ok(await _service.AddCommentAsync(dto));
+        }
+        [HttpPut("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> DeleteComment(string projectId, string projectCommentId)
+        {
+            return Ok(await _service.DeleteCommentAsync(projectId, projectCommentId));
+        }
+        [HttpPost("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> AddReply([FromForm] AddProjectReplyDto dto)
+        {
+            return Ok(await _service.AddReplyAsync(dto));
+        }
+        [HttpPut("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> DeleteReply(string projectId, string projectCommentId, string projectReplyId)
+        {
+            return Ok(await _service.DeleteReplyAsync(projectId, projectCommentId, projectReplyId));
         }
     }
 }

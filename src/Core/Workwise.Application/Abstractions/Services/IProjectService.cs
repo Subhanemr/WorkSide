@@ -11,5 +11,9 @@ namespace Workwise.Application.Abstractions.Services
         Task<PaginationDto<ProjectItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false);
         Task<ProjectGetDto> GetByIdAsync(string id);
         Task<ResultDto> UpdateAsync(ProjectUpdateDto dto);
+        Task<ResultDto> AddCommentAsync(AddProjectCommentDto dto);
+        Task<ResultDto> DeleteCommentAsync(string projectId, string projectCommentId);
+        Task<ResultDto> AddReplyAsync(AddProjectReplyDto dto);
+        Task<ResultDto> DeleteReplyAsync(string projectId, string projectCommentId, string projectReplyId);
     }
 }

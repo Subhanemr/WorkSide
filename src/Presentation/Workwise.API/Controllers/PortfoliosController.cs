@@ -33,13 +33,13 @@ namespace Workwise.API.Controllers
             return Ok(await _service.GetByIdAsync(id));
         }
         [HttpPost("[Action]")]
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize]
         public async Task<IActionResult> Create([FromForm] PortfolioCreateDto dto)
         {
             return Ok(await _service.CreateAsync(dto));
         }
         [HttpPut("[Action]")]
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize]
         public async Task<IActionResult> Update([FromForm] PortfolioUpdateDto dto)
         {
             return Ok(await _service.UpdateAsync(dto));
@@ -51,13 +51,13 @@ namespace Workwise.API.Controllers
             return Ok(await _service.DeleteAsync(id));
         }
         [HttpDelete("[Action]/{id}")]
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize]
         public async Task<IActionResult> SoftDelete(string id)
         {
             return Ok(await _service.SoftDeleteAsync(id));
         }
         [HttpDelete("[Action]/{id}")]
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize]
         public async Task<IActionResult> ReverseSoftDelete(string id)
         {
             return Ok(await _service.ReverseSoftDeleteAsync(id));

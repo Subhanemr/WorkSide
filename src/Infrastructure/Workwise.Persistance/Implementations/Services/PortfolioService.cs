@@ -1,28 +1,34 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using Workwise.Application.Abstractions.Repositories;
 using Workwise.Application.Abstractions.Services;
 using Workwise.Application.Dtos;
 using Workwise.Domain.Entities;
 using Workwise.Persistance.Utilities;
+using static System.Net.WebRequestMethods;
 
 namespace Workwise.Persistance.Implementations.Services
 {
     public class PortfolioService : IPortfolioService
     {
         private readonly IPortfolioRepository _repository;
+        private readonly IHttpContextAccessor _http;
         private readonly IMapper _mapper;
 
-        public PortfolioService(IPortfolioRepository repository, IMapper mapper)
+        public PortfolioService(IPortfolioRepository repository, IMapper mapper, IHttpContextAccessor http)
         {
             _repository = repository;
             _mapper = mapper;
+            _http = http;
         }
 
         public async Task<ResultDto> CreateAsync(PortfolioCreateDto dto)
         {
             if (await _repository.CheckUniqueAsync(x => x.Name == dto.Name))
                 throw new AlreadyExistException($"{dto.Name} - This Portfolio is already exist!");
+
             Portfolio item = _mapper.Map<Portfolio>(dto);
 
             await _repository.AddAsync(item);
@@ -35,7 +41,14 @@ namespace Workwise.Persistance.Implementations.Services
         {
             if (string.IsNullOrEmpty(id))
                 throw new WrongRequestException("The provided id is null or empty");
+
             Portfolio item = await _getByIdAsync(id);
+
+            string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            bool isAdmin = _http.HttpContext.User.IsInRole("Admin");
+            bool isModerator = _http.HttpContext.User.IsInRole("Moderator");
+            if (item.AppUserId != currentUserId || !isAdmin || !isModerator)
+                throw new WrongRequestException("You do not have permission to restore this job.");
 
             _repository.SoftDelete(item);
             await _repository.SaveChangeAsync();
@@ -47,7 +60,14 @@ namespace Workwise.Persistance.Implementations.Services
         {
             if (string.IsNullOrEmpty(id))
                 throw new WrongRequestException("The provided id is null or empty");
+
             Portfolio item = await _getByIdAsync(id);
+
+            string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            bool isAdmin = _http.HttpContext.User.IsInRole("Admin");
+            bool isModerator = _http.HttpContext.User.IsInRole("Moderator");
+            if (item.AppUserId != currentUserId || !isAdmin || !isModerator)
+                throw new WrongRequestException("You do not have permission to restore this job.");
 
             _repository.ReverseSoftDelete(item);
             await _repository.SaveChangeAsync();
@@ -59,6 +79,7 @@ namespace Workwise.Persistance.Implementations.Services
         {
             if (string.IsNullOrEmpty(id))
                 throw new WrongRequestException("The provided id is null or empty");
+
             Portfolio item = await _getByIdAsync(id);
 
             _repository.Delete(item);

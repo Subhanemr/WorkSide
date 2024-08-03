@@ -303,7 +303,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Education", b =>
@@ -349,7 +349,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Educations", (string)null);
+                    b.ToTable("Educations");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Experience", b =>
@@ -382,7 +382,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Experiences", (string)null);
+                    b.ToTable("Experiences");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Follow", b =>
@@ -413,7 +413,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("FollowingId");
 
-                    b.ToTable("Follows", (string)null);
+                    b.ToTable("Follows");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.HireAccount", b =>
@@ -442,7 +442,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("HireAccounts", (string)null);
+                    b.ToTable("HireAccounts");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Job", b =>
@@ -495,7 +495,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Jobs", (string)null);
+                    b.ToTable("Jobs");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.JobComment", b =>
@@ -534,7 +534,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("JobId");
 
-                    b.ToTable("JobComments", (string)null);
+                    b.ToTable("JobComments");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.JobLike", b =>
@@ -569,7 +569,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("JobId");
 
-                    b.ToTable("JobLike", (string)null);
+                    b.ToTable("JobLike");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.JobReply", b =>
@@ -580,6 +580,10 @@ namespace Workwise.Persistance.DAL.Migrations
                     b.Property<string>("AppUserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
@@ -595,10 +599,6 @@ namespace Workwise.Persistance.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ReplyComment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2");
 
@@ -608,7 +608,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("JobCommentId");
 
-                    b.ToTable("JobReplies", (string)null);
+                    b.ToTable("JobReplies");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Location", b =>
@@ -645,7 +645,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Locations", (string)null);
+                    b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Portfolio", b =>
@@ -686,7 +686,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Portfolios", (string)null);
+                    b.ToTable("Portfolios");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Project", b =>
@@ -738,7 +738,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Projects", (string)null);
+                    b.ToTable("Projects");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.ProjectComment", b =>
@@ -777,7 +777,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("ProjectComments", (string)null);
+                    b.ToTable("ProjectComments");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.ProjectLike", b =>
@@ -812,7 +812,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("ProjectLikes", (string)null);
+                    b.ToTable("ProjectLikes");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.ProjectReply", b =>
@@ -823,6 +823,10 @@ namespace Workwise.Persistance.DAL.Migrations
                     b.Property<string>("AppUserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
@@ -838,10 +842,6 @@ namespace Workwise.Persistance.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ReplyComment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2");
 
@@ -851,7 +851,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("ProjectCommentId");
 
-                    b.ToTable("ProjectReplies", (string)null);
+                    b.ToTable("ProjectReplies");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Settings", b =>
@@ -882,7 +882,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Settings", (string)null);
+                    b.ToTable("Settings");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.Skill", b =>
@@ -915,7 +915,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Skills", (string)null);
+                    b.ToTable("Skills");
                 });
 
             modelBuilder.Entity("Workwise.Domain.Entities.WorkTime", b =>
@@ -942,7 +942,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WorkTimes", (string)null);
+                    b.ToTable("WorkTimes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1021,7 +1021,7 @@ namespace Workwise.Persistance.DAL.Migrations
             modelBuilder.Entity("Workwise.Domain.Entities.Follow", b =>
                 {
                     b.HasOne("Workwise.Domain.Entities.AppUser", "Follower")
-                        .WithMany("Following")
+                        .WithMany("Followings")
                         .HasForeignKey("FollowerId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -1241,7 +1241,7 @@ namespace Workwise.Persistance.DAL.Migrations
 
                     b.Navigation("Followers");
 
-                    b.Navigation("Following");
+                    b.Navigation("Followings");
 
                     b.Navigation("HireAccounts");
 

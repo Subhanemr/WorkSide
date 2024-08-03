@@ -347,7 +347,6 @@ namespace Workwise.Persistance.Implementations.Services
                 throw new NotFoundException($"User is not found!");
 
             Follow followToRemove = userFollower.Followers.FirstOrDefault(f => f.FollowingId == followingId);
-
             if (followToRemove != null)
                 throw new AlreadyExistException("You are already following this user.");
 
@@ -374,7 +373,6 @@ namespace Workwise.Persistance.Implementations.Services
                 throw new NotFoundException($"User is not found!");
 
             Follow followToRemove = userFollower.Followers.FirstOrDefault(f => f.FollowingId == followingId);
-
             if(followToRemove == null)
                 throw new NotFoundException("Follow relationship not found!");
 
@@ -398,7 +396,6 @@ namespace Workwise.Persistance.Implementations.Services
                 throw new NotFoundException($"User is not found!");
 
             JobLike jobLike = user.JobLikes.FirstOrDefault(x => x.JobId == jobId);
-
             if (jobLike != null)
                 throw new AlreadyExistException("You are already like this Job.");
 
@@ -426,7 +423,6 @@ namespace Workwise.Persistance.Implementations.Services
                 throw new NotFoundException($"User is not found!");
 
             JobLike jobLike = user.JobLikes.FirstOrDefault(x => x.JobId == jobId);
-
             if (jobLike == null)
                 throw new NotFoundException("Job&Like relationship not found!");
 

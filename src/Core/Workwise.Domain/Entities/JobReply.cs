@@ -2,7 +2,7 @@
 {
     public class JobReply : BaseEntity
     {
-        public string ReplyComment { get; set; } = null!;
+        public string Comment { get; set; } = null!;
         public string AppUserId { get; set; } = null!;
         public AppUser? AppUser { get; set; }
         public string JobCommentId { get; set; } = null!;
