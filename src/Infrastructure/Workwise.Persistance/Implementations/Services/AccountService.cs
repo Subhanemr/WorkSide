@@ -104,6 +104,11 @@ namespace Workwise.Persistance.Implementations.Services
             return new($"The user has been successfully created, please check your email inbox for email confirmation.");
         }
 
+        public async Task<ResultDto> UpdateUserAsync()
+        {
+
+        }
+
         public async Task<TokenResponseDto> LogInByRefreshToken(string refresh)
         {
             AppUser? user = await _userManager.Users.FirstOrDefaultAsync(x => x.RefreshToken == refresh);

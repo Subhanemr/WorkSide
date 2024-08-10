@@ -42,5 +42,9 @@ namespace Workwise.Domain.Entities
         public ICollection<ProjectComment>? ProjectComments { get; set; }
         public ICollection<ProjectReply>? ProjectReplies { get; set; }
         public ICollection<ProjectLike>? ProjectLikes { get; set; }
+
+        public ICollection<Notification>? Notifications { get; set; }
+        public ICollection<Chat>? Chats { get; set; }
+        public ICollection<Message>? Messages { get; set; }
     }
 }

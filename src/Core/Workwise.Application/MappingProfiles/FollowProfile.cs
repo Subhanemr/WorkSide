@@ -6,7 +6,7 @@ namespace Workwise.Application.MappingProfiles
 {
     internal class FollowProfile : Profile
     {
-        public FollowProfile()
+        public FollowProfile()a
         {
             CreateMap<Follow, FollowDto>().ReverseMap();
             CreateMap<Follow, FollowingDto>().ReverseMap();

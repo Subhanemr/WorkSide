@@ -14,14 +14,17 @@ namespace Workwise.Persistance.Implementations.Services
     public class PortfolioService : IPortfolioService
     {
         private readonly IPortfolioRepository _repository;
+        public readonly ICLoudService _cloud;
         private readonly IHttpContextAccessor _http;
         private readonly IMapper _mapper;
 
-        public PortfolioService(IPortfolioRepository repository, IMapper mapper, IHttpContextAccessor http)
+        public PortfolioService(IPortfolioRepository repository, IMapper mapper, IHttpContextAccessor http, 
+            ICLoudService cloud)
         {
             _repository = repository;
             _mapper = mapper;
             _http = http;
+            _cloud = cloud;
         }
 
         public async Task<ResultDto> CreateAsync(PortfolioCreateDto dto)
@@ -30,6 +33,10 @@ namespace Workwise.Persistance.Implementations.Services
                 throw new AlreadyExistException($"{dto.Name} - This Portfolio is already exist!");
 
             Portfolio item = _mapper.Map<Portfolio>(dto);
+            if (dto.File != null)
+            {
+                item.Url = await _cloud.FileCreateAsync(dto.File);
+            }
 
             await _repository.AddAsync(item);
             await _repository.SaveChangeAsync();

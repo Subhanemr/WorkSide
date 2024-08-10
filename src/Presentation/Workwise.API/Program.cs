@@ -32,6 +32,7 @@ app.AddExceptionHandlerService();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.AddSignalREndpoints();
 app.MapControllers();
 
 app.Run();

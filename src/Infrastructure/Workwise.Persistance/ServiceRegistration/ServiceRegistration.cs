@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,6 +8,7 @@ using Workwise.Application.Abstractions.Services;
 using Workwise.Domain.Entities;
 using Workwise.Infrastructure.Implementations;
 using Workwise.Persistance.DAL;
+using Workwise.Persistance.Implementations.Hubs;
 using Workwise.Persistance.Implementations.Repositories;
 using Workwise.Persistance.Implementations.Services;
 
@@ -24,6 +26,14 @@ namespace Workwise.Persistance.ServiceRegistration
             AddInterceptors(services);
 
             return services;
+        }
+
+        public static WebApplication AddSignalREndpoints(this WebApplication app)
+        {
+            app.MapHub<NotificationHub>("/notificationHub");
+            app.MapHub<ChatHub>("/chatHub");
+
+            return app;
         }
 
         private static void AddIdentity(IServiceCollection services)
@@ -69,6 +79,9 @@ namespace Workwise.Persistance.ServiceRegistration
             services.AddScoped<IPortfolioService, PortfolioService>();
             services.AddScoped<IProjectService, ProjectService>();
             services.AddScoped<ISettingsService, SettingsService>();
+            services.AddScoped<IChatService, ChatService>();
+            services.AddScoped<IMessageService, MessageService>();
+            services.AddScoped<INotificationService, NotificationService>();
         }
 
         private static void AddRepositories(IServiceCollection services)
@@ -78,6 +91,9 @@ namespace Workwise.Persistance.ServiceRegistration
             services.AddScoped<IPortfolioRepository, PortfolioRepository>();
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<ISettingsRepository, SettingsRepository>();
+            services.AddScoped<IChatRepository, ChatRepository>();
+            services.AddScoped<IMessageRepository, MessageRepository>();
+            services.AddScoped<INotificationRepository, NotificationRepository>();
         }
     }
 }
