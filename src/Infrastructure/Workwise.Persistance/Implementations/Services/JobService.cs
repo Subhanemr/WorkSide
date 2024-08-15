@@ -90,12 +90,16 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<PaginationDto<JobItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
         {
-            if (page <= 0) throw new WrongRequestException("The request sent does not exist");
-            if (order <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (page <= 0)
+                throw new WrongRequestException("Invalid page number.");
+            if (take <= 0)
+                throw new WrongRequestException("Invalid take value.");
+            if (order <= 0)
+                throw new WrongRequestException("Invalid order value.");
 
             string[] includes = { $"{nameof(Job.Category)}", $"{nameof(Job.AppUser)}", $"{nameof(Job.JobLikes)}", $"{nameof(Job.JobComments)}.{nameof(JobComment.JobReplies)}" };
             double count = await _repository
-                .CountAsync(x => !string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true, false);
+                .CountAsync(x => !string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true, isDeleted);
 
             ICollection<Job> items = new List<Job>();
 
@@ -125,7 +129,7 @@ namespace Workwise.Persistance.Implementations.Services
 
             ICollection<JobItemDto> dtos = _mapper.Map<ICollection<JobItemDto>>(items);
 
-            PaginationDto<JobItemDto> pagination = new PaginationDto<JobItemDto>
+            return new()
             {
                 Take = take,
                 Search = search,
@@ -134,8 +138,6 @@ namespace Workwise.Persistance.Implementations.Services
                 TotalPage = Math.Ceiling(count / take),
                 Items = dtos
             };
-
-            return pagination;
         }
 
         public async Task<JobGetDto> GetByIdAsync(string id)
@@ -167,7 +169,7 @@ namespace Workwise.Persistance.Implementations.Services
         {
             string[] includes = { $"{nameof(Job.JobComments)}.{nameof(JobComment.JobReplies)}" };
             Job item = await _getByIdAsync(dto.JobId, true, includes);
-            
+
             JobComment comment = _mapper.Map<JobComment>(dto);
             comment.AppUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 

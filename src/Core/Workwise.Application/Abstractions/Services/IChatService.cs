@@ -7,6 +7,9 @@ namespace Workwise.Application.Abstractions.Services
     {
         Task<ResultDto> CreateAsync(string user2Id);
         Task<ChatGetDto> GetByIdAsync(string id);
-        Task<PaginationDto<ChatItemDto>> GetAll();
+        Task<PaginationDto<ChatItemDto>> GetAll(string? search, int take, int page, int order, bool isDeleted = false);
+        Task<ResultDto> SoftDeleteAsync(string id);
+        Task<ResultDto> ReverseSoftDeleteAsync(string id);
+        Task<ResultDto> DeleteAsync(string id);
     }
 }

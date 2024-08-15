@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using Workwise.Application.Abstractions.Repositories;
 using Workwise.Application.Abstractions.Services;
 using Workwise.Application.Dtos;
@@ -49,6 +50,12 @@ namespace Workwise.Persistance.Implementations.Services
                 throw new WrongRequestException("The provided id is null or empty");
             Category item = await _getByIdAsync(id);
 
+            string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            bool isAdmin = _http.HttpContext.User.IsInRole("Admin");
+            bool isModerator = _http.HttpContext.User.IsInRole("Moderator");
+            if (item.AppUserId != currentUserId || !isAdmin || !isModerator)
+                throw new WrongRequestException("You do not have permission to restore this job.");
+
             _repository.ReverseSoftDelete(item);
             await _repository.SaveChangeAsync();
 
@@ -71,12 +78,16 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<PaginationDto<CategoryItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
         {
-            if (page <= 0) throw new WrongRequestException("The request sent does not exist");
-            if (order <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (page <= 0)
+                throw new WrongRequestException("Invalid page number.");
+            if (take <= 0)
+                throw new WrongRequestException("Invalid take value.");
+            if (order <= 0)
+                throw new WrongRequestException("Invalid order value.");
 
             string[] includes = { $"{nameof(Category.Jobs)}", $"{nameof(Category.Projects)}" };
             double count = await _repository
-                .CountAsync(x => !string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true, false);
+                .CountAsync(x => !string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true, isDeleted);
 
             ICollection<Category> items = new List<Category>();
 
@@ -84,7 +95,7 @@ namespace Workwise.Persistance.Implementations.Services
             {
                 case 1:
                     items = await _repository
-                    .GetAllWhereByOrder(x => !string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true,
+                     .GetAllWhereByOrder(x => !string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true,
                         x => x.Name, false, isDeleted, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
                 case 2:
@@ -106,7 +117,7 @@ namespace Workwise.Persistance.Implementations.Services
 
             ICollection<CategoryItemDto> dtos = _mapper.Map<ICollection<CategoryItemDto>>(items);
 
-            PaginationDto<CategoryItemDto> pagination = new PaginationDto<CategoryItemDto>
+            return new()
             {
                 Take = take,
                 Search = search,
@@ -115,8 +126,6 @@ namespace Workwise.Persistance.Implementations.Services
                 TotalPage = Math.Ceiling(count / take),
                 Items = dtos
             };
-
-            return pagination;
         }
 
         public async Task<CategoryGetDto> GetByIdAsync(string id)

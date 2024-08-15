@@ -24,7 +24,7 @@ namespace Workwise.Application.Abstractions.Repositories.Generic
             params string[] includes);
 
         Task<T> GetByIdAsync(string id,
-            bool IsTracking = true,
+            bool isTracking = true,
             params string[] includes);
 
         Task<T> GetByExpressionAsync(Expression<Func<T, bool>> expression,

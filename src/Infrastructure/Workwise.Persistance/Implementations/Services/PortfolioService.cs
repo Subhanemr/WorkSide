@@ -97,12 +97,16 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<PaginationDto<PortfolioItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
         {
-            if (page <= 0) throw new WrongRequestException("The request sent does not exist");
-            if (order <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (page <= 0)
+                throw new WrongRequestException("Invalid page number.");
+            if (take <= 0)
+                throw new WrongRequestException("Invalid take value.");
+            if (order <= 0)
+                throw new WrongRequestException("Invalid order value.");
 
             string[] includes = { $"{nameof(Portfolio.AppUser)}" };
             double count = await _repository
-                .CountAsync(x => !string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true, false);
+                .CountAsync(x => !string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true, isDeleted);
 
             ICollection<Portfolio> items = new List<Portfolio>();
 
@@ -132,7 +136,7 @@ namespace Workwise.Persistance.Implementations.Services
 
             ICollection<PortfolioItemDto> dtos = _mapper.Map<ICollection<PortfolioItemDto>>(items);
 
-            PaginationDto<PortfolioItemDto> pagination = new PaginationDto<PortfolioItemDto>
+            return new ()
             {
                 Take = take,
                 Search = search,
@@ -141,8 +145,6 @@ namespace Workwise.Persistance.Implementations.Services
                 TotalPage = Math.Ceiling(count / take),
                 Items = dtos
             };
-
-            return pagination;
         }
 
         public async Task<PortfolioGetDto> GetByIdAsync(string id)

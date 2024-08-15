@@ -1,14 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.InteropServices;
 using System.Security.Claims;
 using Workwise.Application.Abstractions.Repositories;
 using Workwise.Application.Abstractions.Services;
 using Workwise.Application.Dtos;
 using Workwise.Domain.Entities;
 using Workwise.Persistance.Utilities;
-using static System.Net.WebRequestMethods;
 
 namespace Workwise.Persistance.Implementations.Services
 {
@@ -91,13 +89,17 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<PaginationDto<ProjectItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
         {
-            if (page <= 0) throw new WrongRequestException("The request sent does not exist");
-            if (order <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (page <= 0)
+                throw new WrongRequestException("Invalid page number.");
+            if (take <= 0)
+                throw new WrongRequestException("Invalid take value.");
+            if (order <= 0)
+                throw new WrongRequestException("Invalid order value.");
 
             string[] includes = 
                 { $"{nameof(Project.Category)}", $"{nameof(Project.AppUser)}", $"{nameof(Project.ProjectLikes)}", $"{nameof(Project.ProjectComments)}.{nameof(ProjectComment.ProjectReplies)}" };
             double count = await _repository
-                .CountAsync(x => !string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true, false);
+                .CountAsync(x => !string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true, isDeleted);
 
             ICollection<Project> items = new List<Project>();
 
@@ -127,7 +129,9 @@ namespace Workwise.Persistance.Implementations.Services
 
             ICollection<ProjectItemDto> dtos = _mapper.Map<ICollection<ProjectItemDto>>(items);
 
-            PaginationDto<ProjectItemDto> pagination = new PaginationDto<ProjectItemDto>
+            PaginationDto<ProjectItemDto> pagination = 
+
+            return new ()
             {
                 Take = take,
                 Search = search,
@@ -136,8 +140,6 @@ namespace Workwise.Persistance.Implementations.Services
                 TotalPage = Math.Ceiling(count / take),
                 Items = dtos
             };
-
-            return pagination;
         }
 
         public async Task<ProjectGetDto> GetByIdAsync(string id)

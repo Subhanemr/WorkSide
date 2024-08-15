@@ -31,7 +31,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public AccountService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
             IMapper mapper, IEmailService emailService, IHttpContextAccessor http, ITokenHandler tokenHandler,
-            IConfiguration configuration, RoleManager<IdentityRole> roleManager, IJobRepository jobRepository, 
+            IConfiguration configuration, RoleManager<IdentityRole> roleManager, IJobRepository jobRepository,
             IProjectRepository projectRepository)
         {
             _userManager = userManager;
@@ -187,12 +187,16 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<PaginationDto<AppUserDto>> GetUsersAsync(string? search, int take, int page, int order, bool isActivate)
         {
-            if (page <= 0) throw new WrongRequestException("The request sent does not exist");
-            if (order <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (page <= 0)
+                throw new WrongRequestException("Invalid page number.");
+            if (take <= 0)
+                throw new WrongRequestException("Invalid take value.");
+            if (order <= 0)
+                throw new WrongRequestException("Invalid order value.");
 
             double count = await _userManager.Users.Where(x => !string.IsNullOrEmpty(search) ? x.UserName.ToLower().Contains(search.ToLower()) : true)
                         .Where(x => x.UserName != _configuration["AdminSettings:UserName"] && x.UserName != _configuration["ModeratorSettings:UserName"])
-                        .Where(x => x.IsActivate == false).CountAsync();
+                        .Where(x => x.IsActivate == isActivate).CountAsync();
 
 
             ICollection<AppUser> users = new List<AppUser>();
@@ -221,16 +225,16 @@ namespace Workwise.Persistance.Implementations.Services
                     break;
             }
 
-            ICollection<AppUserDto> vMs = _mapper.Map<ICollection<AppUserDto>>(users);
+            ICollection<AppUserDto> dtos = _mapper.Map<ICollection<AppUserDto>>(users);
 
-            return new PaginationDto<AppUserDto>
+            return new()
             {
                 Take = take,
                 Search = search,
                 Order = order,
                 CurrentPage = page,
                 TotalPage = Math.Ceiling(count / take),
-                Items = vMs
+                Items = dtos
             };
         }
 
@@ -348,7 +352,7 @@ namespace Workwise.Persistance.Implementations.Services
 
             AppUser userFollower = await _getByIdAsync(followerId);
             AppUser userFollowing = await _getByIdAsync(followingId);
-            if(userFollower == null || userFollowing == null)
+            if (userFollower == null || userFollowing == null)
                 throw new NotFoundException($"User is not found!");
 
             Follow followToRemove = userFollower.Followers.FirstOrDefault(f => f.FollowingId == followingId);
@@ -378,7 +382,7 @@ namespace Workwise.Persistance.Implementations.Services
                 throw new NotFoundException($"User is not found!");
 
             Follow followToRemove = userFollower.Followers.FirstOrDefault(f => f.FollowingId == followingId);
-            if(followToRemove == null)
+            if (followToRemove == null)
                 throw new NotFoundException("Follow relationship not found!");
 
             userFollower.Followers.Remove(followToRemove);
@@ -393,11 +397,11 @@ namespace Workwise.Persistance.Implementations.Services
             string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             Job job = await _jobRepository.GetByIdAsync(jobId);
-            if (job == null) 
+            if (job == null)
                 throw new NotFoundException($"Job is not found!");
 
             AppUser user = await _getByIdAsync(userId);
-            if (user == null) 
+            if (user == null)
                 throw new NotFoundException($"User is not found!");
 
             JobLike jobLike = user.JobLikes.FirstOrDefault(x => x.JobId == jobId);
@@ -424,7 +428,7 @@ namespace Workwise.Persistance.Implementations.Services
                 throw new NotFoundException($"Job is not found!");
 
             AppUser user = await _getByIdAsync(userId);
-            if (user == null) 
+            if (user == null)
                 throw new NotFoundException($"User is not found!");
 
             JobLike jobLike = user.JobLikes.FirstOrDefault(x => x.JobId == jobId);
@@ -447,7 +451,7 @@ namespace Workwise.Persistance.Implementations.Services
                 throw new NotFoundException($"Project is not found!");
 
             AppUser user = await _getByIdAsync(userId);
-            if (user == null) 
+            if (user == null)
                 throw new NotFoundException($"User is not found!");
 
             ProjectLike? projectLike = user.ProjectLikes.FirstOrDefault(x => x.ProjectId == projectId);
@@ -475,7 +479,7 @@ namespace Workwise.Persistance.Implementations.Services
                 throw new NotFoundException($"Project is not found!");
 
             AppUser user = await _getByIdAsync(userId);
-            if (user == null) 
+            if (user == null)
                 throw new NotFoundException($"User is not found!");
 
             ProjectLike? projectLike = user.ProjectLikes.FirstOrDefault(x => x.ProjectId == projectId);
@@ -506,8 +510,8 @@ namespace Workwise.Persistance.Implementations.Services
 
             if (includes)
                 query = query
-                    .Include(x => x.Followers.Where(f=> f.FollowingId == id))
-                    .Include(x => x.Followings.Where(f=> f.FollowerId == id))
+                    .Include(x => x.Followers.Where(f => f.FollowingId == id))
+                    .Include(x => x.Followings.Where(f => f.FollowerId == id))
                     .Include(x => x.Skills)
                     .Include(x => x.Educations)
                     .Include(x => x.Experiences)

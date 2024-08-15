@@ -20,11 +20,15 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<PaginationDto<SettingsItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
         {
-            if (page <= 0) throw new WrongRequestException("The request sent does not exist");
-            if (order <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (page <= 0)
+                throw new WrongRequestException("Invalid page number.");
+            if (take <= 0)
+                throw new WrongRequestException("Invalid take value.");
+            if (order <= 0)
+                throw new WrongRequestException("Invalid order value.");
 
             double count = await _repository
-                .CountAsync(x => !string.IsNullOrEmpty(search) ? x.Key.ToLower().Contains(search.ToLower()) : true, false);
+                .CountAsync(x => !string.IsNullOrEmpty(search) ? x.Key.ToLower().Contains(search.ToLower()) : true, isDeleted);
 
             ICollection<Settings> items = new List<Settings>();
 
@@ -54,7 +58,7 @@ namespace Workwise.Persistance.Implementations.Services
 
             ICollection<SettingsItemDto> dtos = _mapper.Map<ICollection<SettingsItemDto>>(items);
 
-            PaginationDto<SettingsItemDto> pagination = new PaginationDto<SettingsItemDto>
+            return new()
             {
                 Take = take,
                 Search = search,
@@ -63,8 +67,6 @@ namespace Workwise.Persistance.Implementations.Services
                 TotalPage = Math.Ceiling(count / take),
                 Items = dtos
             };
-
-            return pagination;
         }
 
         public async Task<SettingsGetDto> GetByIdAsync(string id)
