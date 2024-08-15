@@ -8,7 +8,7 @@ namespace Workwise.Application.Abstractions.Services
         Task<ResultDto> SoftDeleteAsync(string id);
         Task<ResultDto> ReverseSoftDeleteAsync(string id);
         Task<ResultDto> DeleteAsync(string id);
-        Task<PaginationDto<JobItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false);
+        Task<PaginationDto<JobItemDto>> GetAllFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false);
         Task<JobGetDto> GetByIdAsync(string id);
         Task<ResultDto> UpdateAsync(JobUpdateDto dto);
         Task<ResultDto> AddCommentAsync(AddJobCommentDto dto);

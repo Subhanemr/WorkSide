@@ -18,7 +18,7 @@ namespace Workwise.Persistance.Implementations.Services
             _repository = repository;
         }
 
-        public async Task<PaginationDto<SettingsItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
+        public async Task<PaginationDto<SettingsItemDto>> GetAllFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
         {
             if (page <= 0)
                 throw new WrongRequestException("Invalid page number.");

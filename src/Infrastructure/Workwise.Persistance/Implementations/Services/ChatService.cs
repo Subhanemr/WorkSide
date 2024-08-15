@@ -91,7 +91,7 @@ namespace Workwise.Persistance.Implementations.Services
             return new($"{chat.Id} Chat has been permanently deleted.");
         }
 
-        public async Task<PaginationDto<ChatItemDto>> GetAll(string? search, int take, int page, int order, bool isDeleted = false)
+        public async Task<PaginationDto<ChatItemDto>> GetAllFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
         {
             string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (userId == null)
@@ -151,7 +151,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         private async Task<Chat> _getChatById(string id, bool isTracking = true, params string[] includes)
         {
-            var chat = await _repository.GetByIdAsync(id, isTracking, includes);
+            Chat chat = await _repository.GetByIdAsync(id, isTracking, includes);
             if (chat is null)
                 throw new NotFoundException($"{id}-Chat is not found");
             return chat;

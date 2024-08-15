@@ -8,7 +8,7 @@ namespace Workwise.Application.Abstractions.Services
         Task<ResultDto> SoftDeleteAsync(string id);
         Task<ResultDto> ReverseSoftDeleteAsync(string id);
         Task<ResultDto> DeleteAsync(string id);
-        Task<PaginationDto<PortfolioItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false);
+        Task<PaginationDto<PortfolioItemDto>> GetAllFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false);
         Task<PortfolioGetDto> GetByIdAsync(string id);
         Task<ResultDto> UpdateAsync(PortfolioUpdateDto dto);
     }

@@ -88,3 +88,13 @@ C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\Wor
 C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\obj\Debug\net6.0\ref\Workwise.API.dll
 C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\bin\Debug\net6.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\bin\Debug\net6.0\Microsoft.Extensions.Features.dll
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\T x\Desktop\Workwise\src\Presentation\Workwise.API\bin\Debug\net6.0\System.IO.Pipelines.dll

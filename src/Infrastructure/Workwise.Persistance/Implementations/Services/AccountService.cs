@@ -185,7 +185,7 @@ namespace Workwise.Persistance.Implementations.Services
             return _mapper.Map<AppUserDto>(user);
         }
 
-        public async Task<PaginationDto<AppUserDto>> GetUsersAsync(string? search, int take, int page, int order, bool isActivate)
+        public async Task<PaginationDto<AppUserDto>> GetAllUsersFilteredAsync(string? search, int take, int page, int order, bool isActivate)
         {
             if (page <= 0)
                 throw new WrongRequestException("Invalid page number.");

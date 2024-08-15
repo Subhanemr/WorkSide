@@ -95,7 +95,7 @@ namespace Workwise.Persistance.Implementations.Services
             return new($"{item.Name} Portfolio has been permanently deleted");
         }
 
-        public async Task<PaginationDto<PortfolioItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
+        public async Task<PaginationDto<PortfolioItemDto>> GetAllFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
         {
             if (page <= 0)
                 throw new WrongRequestException("Invalid page number.");

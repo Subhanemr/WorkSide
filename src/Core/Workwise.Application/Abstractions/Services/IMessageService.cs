@@ -6,11 +6,11 @@ namespace Workwise.Application.Abstractions.Services
     public interface IMessageService
     {
         Task<ResultDto> SendMessageAsync(MessageCreateDto dto);
-        Task<ResultDto> DeleteMessageAsync(string id);
-        Task<ResultDto> SoftDeleteMessageAsync(string id);
-        Task<ResultDto> ReverseSoftDeleteMessageAsync(string id);
-        Task<PaginationDto<MessageItemDto>> GetAllMessageAsync(string id);
-        Task<MessageGetDto> GetByIdMessageAsync(string id);
-        Task<ResultDto> UpdateMessageAsync(MessageUpdateDto dto);
+        Task<ResultDto> DeleteAsync(string id);
+        Task<ResultDto> SoftDeleteAsync(string id);
+        Task<ResultDto> ReverseSoftDeleteAsync(string id);
+        Task<PaginationDto<MessageItemDto>> GetAllFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false);
+        Task<MessageGetDto> GetByIdAsync(string id);
+        Task<ResultDto> UpdateAsync(MessageUpdateDto dto);
     }
 }

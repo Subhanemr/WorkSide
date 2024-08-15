@@ -20,7 +20,7 @@ namespace Workwise.Application.Abstractions.Services
         Task<ResultDto> ChangeUserRoleAsync(ChangeRoleDto dto);
         Task<AppUserDto> GetUserByIdAsync(string id);
         Task<AppUserDto> GetUserByUsernameAsync(string userName);
-        Task<PaginationDto<AppUserDto>> GetUsersAsync(string? search, int take, int page, int order, bool isActivate = false);
+        Task<PaginationDto<AppUserDto>> GetAllUsersFilteredAsync(string? search, int take, int page, int order, bool isActivate = false);
         Task<AppUserGetDto> CheckResetPasswordToken(ForgetPasswordTokenDto dto);
         Task<ResultDto> ChangePasswordByAdminAsync(ChangePasswordByAdminDto dto);
         Task<ResultDto> FollowUserAsync(string followingId);

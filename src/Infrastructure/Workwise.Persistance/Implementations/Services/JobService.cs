@@ -88,7 +88,7 @@ namespace Workwise.Persistance.Implementations.Services
             return new($"{item.Name} Job has been permanently deleted");
         }
 
-        public async Task<PaginationDto<JobItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
+        public async Task<PaginationDto<JobItemDto>> GetAllFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
         {
             if (page <= 0)
                 throw new WrongRequestException("Invalid page number.");

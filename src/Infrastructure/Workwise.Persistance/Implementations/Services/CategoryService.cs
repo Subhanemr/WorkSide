@@ -48,13 +48,8 @@ namespace Workwise.Persistance.Implementations.Services
         {
             if (string.IsNullOrEmpty(id))
                 throw new WrongRequestException("The provided id is null or empty");
-            Category item = await _getByIdAsync(id);
 
-            string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            bool isAdmin = _http.HttpContext.User.IsInRole("Admin");
-            bool isModerator = _http.HttpContext.User.IsInRole("Moderator");
-            if (item.AppUserId != currentUserId || !isAdmin || !isModerator)
-                throw new WrongRequestException("You do not have permission to restore this job.");
+            Category item = await _getByIdAsync(id);
 
             _repository.ReverseSoftDelete(item);
             await _repository.SaveChangeAsync();
@@ -76,7 +71,7 @@ namespace Workwise.Persistance.Implementations.Services
             return new($"{item.Name} category has been permanently deleted");
         }
 
-        public async Task<PaginationDto<CategoryItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
+        public async Task<PaginationDto<CategoryItemDto>> GetAllFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
         {
             if (page <= 0)
                 throw new WrongRequestException("Invalid page number.");

@@ -9,7 +9,7 @@ namespace Workwise.Application.Abstractions.Services
         Task<ResultDto> DeleteAsync(string id);
         Task<ResultDto> SoftDeleteAsync(string id);
         Task<ResultDto> ReverseSoftDeleteAsync(string id);
-        Task<List<NotificationGetDto>> GetAllAsync();
+        Task<List<NotificationGetDto>> GetAllFilteredAsync();
         Task<NotificationGetDto> GetByIdAsync(string id);
         Task<ResultDto> ReadNotificationAsync(int id);
         Task<ResultDto> ReadAllNotificationsAsync();

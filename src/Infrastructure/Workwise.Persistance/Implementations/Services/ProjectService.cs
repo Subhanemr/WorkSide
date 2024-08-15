@@ -87,7 +87,7 @@ namespace Workwise.Persistance.Implementations.Services
             return new($"{item.Name} Project has been permanently deleted");
         }
 
-        public async Task<PaginationDto<ProjectItemDto>> GetFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
+        public async Task<PaginationDto<ProjectItemDto>> GetAllFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
         {
             if (page <= 0)
                 throw new WrongRequestException("Invalid page number.");
@@ -128,8 +128,6 @@ namespace Workwise.Persistance.Implementations.Services
             }
 
             ICollection<ProjectItemDto> dtos = _mapper.Map<ICollection<ProjectItemDto>>(items);
-
-            PaginationDto<ProjectItemDto> pagination = 
 
             return new ()
             {
