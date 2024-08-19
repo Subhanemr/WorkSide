@@ -18,7 +18,7 @@ namespace Workwise.API.Controllers
         }
 
         [HttpGet("[Action]")]
-        public async Task<IActionResult> Get(string? search, int take, int page, int order)
+        public async Task<IActionResult> GetAll(string? search, int take, int page, int order)
         {
             return Ok(await _service.GetAllFilteredAsync(search, take, page, order));
         }

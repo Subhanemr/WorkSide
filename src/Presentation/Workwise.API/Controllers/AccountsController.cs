@@ -91,12 +91,12 @@ namespace Workwise.API.Controllers
             return Ok(await _service.ChangePasswordByAdminAsync(dto));
         }
         [HttpPost("[Action]")]
-        public async Task<IActionResult> GetUsers(string? search, int take, int page, int order = 1)
+        public async Task<IActionResult> GetAllUsers(string? search, int take, int page, int order = 1)
         {
             return Ok(await _service.GetAllUsersFilteredAsync(search, take, page, order));
         }
         [HttpPost("[Action]")]
-        public async Task<IActionResult> GetDeletedUsers(string? search, int take, int page, int order = 1)
+        public async Task<IActionResult> GetAllDeletedUsers(string? search, int take, int page, int order = 1)
         {
             return Ok(await _service.GetAllUsersFilteredAsync(search, take, page, order, true));
         }

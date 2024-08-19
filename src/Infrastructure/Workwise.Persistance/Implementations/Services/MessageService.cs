@@ -2,9 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Runtime.CompilerServices;
 using System.Security.Claims;
+using Workwise.API.Utilities.Helpers;
 using Workwise.Application.Abstractions.Repositories;
 using Workwise.Application.Abstractions.Services;
 using Workwise.Application.Dtos;
@@ -39,7 +38,36 @@ namespace Workwise.Persistance.Implementations.Services
         public async Task<ResultDto> SendMessageAsync(MessageCreateDto dto)
         {
             string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ChatGetDto chat = await _chatService.GetByIdAsync(dto.ChatId);
 
+            Message message = _mapper.Map<Message>(dto);
+            message.AppUserId = userId;
+            if (dto.File != null)
+            {
+                dto.File.ValidateImage(5);
+                message.FilePath = await _cLoudService.FileCreateAsync(dto.File);
+            }
+
+            await _repository.AddAsync(message);
+            await _repository.SaveChangeAsync();
+
+            var userConnectionIds = ChatHub.Connections.FirstOrDefault(x => x.AppUserId == chat.AppUser1Id)?.ConnectionIds;
+            if (userConnectionIds is not null)
+            {
+                foreach (var connectionId in userConnectionIds)
+                {
+                    await _chatHub.Clients.Client(connectionId).SendAsync("ReceiveChatMessage", dto);
+                }
+            }
+
+            var MemberConnectionIds = ChatHub.Connections.FirstOrDefault(x => x.AppUserId == chat.AppUser2Id)?.ConnectionIds;
+            if (MemberConnectionIds is not null)
+            {
+                foreach (var connectionId in MemberConnectionIds)
+                {
+                    await _chatHub.Clients.Client(connectionId).SendAsync("ReceiveChatMessage", dto);
+                }
+            }
 
             return new("Message is successfully created");
         }
@@ -49,7 +77,7 @@ namespace Workwise.Persistance.Implementations.Services
             if (string.IsNullOrEmpty(id))
                 throw new WrongRequestException("The provided id is null or empty");
 
-            Message message = await _getMessageById(id);
+            Message message = await _getByIdAsync(id);
 
             string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             bool isAdmin = _http.HttpContext.User.IsInRole("Admin");
@@ -68,7 +96,7 @@ namespace Workwise.Persistance.Implementations.Services
             if (string.IsNullOrEmpty(id))
                 throw new WrongRequestException("The provided id is null or empty");
 
-            Message message = await _getMessageById(id);
+            Message message = await _getByIdAsync(id);
 
             string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             bool isAdmin = _http.HttpContext.User.IsInRole("Admin");
@@ -87,7 +115,7 @@ namespace Workwise.Persistance.Implementations.Services
             if (string.IsNullOrEmpty(id))
                 throw new WrongRequestException("The provided id is null or empty");
 
-            Message message = await _getMessageById(id);
+            Message message = await _getByIdAsync(id);
 
             _repository.Delete(message);
             await _repository.SaveChangeAsync();
@@ -105,7 +133,7 @@ namespace Workwise.Persistance.Implementations.Services
                 throw new WrongRequestException("Invalid order value.");
 
             double count = await _repository
-                .CountAsync(x => !string.IsNullOrEmpty(search) ? x.Body.ToLower().Contains(search.ToLower())) : true, isDeleted);
+                .CountAsync(x => !string.IsNullOrEmpty(search) ? x.Body.ToLower().Contains(search.ToLower()) : true, isDeleted);
 
             string[] includes = { $"{nameof(Message.AppUser)}", $"{nameof(Message.Chat)}" };
             ICollection<Message> chats = new List<Message>();
@@ -143,19 +171,52 @@ namespace Workwise.Persistance.Implementations.Services
                 throw new WrongRequestException("The provided id is null or empty");
 
             string[] includes = { $"{nameof(Message.AppUser)}" };
-            Message message = await _getMessageById(id, false, includes);
+            Message message = await _getByIdAsync(id, false, includes);
 
             MessageGetDto dto = _mapper.Map<MessageGetDto>(message);
 
             return dto;
         }
 
-        public Task<ResultDto> UpdateAsync(MessageUpdateDto dto)
+        public async Task<ResultDto> UpdateAsync(MessageUpdateDto dto)
         {
-            throw new NotImplementedException();
+            string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ChatGetDto chat = await _chatService.GetByIdAsync(dto.ChatId);
+
+            Message message = await _getByIdAsync(dto.Id);
+            _mapper.Map(dto, message);
+            message.AppUserId = userId;
+            if (dto.File != null)
+            {
+                dto.File.ValidateImage(5);
+                message.FilePath = await _cLoudService.FileCreateAsync(dto.File);
+            }
+
+            _repository.Update(message);
+            await _repository.SaveChangeAsync();
+
+            var userConnectionIds = ChatHub.Connections.FirstOrDefault(x => x.AppUserId == chat.AppUser1Id)?.ConnectionIds;
+            if (userConnectionIds is not null)
+            {
+                foreach (var connectionId in userConnectionIds)
+                {
+                    await _chatHub.Clients.Client(connectionId).SendAsync("ReceiveChatMessage", dto);
+                }
+            }
+
+            var MemberConnectionIds = ChatHub.Connections.FirstOrDefault(x => x.AppUserId == chat.AppUser2Id)?.ConnectionIds;
+            if (MemberConnectionIds is not null)
+            {
+                foreach (var connectionId in MemberConnectionIds)
+                {
+                    await _chatHub.Clients.Client(connectionId).SendAsync("ReceiveChatMessage", dto);
+                }
+            }
+
+            return new("Message is successfully created");
         }
 
-        private async Task<Message> _getMessageById(string id, bool isTracking = true, params string[] includes)
+        private async Task<Message> _getByIdAsync(string id, bool isTracking = true, params string[] includes)
         {
             Message message = await _repository.GetByIdAsync(id, isTracking, includes);
             if (message is null)

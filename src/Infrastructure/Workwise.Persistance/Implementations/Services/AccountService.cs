@@ -107,6 +107,7 @@ namespace Workwise.Persistance.Implementations.Services
         public async Task<ResultDto> UpdateUserAsync()
         {
 
+            return new($"");
         }
 
         public async Task<TokenResponseDto> LogInByRefreshToken(string refresh)

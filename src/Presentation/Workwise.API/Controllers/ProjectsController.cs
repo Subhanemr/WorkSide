@@ -17,12 +17,12 @@ namespace Workwise.API.Controllers
             _service = service;
         }
         [HttpGet("[Action]")]
-        public async Task<IActionResult> Get(string? search, int take, int page, int order)
+        public async Task<IActionResult> GetAll(string? search, int take, int page, int order)
         {
             return Ok(await _service.GetAllFilteredAsync(search, take, page, order));
         }
         [HttpGet("[Action]")]
-        public async Task<IActionResult> GetDeleted(string? search, int take, int page, int order)
+        public async Task<IActionResult> GetAllDeleted(string? search, int take, int page, int order)
         {
             return Ok(await _service.GetAllFilteredAsync(search, take, page, order, true));
         }

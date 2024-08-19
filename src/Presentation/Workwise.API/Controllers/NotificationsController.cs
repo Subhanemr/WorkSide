@@ -1,49 +1,47 @@
-﻿using CloudinaryDotNet.Actions;
-using CloudinaryDotNet;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Workwise.Application.Abstractions.Services;
 using Workwise.Application.Dtos;
+using Workwise.Application.Dtos.Messages;
+using Workwise.Application.Dtos.Notifications;
 
 namespace Workwise.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    [Authorize]
+    public class NotificationsController : ControllerBase
     {
-        private readonly ICategoryService _service;
+        private readonly INotificationService _service;
 
-        public CategoriesController(ICategoryService service)
+        public NotificationsController(INotificationService service)
         {
             _service = service;
         }
 
         [HttpGet("[Action]")]
+        [Authorize]
         public async Task<IActionResult> GetAll(string? search, int take, int page, int order)
         {
             return Ok(await _service.GetAllFilteredAsync(search, take, page, order));
         }
         [HttpGet("[Action]")]
+        [Authorize]
         public async Task<IActionResult> GetAllDeleted(string? search, int take, int page, int order)
         {
             return Ok(await _service.GetAllFilteredAsync(search, take, page, order, true));
         }
         [HttpGet("[Action]/{id}")]
+        [Authorize]
         public async Task<IActionResult> GetById(string id)
         {
             return Ok(await _service.GetByIdAsync(id));
         }
         [HttpPost("[Action]")]
-        [Authorize(Roles = "Admin,Moderator")]
-        public async Task<IActionResult> Create([FromForm] CategoryCreateDto dto)
+        [Authorize]
+        public async Task<IActionResult> Create([FromForm] NotificationCreateDto dto)
         {
             return Ok(await _service.CreateAsync(dto));
-        }
-        [HttpPut("[Action]")]
-        [Authorize(Roles = "Admin,Moderator")]
-        public async Task<IActionResult> Update([FromForm] CategoryUpdateDto dto)
-        {
-            return Ok(await _service.UpdateAsync(dto));
         }
         [HttpDelete("[Action]/{id}")]
         [Authorize(Roles = "Admin")]
@@ -52,16 +50,28 @@ namespace Workwise.API.Controllers
             return Ok(await _service.DeleteAsync(id));
         }
         [HttpDelete("[Action]/{id}")]
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize]
         public async Task<IActionResult> SoftDelete(string id)
         {
             return Ok(await _service.SoftDeleteAsync(id));
         }
         [HttpDelete("[Action]/{id}")]
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize]
         public async Task<IActionResult> ReverseSoftDelete(string id)
         {
             return Ok(await _service.ReverseSoftDeleteAsync(id));
+        }
+        [HttpPatch("[action]")]
+        [Authorize]
+        public async Task<IActionResult> ReadAll()
+        {
+            return Ok(await _service.ReadAllNotificationsAsync());
+        }
+        [HttpPatch("[action]/{id}")]
+        [Authorize]
+        public async Task<IActionResult> Read(string id)
+        {
+            return Ok(await _service.ReadNotificationAsync(id));
         }
     }
 }

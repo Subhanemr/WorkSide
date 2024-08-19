@@ -141,7 +141,7 @@ namespace Workwise.Persistance.Implementations.Services
             if (await _repository.CheckUniqueAsync(x => x.Name.ToLower() == dto.Name.ToLower().Trim() && x.Id != dto.Id))
                 throw new AlreadyExistException($"{dto.Name}-This Category is already exist!");
 
-            existedItem = _mapper.Map(dto, existedItem);
+            _mapper.Map(dto, existedItem);
             _repository.Update(existedItem);
             await _repository.SaveChangeAsync();
 
