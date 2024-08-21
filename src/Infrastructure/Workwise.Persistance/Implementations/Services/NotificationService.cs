@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Workwise.Application.Abstractions.Repositories;
 using Workwise.Application.Abstractions.Services;
 using Workwise.Application.Dtos;
-using Workwise.Application.Dtos.Messages;
 using Workwise.Application.Dtos.Notifications;
 using Workwise.Domain.Entities;
 using Workwise.Persistance.Implementations.Hubs;
@@ -22,7 +20,8 @@ namespace Workwise.Persistance.Implementations.Services
         private readonly IHttpContextAccessor _http;
         private readonly IMapper _mapper;
 
-        public NotificationService(INotificationRepository repository, IHubContext<NotificationHub> notificationHub, IHttpContextAccessor http, IMapper mapper)
+        public NotificationService(INotificationRepository repository, IHubContext<NotificationHub> notificationHub, IHttpContextAccessor http, 
+            IMapper mapper)
         {
             _repository = repository;
             _notificationHub = notificationHub;

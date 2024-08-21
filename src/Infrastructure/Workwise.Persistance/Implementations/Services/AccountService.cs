@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
 using System.Text;
+using Workwise.API.Utilities.Helpers;
 using Workwise.Application.Abstractions.Repositories;
 using Workwise.Application.Abstractions.Services;
 using Workwise.Application.Dtos;
@@ -25,6 +26,7 @@ namespace Workwise.Persistance.Implementations.Services
         private readonly IProjectRepository _projectRepository;
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
+        private readonly ICLoudService _cLoudService;
         private readonly IEmailService _emailService;
         private readonly ITokenHandler _tokenHandler;
         private readonly IHttpContextAccessor _http;
@@ -32,7 +34,7 @@ namespace Workwise.Persistance.Implementations.Services
         public AccountService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
             IMapper mapper, IEmailService emailService, IHttpContextAccessor http, ITokenHandler tokenHandler,
             IConfiguration configuration, RoleManager<IdentityRole> roleManager, IJobRepository jobRepository,
-            IProjectRepository projectRepository)
+            IProjectRepository projectRepository, ICLoudService cLoudService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -44,6 +46,7 @@ namespace Workwise.Persistance.Implementations.Services
             _roleManager = roleManager;
             _jobRepository = jobRepository;
             _projectRepository = projectRepository;
+            _cLoudService = cLoudService;
         }
 
         public async Task<TokenResponseDto> LogInAsync(LoginDto login)
@@ -104,10 +107,35 @@ namespace Workwise.Persistance.Implementations.Services
             return new($"The user has been successfully created, please check your email inbox for email confirmation.");
         }
 
-        public async Task<ResultDto> UpdateUserAsync()
+        public async Task<ResultDto> UpdateUserAsync(AppUserUpdateDto dto)
         {
+            string? id = _http.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (id is null)
+                throw new UnAuthorizedException($"User ID is not present in the current context.");
 
-            return new($"");
+            AppUser currentUser = await _userManager.FindByIdAsync(id);
+            if (currentUser is null)
+                throw new NotFoundException("User is not found!");
+
+            _mapper.Map(dto, currentUser);
+
+            if(dto.ProfileUrl != null)
+            {
+                dto.ProfileUrl.ValidateImage(5);
+                await _cLoudService.FileDeleteAsync(currentUser.ProfileUrl);
+                currentUser.ProfileUrl = await _cLoudService.FileCreateAsync(dto.ProfileUrl);
+            }
+
+            if (dto.BanerUrl != null)
+            {
+                dto.ProfileUrl.ValidateImage(5);
+                await _cLoudService.FileDeleteAsync(currentUser.BanerUrl);
+                currentUser.BanerUrl = await _cLoudService.FileCreateAsync(dto.BanerUrl);
+            }
+
+            await _userManager.UpdateAsync(currentUser);
+
+            return new($"User updated successfully.");
         }
 
         public async Task<TokenResponseDto> LogInByRefreshToken(string refresh)
@@ -260,11 +288,11 @@ namespace Workwise.Persistance.Implementations.Services
         {
             string? id = _http.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (id is null)
-                throw new UnAuthorizedException();
+                throw new UnAuthorizedException($"User ID is not present in the current context.");
 
             AppUser? user = await _userManager.FindByIdAsync(id);
             if (user is null)
-                throw new UnAuthorizedException();
+                throw new UnAuthorizedException($"User is not found!");
 
             AppUserGetDto dto = _mapper.Map<AppUserGetDto>(user);
 

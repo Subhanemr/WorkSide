@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using a = Workwise.Infrastructure.Implementations;
 using Workwise.Application.Abstractions.Services;
+using Workwise.Infrastructure.Implementations;
 
 namespace Workwise.Infrastructure.ServiceRegistration
 {
@@ -17,6 +18,8 @@ namespace Workwise.Infrastructure.ServiceRegistration
             AddJwtBearer(services, configuration);
 
             services.AddScoped<ITokenHandler, a.TokenHandler>();
+            services.AddScoped<ICLoudService, CloudService>();
+            services.AddScoped<IEmailService, EmailService>();
 
             return services;
         }

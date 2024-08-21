@@ -18,6 +18,7 @@ namespace Workwise.Persistance.ServiceRegistration
     {
         public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddSignalR();
             AddDbContext(services, configuration);
             AddIdentity(services);
             AddUtilities(services);
@@ -25,13 +26,14 @@ namespace Workwise.Persistance.ServiceRegistration
             AddRepositories(services);
             AddInterceptors(services);
 
+
             return services;
         }
 
         public static WebApplication AddSignalREndpoints(this WebApplication app)
         {
-            app.MapHub<NotificationHub>("/notificationHub");
             app.MapHub<ChatHub>("/chatHub");
+            app.MapHub<NotificationHub>("/notificationHub");
 
             return app;
         }

@@ -20,11 +20,13 @@ namespace Workwise.Persistance.Implementations.Services
         private readonly IMapper _mapper;
         private readonly INotificationService _notificationService;
 
-        public ChatService(IChatRepository repository, IMapper mapper, INotificationService notificationService)
+        public ChatService(IChatRepository repository, IMapper mapper, INotificationService notificationService, 
+            IHttpContextAccessor http)
         {
             _repository = repository;
             _mapper = mapper;
             _notificationService = notificationService;
+            _http = http;
         }
 
         public async Task<ResultDto> CreateAsync(string user2Id)

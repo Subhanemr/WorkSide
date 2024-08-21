@@ -9,7 +9,7 @@ namespace Workwise.Application.Abstractions.Services
         Task<ResultDto> RegisterAsync(RegisterDto register);
         Task<TokenResponseDto> LogInAsync(LoginDto login);
         Task<TokenResponseDto> LogInByRefreshToken(string refresh);
-
+        Task<ResultDto> UpdateUserAsync(AppUserUpdateDto dto);
         Task<TokenResponseDto> ConfirmEmailAsync(ConfirmEmailDto dto);
         Task<TokenResponseDto> ChangePasswordAsync(ChangePasswordDto dto);
         Task<AppUserGetDto> GetCurrentUserAsync();

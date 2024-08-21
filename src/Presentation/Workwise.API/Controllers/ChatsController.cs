@@ -35,7 +35,7 @@ namespace Workwise.API.Controllers
         {
             return Ok(await _service.GetByIdAsync(id));
         }
-        [HttpPost("[Action/{user2Id}]")]
+        [HttpPost("[Action]/{user2Id}")]
         [Authorize]
         public async Task<IActionResult> Create(string user2Id)
         {
@@ -47,13 +47,13 @@ namespace Workwise.API.Controllers
         {
             return Ok(await _service.DeleteAsync(id));
         }
-        [HttpDelete("[Action/{id}]")]
+        [HttpDelete("[Action]/{id}")]
         [Authorize]
         public async Task<IActionResult> SoftDelete(string id)
         {
             return Ok(await _service.SoftDeleteAsync(id));
         }
-        [HttpDelete("[Action/{id}]")]
+        [HttpDelete("[Action]/{id}")]
         [Authorize]
         public async Task<IActionResult> ReverseSoftDelete(string id)
         {

@@ -67,7 +67,7 @@ namespace Workwise.API.Controllers
         {
             return Ok(await _service.AddCommentAsync(dto));
         }
-        [HttpPut("[Action]")]
+        [HttpDelete("[Action]")]
         [Authorize]
         public async Task<IActionResult> DeleteComment(string jobId, string jobCommentId)
         {
@@ -79,7 +79,7 @@ namespace Workwise.API.Controllers
         {
             return Ok(await _service.AddReplyAsync(dto));
         }
-        [HttpPut("[Action]")]
+        [HttpDelete("[Action]")]
         [Authorize]
         public async Task<IActionResult> DeleteReply(string jobId, string jobCommentId, string jobReplyId)
         {

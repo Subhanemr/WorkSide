@@ -44,6 +44,7 @@ namespace Workwise.Persistance.DAL
             modelBuilder.JobLikeDbSettings();
             modelBuilder.ProjectCommentReplyDbSettings();
             modelBuilder.ProjectLikeDbSettings();
+            modelBuilder.ChatDbSetting();
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 

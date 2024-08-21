@@ -34,6 +34,12 @@ namespace Workwise.API.Controllers
         {
             return Ok(await _service.LogInByRefreshToken(refToken));
         }
+        [HttpPut("[Action]")]
+        [Authorize]
+        public async Task<IActionResult> UpdateUser(AppUserUpdateDto dto)
+        {
+            return Ok(await _service.UpdateUserAsync(dto));
+        }
         [HttpGet("[Action]")]
         [Authorize]
         public async Task<IActionResult> GetCurrentUserInfo()
@@ -100,37 +106,37 @@ namespace Workwise.API.Controllers
         {
             return Ok(await _service.GetAllUsersFilteredAsync(search, take, page, order, true));
         }
-        [HttpPost("[Action]")]
+        [HttpPatch("[Action]/{followingId}")]
         [Authorize]
         public async Task<IActionResult> FollowUser(string followingId)
         {
             return Ok(await _service.FollowUserAsync(followingId));
         }
-        [HttpPut("[Action]")]
+        [HttpPatch("[Action]/{followingId}")]
         [Authorize]
         public async Task<IActionResult> UnFollowUser(string followingId)
         {
             return Ok(await _service.UnFollowUserAsync(followingId));
         }
-        [HttpPost("[Action]")]
+        [HttpPatch("[Action]/{jobId}")]
         [Authorize]
         public async Task<IActionResult> LikeJob(string jobId)
         {
             return Ok(await _service.LikeJobAsync(jobId));
         }
-        [HttpPut("[Action]")]
+        [HttpPatch("[Action]/{jobId}")]
         [Authorize]
         public async Task<IActionResult> UnLikeJob(string jobId)
         {
             return Ok(await _service.UnLikeJobAsync(jobId));
         }
-        [HttpPost("[Action]")]
+        [HttpPatch("[Action]/{projectId}")]
         [Authorize]
         public async Task<IActionResult> LikeProject(string projectId)
         {
             return Ok(await _service.LikeProjectAsync(projectId));
         }
-        [HttpPut("[Action]")]
+        [HttpPatch("[Action]/{projectId}")]
         [Authorize]
         public async Task<IActionResult> UnLikeProject(string projectId)
         {

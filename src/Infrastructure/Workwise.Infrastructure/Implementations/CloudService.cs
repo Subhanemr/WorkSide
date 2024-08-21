@@ -2,10 +2,11 @@
 using CloudinaryDotNet;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using Workwise.Application.Abstractions.Services;
 
 namespace Workwise.Infrastructure.Implementations
 {
-    public class CloudService
+    public class CloudService : ICLoudService
     {
         private readonly IConfiguration _configuration;
 

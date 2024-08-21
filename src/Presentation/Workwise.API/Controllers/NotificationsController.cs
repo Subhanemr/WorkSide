@@ -61,13 +61,13 @@ namespace Workwise.API.Controllers
         {
             return Ok(await _service.ReverseSoftDeleteAsync(id));
         }
-        [HttpPatch("[action]")]
+        [HttpPatch("[Action]")]
         [Authorize]
         public async Task<IActionResult> ReadAll()
         {
             return Ok(await _service.ReadAllNotificationsAsync());
         }
-        [HttpPatch("[action]/{id}")]
+        [HttpPatch("[Action]/{id}")]
         [Authorize]
         public async Task<IActionResult> Read(string id)
         {

@@ -1,4 +1,6 @@
-﻿namespace Workwise.Application.Dtos
+﻿using Microsoft.AspNetCore.Http;
+
+namespace Workwise.Application.Dtos
 {
     public record AppUserUpdateDto
     {
@@ -6,8 +8,8 @@
         public string Surname { get; init; } = null!;
         public string UserName { get; init; } = null!;
         public string Email { get; init; } = null!;
-        public string ProfileUrl { get; init; } = null!;
-        public string BanerUrl { get; init; } = null!;
+        public IFormFile? ProfileUrl { get; init; }
+        public IFormFile? BanerUrl { get; init; }
         public string Specialty { get; init; } = null!;
         public string? Overview { get; init; }
 

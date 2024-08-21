@@ -27,7 +27,7 @@ namespace Workwise.API.Controllers
         {
             return Ok(await _service.GetByIdAsync(id));
         }
-        [HttpPut("[Action]")]
+        [HttpPatch("[Action]")]
         [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Update([FromForm] SettingUpdateDto dto)
         {
