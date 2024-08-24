@@ -142,5 +142,17 @@ namespace Workwise.API.Controllers
         {
             return Ok(await _service.UnLikeProjectAsync(projectId));
         }
+        [HttpPost("[Action]/{id}")]
+        [Authorize]
+        public async Task<IActionResult> HireAccount(string id)
+        {
+            return Ok(await _service.HireAccountAsync(id));
+        }
+        [HttpDelete("[Action]/{id}")]
+        [Authorize]
+        public async Task<IActionResult> DeleteHireAccount(string id)
+        {
+            return Ok(await _service.DeleteHireAccountAsync(id));
+        }
     }
 }

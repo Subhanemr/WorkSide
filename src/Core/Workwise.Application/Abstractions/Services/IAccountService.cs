@@ -29,5 +29,7 @@ namespace Workwise.Application.Abstractions.Services
         Task<ResultDto> UnLikeJobAsync(string jobId);
         Task<ResultDto> LikeProjectAsync(string projectId);
         Task<ResultDto> UnLikeProjectAsync(string projectId);
+        Task<ResultDto> HireAccountAsync(string id);
+        Task<ResultDto> DeleteHireAccountAsync(string id);
     }
 }

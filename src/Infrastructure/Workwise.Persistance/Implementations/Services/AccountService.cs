@@ -235,22 +235,22 @@ namespace Workwise.Persistance.Implementations.Services
                 case 1:
                     users = await _userManager.Users.Where(x => !string.IsNullOrEmpty(search) ? x.UserName.ToLower().Contains(search.ToLower()) : true)
                         .Where(x => x.UserName != _configuration["AdminSettings:UserName"] && x.UserName != _configuration["ModeratorSettings:UserName"])
-                        .Where(x => x.IsActivate == isActivate).OrderBy(x => x.UserName).Skip((page - 1) * take).Take(take).AsNoTracking().ToListAsync();
+                        .Where(x => x.IsActivate == isActivate).OrderBy(x => x.UserName).Skip((page - 1) * take).Take(take).AsNoTracking().Include(x => x.HireAccounts).ToListAsync();
                     break;
                 case 2:
                     users = await _userManager.Users.Where(x => !string.IsNullOrEmpty(search) ? x.UserName.ToLower().Contains(search.ToLower()) : true)
                         .Where(x => x.UserName != _configuration["AdminSettings:UserName"] && x.UserName != _configuration["ModeratorSettings:UserName"])
-                        .Where(x => x.IsActivate == isActivate).OrderByDescending(x => x.UserName).Skip((page - 1) * take).Take(take).AsNoTracking().ToListAsync();
+                        .Where(x => x.IsActivate == isActivate).OrderByDescending(x => x.UserName).Skip((page - 1) * take).Take(take).AsNoTracking().Include(x => x.HireAccounts).ToListAsync();
                     break;
                 case 3:
                     users = await _userManager.Users.Where(x => !string.IsNullOrEmpty(search) ? x.UserName.ToLower().Contains(search.ToLower()) : true)
                         .Where(x => x.UserName != _configuration["AdminSettings:UserName"] && x.UserName != _configuration["ModeratorSettings:UserName"])
-                        .Where(x => x.IsActivate == isActivate).OrderBy(x => x.Name).Skip((page - 1) * take).Take(take).AsNoTracking().ToListAsync();
+                        .Where(x => x.IsActivate == isActivate).OrderBy(x => x.Name).Skip((page - 1) * take).Take(take).AsNoTracking().Include(x => x.HireAccounts).ToListAsync();
                     break;
                 case 4:
                     users = await _userManager.Users.Where(x => !string.IsNullOrEmpty(search) ? x.UserName.ToLower().Contains(search.ToLower()) : true)
                         .Where(x => x.UserName != _configuration["AdminSettings:UserName"] && x.UserName != _configuration["ModeratorSettings:UserName"])
-                        .Where(x => x.IsActivate == isActivate).OrderByDescending(x => x.Name).Skip((page - 1) * take).Take(take).AsNoTracking().ToListAsync();
+                        .Where(x => x.IsActivate == isActivate).OrderByDescending(x => x.Name).Skip((page - 1) * take).Take(take).AsNoTracking().Include(x => x.HireAccounts).ToListAsync();
                     break;
             }
 
@@ -375,6 +375,9 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> FollowUserAsync(string followingId)
         {
+            if (string.IsNullOrEmpty(followingId))
+                throw new WrongRequestException("The provided id is null or empty");
+
             string followerId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (followerId == followingId)
                 throw new WrongRequestException("You cannot follow yourself.");
@@ -450,6 +453,9 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> UnLikeJobAsync(string jobId)
         {
+            if (string.IsNullOrEmpty(jobId))
+                throw new WrongRequestException("The provided id is null or empty");
+
             string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             Job job = await _jobRepository.GetByIdAsync(jobId);
@@ -473,6 +479,9 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> LikeProjectAsync(string projectId)
         {
+            if (string.IsNullOrEmpty(projectId))
+                throw new WrongRequestException("The provided id is null or empty");
+
             string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             Project project = await _projectRepository.GetByIdAsync(projectId);
@@ -501,6 +510,9 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> UnLikeProjectAsync(string projectId)
         {
+            if (string.IsNullOrEmpty(projectId))
+                throw new WrongRequestException("The provided id is null or empty");
+
             string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             Project project = await _projectRepository.GetByIdAsync(projectId);
@@ -523,8 +535,37 @@ namespace Workwise.Persistance.Implementations.Services
             return new("You have successfully unliked the project.");
         }
 
+        public async Task<ResultDto> HireAccountAsync(string id)
+        {
+            AppUser user = await _getUserById(id);
+
+            user.HireAccounts.Add(new HireAccount { AppUserId = id });
+
+            await _userManager.UpdateAsync(user);
+
+            return new($"HireAccount added successfully!");
+        }
+
+        public async Task<ResultDto> DeleteHireAccountAsync(string id)
+        {
+            AppUser user = await _getUserById(id);
+
+            HireAccount? hireAccount = user.HireAccounts.FirstOrDefault(x => x.AppUserId == id);
+            if (hireAccount == null)
+                throw new NotFoundException($"HireAccount not found.");
+
+            user.HireAccounts.Remove(hireAccount);
+
+            await _userManager.UpdateAsync(user);
+
+            return new($"HireAccount deleted successfully!");
+        }
+
         private async Task<AppUser> _getUserById(string id)
         {
+            if (string.IsNullOrEmpty(id))
+                throw new WrongRequestException("The provided id is null or empty");
+
             var user = await _userManager.FindByIdAsync(id);
 
             if (user is null)
@@ -535,6 +576,9 @@ namespace Workwise.Persistance.Implementations.Services
 
         private async Task<AppUser> _getByIdAsync(string id, bool isTracking = true, bool includes = false)
         {
+            if (string.IsNullOrEmpty(id))
+                throw new WrongRequestException("The provided id is null or empty");
+
             IQueryable<AppUser> query = _userManager.Users;
 
             if (includes)
@@ -561,6 +605,9 @@ namespace Workwise.Persistance.Implementations.Services
 
         private async Task<AppUser> _getByUserNameAsync(string userName, bool isTracking = true, bool includes = false)
         {
+            if (string.IsNullOrEmpty(userName))
+                throw new WrongRequestException("The provided id is null or UserName");
+
             IQueryable<AppUser> query = _userManager.Users;
 
             if (includes)
