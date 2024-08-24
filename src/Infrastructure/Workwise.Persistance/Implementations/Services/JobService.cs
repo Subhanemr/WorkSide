@@ -38,9 +38,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> SoftDeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             Job item = await _getByIdAsync(id);
 
             string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -57,9 +54,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> ReverseSoftDeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             Job item = await _getByIdAsync(id);
 
             string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -76,9 +70,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> DeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             string[] includes = { $"{nameof(Job.Category)}", $"{nameof(Job.AppUser)}", $"{nameof(Job.JobLikes)}", $"{nameof(Job.JobComments)}.{nameof(JobComment.JobReplies)}" };
             Job item = await _getByIdAsync(id, true, includes);
 
@@ -142,8 +133,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<JobGetDto> GetByIdAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
             string[] includes = { $"{nameof(Job.Category)}", $"{nameof(Job.AppUser)}", $"{nameof(Job.JobLikes)}", $"{nameof(Job.JobComments)}.{nameof(JobComment.JobReplies)}" };
             Job item = await _getByIdAsync(id, false, includes);
 
@@ -222,7 +211,6 @@ namespace Workwise.Persistance.Implementations.Services
             string[] includes = { $"{nameof(Job.JobComments)}.{nameof(JobComment.JobReplies)}" };
             Job item = await _getByIdAsync(jobId, true, includes);
 
-
             if (item.JobComments.FirstOrDefault(c => c.Id == jobCommentId) == null)
                 throw new NotFoundException($"Comment with ID {jobCommentId} not found!");
 
@@ -240,6 +228,8 @@ namespace Workwise.Persistance.Implementations.Services
 
         private async Task<Job> _getByIdAsync(string id, bool isTracking = true, params string[] includes)
         {
+            if (string.IsNullOrEmpty(id))
+                throw new WrongRequestException("The provided id is null or empty");
             Job item = await _repository.GetByIdAsync(id, isTracking, includes);
             if (item == null)
                 throw new NotFoundException($"Job not found({id})!");

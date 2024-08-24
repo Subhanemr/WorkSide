@@ -56,8 +56,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> SoftDeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
             string[] includes = { $"{nameof(Chat.Messages)}" };
             Chat chat = await _getChatById(id, true, includes);
 
@@ -69,8 +67,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> ReverseSoftDeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
             string[] includes = { $"{nameof(Chat.Messages)}" };
             Chat chat = await _getChatById(id, true, includes);
 
@@ -82,8 +78,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> DeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
             string[] includes = { $"{nameof(Chat.Messages)}" };
             Chat chat = await _getChatById(id, true, includes);
 
@@ -153,6 +147,8 @@ namespace Workwise.Persistance.Implementations.Services
 
         private async Task<Chat> _getChatById(string id, bool isTracking = true, params string[] includes)
         {
+            if (string.IsNullOrEmpty(id))
+                throw new WrongRequestException("The provided id is null or empty");
             Chat chat = await _repository.GetByIdAsync(id, isTracking, includes);
             if (chat is null)
                 throw new NotFoundException($"{id}-Chat is not found");

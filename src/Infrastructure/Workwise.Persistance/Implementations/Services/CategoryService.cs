@@ -34,8 +34,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> SoftDeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
             Category item = await _getByIdAsync(id);
 
             _repository.SoftDelete(item);
@@ -46,9 +44,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> ReverseSoftDeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             Category item = await _getByIdAsync(id);
 
             _repository.ReverseSoftDelete(item);
@@ -59,9 +54,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> DeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             string[] includes = { $"{nameof(Category.Jobs)}", $"{nameof(Category.Projects)}" };
             Category item = await _getByIdAsync(id, true, includes);
 
@@ -125,8 +117,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<CategoryGetDto> GetByIdAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
             string[] includes = { $"{nameof(Category.Jobs)}", $"{nameof(Category.Projects)}" };
             Category item = await _getByIdAsync(id, false, includes);
 
@@ -150,6 +140,8 @@ namespace Workwise.Persistance.Implementations.Services
 
         private async Task<Category> _getByIdAsync(string id, bool isTracking = true, params string[] includes)
         {
+            if (string.IsNullOrEmpty(id))
+                throw new WrongRequestException("The provided id is null or empty");
             Category item = await _repository.GetByIdAsync(id, isTracking, includes);
             if (item is null)
                 throw new NotFoundException($"Category not found({id})!");

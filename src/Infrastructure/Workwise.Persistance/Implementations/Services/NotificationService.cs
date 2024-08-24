@@ -55,11 +55,6 @@ namespace Workwise.Persistance.Implementations.Services
         public async Task<ResultDto> SoftDeleteAsync(string id)
         {
             string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (currentUserId == null)
-                throw new UnAuthorizedException($"User is not authorized.");
-
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
 
             Notification notification = await _getByIdAsync(id, currentUserId);
 
@@ -77,11 +72,6 @@ namespace Workwise.Persistance.Implementations.Services
         public async Task<ResultDto> ReverseSoftDeleteAsync(string id)
         {
             string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (currentUserId == null)
-                throw new UnAuthorizedException($"User is not authorized.");
-
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
 
             Notification notification = await _getByIdAsync(id, currentUserId);
 
@@ -99,11 +89,6 @@ namespace Workwise.Persistance.Implementations.Services
         public async Task<ResultDto> DeleteAsync(string id)
         {
             string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (currentUserId == null)
-                throw new NotFoundException("User is not found!");
-
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty.");
 
             Notification notification = await _getByIdAsync(id, currentUserId);
 
@@ -122,8 +107,6 @@ namespace Workwise.Persistance.Implementations.Services
                 throw new WrongRequestException("Invalid order value.");
 
             string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (userId == null)
-                throw new NotFoundException("User is not found!");
 
             double count = await _repository
                 .CountAsync(x => !string.IsNullOrEmpty(search) ? x.Subject.ToLower().Contains(search.ToLower()) : true, isDeleted);
@@ -163,8 +146,6 @@ namespace Workwise.Persistance.Implementations.Services
         public async Task<NotificationGetDto> GetByIdAsync(string id)
         {
             string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (userId == null)
-                throw new NotFoundException("User is not found!");
 
             Notification? notification = await _getByIdAsync(id, userId, false, $"{nameof(Notification.AppUser)}");
 
@@ -176,8 +157,7 @@ namespace Workwise.Persistance.Implementations.Services
         public async Task<ResultDto> ReadAllNotificationsAsync()
         {
             string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (userId == null)
-                throw new UnAuthorizedException($"User is not authorized.");
+
             List<Notification> notifications = await _repository.GetAllWhereByOrder(x => x.AppUserId == userId && !x.IsRead).ToListAsync();
             notifications.ForEach(x =>
             {
@@ -194,8 +174,6 @@ namespace Workwise.Persistance.Implementations.Services
         public async Task<ResultDto> ReadNotificationAsync(string id)
         {
             string userId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (userId == null)
-                throw new NotFoundException("User is not found!");
 
             Notification? notification = await _getByIdAsync(id, userId);
 
@@ -210,6 +188,10 @@ namespace Workwise.Persistance.Implementations.Services
 
         private async Task<Notification?> _getByIdAsync(string id, string userId, bool isTracking = true, params string[] includes)
         {
+            if (string.IsNullOrEmpty(id))
+                throw new WrongRequestException("The provided id is null or empty");
+            if (string.IsNullOrEmpty(userId))
+                throw new UnAuthorizedException($"User is not authorized.");
             Notification notification = await _repository.GetByExpressionAsync(x => x.Id == id && x.AppUserId == userId, isTracking, includes);
             if (notification is null)
                 throw new NotFoundException($"{id}-Notification is not found!");

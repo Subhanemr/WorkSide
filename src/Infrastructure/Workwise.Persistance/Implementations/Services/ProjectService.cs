@@ -37,9 +37,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> SoftDeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             Project item = await _getByIdAsync(id);
 
             string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -56,9 +53,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> ReverseSoftDeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             Project item = await _getByIdAsync(id);
 
             string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -75,9 +69,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> DeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             string[] includes = { $"{nameof(Project.ProjectLikes)}", $"{nameof(Project.ProjectComments)}.{nameof(ProjectComment.ProjectReplies)}" };
             Project item = await _getByIdAsync(id, true, includes);
 
@@ -98,6 +89,7 @@ namespace Workwise.Persistance.Implementations.Services
 
             string[] includes = 
                 { $"{nameof(Project.Category)}", $"{nameof(Project.AppUser)}", $"{nameof(Project.ProjectLikes)}", $"{nameof(Project.ProjectComments)}.{nameof(ProjectComment.ProjectReplies)}" };
+            
             double count = await _repository
                 .CountAsync(x => !string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true, isDeleted);
 
@@ -142,8 +134,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ProjectGetDto> GetByIdAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
             string[] includes =
                 { $"{nameof(Project.Category)}", $"{nameof(Project.AppUser)}", $"{nameof(Project.ProjectLikes)}", $"{nameof(Project.ProjectComments)}.{nameof(ProjectComment.ProjectReplies)}" };
             Project item = await _getByIdAsync(id, false, includes);
@@ -223,7 +213,6 @@ namespace Workwise.Persistance.Implementations.Services
             string[] includes = { $"{nameof(Project.ProjectComments)}.{nameof(ProjectComment.ProjectReplies)}" };
             Project item = await _getByIdAsync(projectId, true, includes);
 
-
             if (item.ProjectComments.FirstOrDefault(c => c.Id == projectCommentId) == null)
                 throw new NotFoundException($"Comment with ID {projectCommentId} not found!");
 
@@ -241,6 +230,8 @@ namespace Workwise.Persistance.Implementations.Services
 
         private async Task<Project> _getByIdAsync(string id, bool isTracking = true, params string[] includes)
         {
+            if (string.IsNullOrEmpty(id))
+                throw new WrongRequestException("The provided id is null or empty");
             Project item = await _repository.GetByIdAsync(id, isTracking, includes);
             if (item is null)
                 throw new NotFoundException($"Project not found({id})!");

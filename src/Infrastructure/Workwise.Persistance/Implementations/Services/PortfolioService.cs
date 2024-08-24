@@ -46,9 +46,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> SoftDeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             Portfolio item = await _getByIdAsync(id);
 
             string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -65,9 +62,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> ReverseSoftDeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             Portfolio item = await _getByIdAsync(id);
 
             string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -84,9 +78,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> DeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             Portfolio item = await _getByIdAsync(id);
 
             _repository.Delete(item);
@@ -149,8 +140,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<PortfolioGetDto> GetByIdAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
             string[] includes = { $"{nameof(Portfolio.AppUser)}" };
             Portfolio item = await _getByIdAsync(id, false, includes);
 
@@ -174,10 +163,11 @@ namespace Workwise.Persistance.Implementations.Services
 
         private async Task<Portfolio> _getByIdAsync(string id, bool isTracking = true, params string[] includes)
         {
+            if (string.IsNullOrEmpty(id))
+                throw new WrongRequestException("The provided id is null or empty");
             Portfolio item = await _repository.GetByIdAsync(id, isTracking, includes);
             if (item is null)
                 throw new NotFoundException($"Portfolio not found({id})!");
-
             return item;
         }
     }

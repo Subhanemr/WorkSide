@@ -13,9 +13,10 @@ namespace Workwise.Persistance.Implementations.Services
         private readonly ISettingsRepository _repository;
         private readonly IMapper _mapper;
 
-        public SettingsService(ISettingsRepository repository)
+        public SettingsService(ISettingsRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         public async Task<PaginationDto<SettingsItemDto>> GetAllFilteredAsync(string? search, int take, int page, int order, bool isDeleted = false)
@@ -71,8 +72,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<SettingsGetDto> GetByIdAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
             Settings item = await _getByIdAsync(id, false);
 
             SettingsGetDto dto = _mapper.Map<SettingsGetDto>(item);
@@ -95,6 +94,8 @@ namespace Workwise.Persistance.Implementations.Services
 
         private async Task<Settings> _getByIdAsync(string id, bool isTracking = true, params string[] includes)
         {
+            if (string.IsNullOrEmpty(id))
+                throw new WrongRequestException("The provided id is null or empty");
             Settings item = await _repository.GetByIdAsync(id, isTracking, includes);
             if (item is null)
                 throw new NotFoundException($"Setting not found({id})!");

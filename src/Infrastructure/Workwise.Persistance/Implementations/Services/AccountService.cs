@@ -110,12 +110,8 @@ namespace Workwise.Persistance.Implementations.Services
         public async Task<ResultDto> UpdateUserAsync(AppUserUpdateDto dto)
         {
             string? id = _http.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (id is null)
-                throw new UnAuthorizedException($"User ID is not present in the current context.");
 
-            AppUser currentUser = await _userManager.FindByIdAsync(id);
-            if (currentUser is null)
-                throw new NotFoundException("User is not found!");
+            AppUser currentUser = await _getUserByIdAsync(id);
 
             _mapper.Map(dto, currentUser);
 
@@ -143,6 +139,7 @@ namespace Workwise.Persistance.Implementations.Services
             AppUser? user = await _userManager.Users.FirstOrDefaultAsync(x => x.RefreshToken == refresh);
             if (user == null)
                 throw new NotFoundException("User is not found!");
+
             if (user.RefreshTokenExpireAt < DateTime.UtcNow)
                 throw new LoginException("Token is expired at");
 
@@ -157,7 +154,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<string> GetUserRoleAsync(string userId)
         {
-            AppUser user = await _getUserById(userId);
+            AppUser user = await _getUserByIdAsync(userId);
 
             ICollection<string> roles = await _userManager.GetRolesAsync(user);
 
@@ -166,9 +163,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<TokenResponseDto> ChangePasswordAsync(ChangePasswordDto dto)
         {
-            AppUser user = await _getUserById(_http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
-            if (user is null)
-                throw new NotFoundException("User is not found!");
+            AppUser user = await _getUserByIdAsync(_http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             IdentityResult result = await _userManager.ChangePasswordAsync(user, dto.ExistPassword, dto.NewPassword);
             if (!result.Succeeded)
@@ -179,9 +174,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<TokenResponseDto> ConfirmEmailAsync(ConfirmEmailDto dto)
         {
-            AppUser user = await _getUserById(dto.AppUserId);
-            if (user is null)
-                throw new NotFoundException("User is not found!");
+            AppUser user = await _getUserByIdAsync(dto.AppUserId);
 
             IdentityResult result = await _userManager.ConfirmEmailAsync(user, dto.Token);
             if (!result.Succeeded)
@@ -192,7 +185,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<TokenResponseDto> ChangeEmailAsync(ChangeEmailDto dto)
         {
-            AppUser user = await _getUserById(dto.Id);
+            AppUser user = await _getUserByIdAsync(dto.Id);
             AppUserGetDto currentUser = await GetCurrentUserAsync();
             if (user.Id != currentUser.Id)
                 throw new UnAuthorizedException();
@@ -207,9 +200,6 @@ namespace Workwise.Persistance.Implementations.Services
         public async Task<AppUserDto> GetUserByIdAsync(string id)
         {
             AppUser? user = await _getByIdAsync(id, false, true);
-
-            if (user is null)
-                throw new NotFoundException("User is not found!");
 
             return _mapper.Map<AppUserDto>(user);
         }
@@ -269,13 +259,13 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<AppUserGetDto> CheckResetPasswordToken(ForgetPasswordTokenDto dto)
         {
-            AppUser user = await _getUserById(dto.AppUserId);
+            AppUser user = await _getUserByIdAsync(dto.AppUserId);
 
             return _mapper.Map<AppUserGetDto>(user);
         }
         public async Task<TokenResponseDto> ResetPasswordAsync(ResetPasswordTokenDto dto)
         {
-            AppUser user = await _getUserById(dto.AppUserId);
+            AppUser user = await _getUserByIdAsync(dto.AppUserId);
 
             IdentityResult result = await _userManager.ResetPasswordAsync(user, dto.Token, dto.Password);
             if (!result.Succeeded)
@@ -321,7 +311,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> ChangeUserRoleAsync(ChangeRoleDto dto)
         {
-            AppUser user = await _getUserById(dto.AppUserId);
+            AppUser user = await _getUserByIdAsync(dto.AppUserId);
             if (user is null)
                 throw new NotFoundException($"{dto.AppUserId}-this user is not found");
 
@@ -359,7 +349,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> ChangePasswordByAdminAsync(ChangePasswordByAdminDto dto)
         {
-            AppUser user = await _getUserById(dto.AppUserId);
+            AppUser user = await _getUserByIdAsync(dto.AppUserId);
 
             IdentityResult result = await _userManager.RemovePasswordAsync(user);
             if (!result.Succeeded)
@@ -537,7 +527,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> HireAccountAsync(string id)
         {
-            AppUser user = await _getUserById(id);
+            AppUser user = await _getUserByIdAsync(id);
 
             user.HireAccounts.Add(new HireAccount { AppUserId = id });
 
@@ -548,7 +538,7 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> DeleteHireAccountAsync(string id)
         {
-            AppUser user = await _getUserById(id);
+            AppUser user = await _getUserByIdAsync(id);
 
             HireAccount? hireAccount = user.HireAccounts.FirstOrDefault(x => x.AppUserId == id);
             if (hireAccount == null)
@@ -561,12 +551,12 @@ namespace Workwise.Persistance.Implementations.Services
             return new($"HireAccount deleted successfully!");
         }
 
-        private async Task<AppUser> _getUserById(string id)
+        private async Task<AppUser> _getUserByIdAsync(string id)
         {
             if (string.IsNullOrEmpty(id))
                 throw new WrongRequestException("The provided id is null or empty");
 
-            var user = await _userManager.FindByIdAsync(id);
+            AppUser user = await _userManager.FindByIdAsync(id);
 
             if (user is null)
                 throw new NotFoundException("This user is not found");

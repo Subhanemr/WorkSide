@@ -74,9 +74,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> SoftDeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             Message message = await _getByIdAsync(id);
 
             string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -93,9 +90,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> ReverseSoftDeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             Message message = await _getByIdAsync(id);
 
             string currentUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -112,9 +106,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<ResultDto> DeleteAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             Message message = await _getByIdAsync(id);
 
             _repository.Delete(message);
@@ -167,9 +158,6 @@ namespace Workwise.Persistance.Implementations.Services
 
         public async Task<MessageGetDto> GetByIdAsync(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new WrongRequestException("The provided id is null or empty");
-
             string[] includes = { $"{nameof(Message.AppUser)}" };
             Message message = await _getByIdAsync(id, false, includes);
 
@@ -218,6 +206,8 @@ namespace Workwise.Persistance.Implementations.Services
 
         private async Task<Message> _getByIdAsync(string id, bool isTracking = true, params string[] includes)
         {
+            if (string.IsNullOrEmpty(id))
+                throw new WrongRequestException("The provided id is null or empty");
             Message message = await _repository.GetByIdAsync(id, isTracking, includes);
             if (message is null)
                 throw new NotFoundException($"{id}-Chat is not found");
