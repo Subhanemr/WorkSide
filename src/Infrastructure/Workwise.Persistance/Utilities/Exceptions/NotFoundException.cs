@@ -4,9 +4,6 @@ namespace Workwise.Persistance.Utilities
 {
     public class NotFoundException : Exception, IBaseException
     {
-        public NotFoundException(string message = "Not found!") : base(message)
-        {
-
-        }
+        public NotFoundException(string message = "Not found!") : base(message) { }
     }
 }

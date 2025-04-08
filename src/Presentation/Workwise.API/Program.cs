@@ -25,7 +25,7 @@ if (app.Environment.IsDevelopment())
 }
 
 
-app.ContextInitalize();
+app.ContextInitalize ();
 app.UseHttpsRedirection();
 app.UseCors("AllowSpecificOrigin");
 app.AddExceptionHandlerService();

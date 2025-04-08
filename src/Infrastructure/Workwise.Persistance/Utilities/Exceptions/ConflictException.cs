@@ -4,9 +4,6 @@ namespace Workwise.Persistance.Utilities
 {
     public class ConflictException : Exception, IBaseException
     {
-        public ConflictException(string message = "Conflict!") : base(message)
-        {
-
-        }
+        public ConflictException(string message = "Conflict!") : base(message) { }
     }
 }

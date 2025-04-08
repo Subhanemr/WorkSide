@@ -4,9 +4,6 @@ namespace Workwise.Persistance.Utilities
 {
     public class UnAuthorizedException : Exception, IBaseException
     {
-        public UnAuthorizedException(string message = "UnAuthorized 401!") : base(message)
-        {
-
-        }
+        public UnAuthorizedException(string message = "UnAuthorized 401!") : base(message) { }
     }
 }

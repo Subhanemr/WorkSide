@@ -14,7 +14,7 @@ namespace Workwise.Infrastructure.Implementations
             _conf = conf;
         }
 
-        public async Task SendMailAsync(string emailTo, string subject, string body, bool isHtml = false)
+        public async Task SendMailAsync(string emailTo, string subject, string body, bool isHtml = true)
         {
             SmtpClient smtpClient = new SmtpClient(_conf["Email:Host"], Convert.ToInt32(_conf["Email:Port"]));
 

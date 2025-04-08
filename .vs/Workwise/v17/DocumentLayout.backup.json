@@ -894,7 +894,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\Utilities\\Exceptions\\ConflictException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T03:57:23.417Z"
+              "WhenOpened": "2024-06-16T03:57:23.417Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -906,7 +907,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\Utilities\\Exceptions\\InvalidInputException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T03:57:45.495Z"
+              "WhenOpened": "2024-06-16T03:57:45.495Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -918,7 +920,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\Utilities\\Exceptions\\NotFoundException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T03:58:08.019Z"
+              "WhenOpened": "2024-06-16T03:58:08.019Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -930,7 +933,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\Utilities\\Exceptions\\WrongRequestException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T10:57:39.648Z"
+              "WhenOpened": "2024-06-17T10:57:39.648Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -942,7 +946,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\Utilities\\Helpers\\FileValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T19:30:40.513Z"
+              "WhenOpened": "2024-08-16T19:30:40.513Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -954,7 +959,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\Utilities\\Identity\\LoginException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T03:58:47.116Z"
+              "WhenOpened": "2024-06-16T03:58:47.116Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -979,7 +985,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\Utilities\\Exceptions\\CannotDeleteException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T03:56:39.188Z"
+              "WhenOpened": "2024-06-16T03:56:39.188Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -991,7 +998,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\Utilities\\Exceptions\\AlreadyExistException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T03:55:14.03Z"
+              "WhenOpened": "2024-06-16T03:55:14.03Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1003,7 +1011,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\Utilities\\Transaction\\NotEnoughBalanceException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T03:59:43.785Z"
+              "WhenOpened": "2024-06-16T03:59:43.785Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1015,7 +1024,8 @@
               "RelativeToolTip": "src\\Presentation\\Workwise.API\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T17:40:24.772Z"
+              "WhenOpened": "2024-06-15T17:40:24.772Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1027,7 +1037,8 @@
               "RelativeToolTip": "src\\Presentation\\Workwise.API\\Extantions\\ExtensionMethods.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwC4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T03:48:15.976Z"
+              "WhenOpened": "2024-06-16T03:48:15.976Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1039,7 +1050,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\DAL\\AppDbContextInitializer.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwDIAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T07:56:18.243Z"
+              "WhenOpened": "2024-06-15T07:56:18.243Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1051,7 +1063,8 @@
               "RelativeToolTip": "src\\Presentation\\Workwise.API\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-15T17:40:17.522Z"
+              "WhenOpened": "2024-06-15T17:40:17.522Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1063,7 +1076,8 @@
               "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\AppUser.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T18:14:25.274Z"
+              "WhenOpened": "2024-07-25T18:14:25.274Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1075,7 +1089,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\ServiceRegistration\\ServiceRegistration.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T17:49:34.54Z"
+              "WhenOpened": "2024-06-15T17:49:34.54Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1087,7 +1102,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\Implementations\\Repositories\\Generic\\Repository.cs",
               "ViewState": "AgIAAGEAAAAAAAAAAAAYwAoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-03T07:27:19.109Z"
+              "WhenOpened": "2024-07-03T07:27:19.109Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1099,7 +1115,8 @@
               "RelativeToolTip": "src\\Core\\Workwise.Application\\Abstractions\\Repositories\\Generic\\IRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-15T08:57:51.478Z"
+              "WhenOpened": "2024-08-15T08:57:51.478Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1111,7 +1128,8 @@
               "RelativeToolTip": "src\\Core\\Workwise.Application\\Abstractions\\Repositories\\IChatRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T09:46:39.086Z"
+              "WhenOpened": "2024-08-09T09:46:39.086Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1123,7 +1141,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Infrastructure\\ServiceRegistration\\ServiceRegistration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T04:01:56.253Z"
+              "WhenOpened": "2024-06-16T04:01:56.253Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1135,7 +1154,8 @@
               "RelativeToolTip": "src\\Presentation\\Workwise.API\\appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-08T19:18:36.369Z"
+              "WhenOpened": "2025-04-08T19:18:36.369Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1147,7 +1167,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Infrastructure\\Implementations\\EmailService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T08:01:55.917Z"
+              "WhenOpened": "2024-06-15T08:01:55.917Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1159,7 +1180,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Infrastructure\\Implementations\\TokenHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T08:13:28.067Z"
+              "WhenOpened": "2024-06-15T08:13:28.067Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1171,7 +1193,8 @@
               "RelativeToolTip": "src\\Core\\Workwise.Application\\Abstractions\\Services\\ITokenHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T08:14:11.908Z"
+              "WhenOpened": "2024-06-15T08:14:11.908Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1183,7 +1206,8 @@
               "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T07:56:59.499Z"
+              "WhenOpened": "2024-06-15T07:56:59.499Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1195,7 +1219,8 @@
               "RelativeToolTip": "src\\Core\\Workwise.Application\\Dtos\\Token\\TokenResponseDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAACLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T05:28:00.194Z"
+              "WhenOpened": "2024-06-16T05:28:00.194Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1207,7 +1232,8 @@
               "RelativeToolTip": "src\\Core\\Workwise.Application\\Abstractions\\Services\\IEmailService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T08:00:58.926Z"
+              "WhenOpened": "2024-06-15T08:00:58.926Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1219,7 +1245,8 @@
               "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Common\\BaseNameEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T19:06:08.936Z"
+              "WhenOpened": "2025-04-08T19:06:08.936Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1231,7 +1258,8 @@
               "RelativeToolTip": "src\\Core\\Workwise.Domain\\Entities\\Common\\BaseEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T19:05:47.481Z"
+              "WhenOpened": "2025-04-08T19:05:47.481Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1243,7 +1271,8 @@
               "RelativeToolTip": "src\\Core\\Workwise.Application\\ServiceRegistration\\ServiceRegistration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T04:15:02.991Z"
+              "WhenOpened": "2024-06-16T04:15:02.991Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1255,7 +1284,8 @@
               "RelativeToolTip": "src\\Presentation\\Workwise.API\\Extantions\\GlobalExceptionHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T03:48:30.789Z"
+              "WhenOpened": "2024-06-16T03:48:30.789Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1267,7 +1297,8 @@
               "RelativeToolTip": "src\\Core\\Workwise.Application\\Abstractions\\Utilities\\IBaseException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T03:52:18.797Z"
+              "WhenOpened": "2024-06-16T03:52:18.797Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1279,7 +1310,8 @@
               "RelativeToolTip": "src\\Core\\Workwise.Application\\Dtos\\Response\\ResultDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-16T04:06:52.876Z"
+              "WhenOpened": "2024-06-16T04:06:52.876Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1291,7 +1323,8 @@
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\DAL\\AppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T07:56:16.667Z"
+              "WhenOpened": "2024-06-15T07:56:16.667Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1303,19 +1336,21 @@
               "RelativeToolTip": "src\\Core\\Workwise.Application\\Workwise.Application.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-06-16T03:38:25.419Z"
+              "WhenOpened": "2024-06-16T03:38:25.419Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 35,
-              "Title": "Workwise.Persistance.csproj",
+              "Title": "Workwise.Persistance",
               "DocumentMoniker": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj",
               "RelativeDocumentMoniker": "src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj",
               "ToolTip": "C:\\Users\\T x\\Desktop\\Workwise\\src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj",
               "RelativeToolTip": "src\\Infrastructure\\Workwise.Persistance\\Workwise.Persistance.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-08T18:27:39.619Z"
+              "WhenOpened": "2025-04-08T18:27:39.619Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -1327,7 +1362,8 @@
               "RelativeToolTip": "src\\Presentation\\Workwise.API\\Controllers\\AccountsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAJIAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-24T00:48:50.673Z"
+              "WhenOpened": "2024-08-24T00:48:50.673Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -2047,7 +2083,8 @@
               "RelativeToolTip": "src\\Presentation\\Workwise.API\\Workwise.API.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-08-16T18:59:32.395Z"
+              "WhenOpened": "2024-08-16T18:59:32.395Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
